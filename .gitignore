@@ -1,0 +1,22 @@
+# Python environment managed by uv
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# The authoring skill is a symlink into the installed package, made by
+# `just install`, so it always matches the pinned release
+.claude/skills/jupyterlab-workshop-authoring
+
+# State and outputs left behind by opening, running or publishing a workshop
+workshops/*/_workshop/
+workshops/*/dist/
+workshops/*/scratch/
+results-*.xml
+test-results/
+
+# Temporary working files for agents; never referenced from committed files
+scratch/
+
+# Editors and OS
+.DS_Store

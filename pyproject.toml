@@ -1,0 +1,27 @@
+# This repository is a collection of workshops, not a Python package: uv
+# manages the environment the workshops are written, checked and run in.
+# The runtime dependencies are what a learner needs, JupyterLab and the
+# extension, and are exported to binder/requirements.txt for mybinder.org;
+# the dev group adds the MCP server and the self-test used while writing.
+# jupyterlab-workshop is pinned once, here, and the dev group's extras
+# resolve to the same release. wrapture is deliberately absent: each
+# workshop installs the version it teaches into an environment of its
+# own, as a learner would.
+[project]
+name = "wrapture-workshops"
+version = "0.1.0"
+description = "Guided JupyterLab workshops for wrapture"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "jupyterlab>=4.6,<5",
+    "jupyterlab-workshop==0.1.15",
+]
+
+[dependency-groups]
+dev = [
+    "jupyterlab-workshop[mcp,test]",
+]
+
+[tool.uv]
+package = false

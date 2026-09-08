@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "workshop": {
+      "command": "uv",
+      "args": ["run", "jupyter", "workshop", "mcp"]
+    }
+  }
+}

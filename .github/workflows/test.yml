@@ -1,0 +1,51 @@
+name: test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install the locked environment and the self-test browser
+        shell: bash
+        run: |
+          uv sync
+          uv run playwright install --with-deps chromium
+      - name: Lint the index and every workshop
+        shell: bash
+        run: |
+          shopt -s nullglob
+          if [ -f collection.json ]; then
+            uv run jupyter workshop lint collection.json
+          fi
+          for workshop in workshops/*/; do
+            uv run jupyter workshop lint "$workshop"
+          done
+      - name: Self-test every workshop
+        shell: bash
+        run: |
+          shopt -s nullglob
+          for workshop in workshops/*/; do
+            name=$(basename "$workshop")
+            uv run jupyter workshop test "$workshop" --junit "results-$name.xml"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results-${{ matrix.os }}
+          path: results-*.xml
+          if-no-files-found: ignore
