@@ -1,0 +1,52 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: recording-calls
+title: Recording what real code did
+version: 0.1.0
+description: Record real calls on a timeline and read the tape back. Find a connection leak that no return value reveals, name the method and the line that leaked it, and turn the record into a pytest test that fails until you fix the code.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/recording-calls
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, tracing]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - write-files: [workspace]
+  - kernel-exec
+  - install-packages
+environment:
+  requirements: requirements.txt
+  kernel: workshop-recording-calls
+finish: |
+  You have recorded real calls with bindings that did nothing but
+  watch, read one event's fields, paired acquisitions with releases,
+  let the tree name the culprit and the stack name the line, and turned
+  the record into a test that failed until the code was fixed.
+
+  Next in the series is **Behaviour that changes over time**
+  (`phased-behaviour`), which goes the other way: changing what a call
+  does, phase by phase, as the code under test keeps calling.
+
+  The [unit testing guide](https://wrapture.readthedocs.io/en/latest/unit-testing.html)
+  covers recording, filtering and the call tree in full, and the
+  [resource hygiene example](https://wrapture.readthedocs.io/en/latest/example-resource-hygiene.html)
+  takes this example further, to attribute bindings and counters.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+gating: soft
+variables:
+  - name: notebook
+    type: path
+    default: recording-calls.ipynb
+    description: The notebook the exercises are done in
+pages:
+  - pages/01-welcome.md
+  - pages/02-the-timeline-and-the-tape.md
+  - pages/03-what-one-event-holds.md
+  - pages/04-filters-assertions-expectations.md
+  - pages/05-the-tree-names-the-culprit.md
+  - pages/06-order-and-scope.md
+  - pages/07-fix-the-leak.md
+  - pages/08-finish.md

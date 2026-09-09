@@ -75,6 +75,42 @@
           }
         }
       ]
+    },
+    {
+      "name": "recording-calls",
+      "title": "Recording what real code did",
+      "description": "Record real calls on a timeline and read the tape back. Find a connection leak that no return value reveals, name the method and the line that leaked it, and turn the record into a pytest test that fails until you fix the code.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "tracing"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "write-files:workspace",
+        "kernel-exec",
+        "install-packages"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/recording-calls",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/recording-calls"
+          }
+        }
+      ]
     }
   ]
 }

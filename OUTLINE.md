@@ -848,7 +848,7 @@ green), or published (indexed and in the README).
 |---|----------|--------|
 | 1 | `first-binding` | published (indexed, in the README, self-test green) |
 | 2 | `wrap-not-replace` | published (indexed, in the README, self-test green) |
-| 3 | `recording-calls` | planned |
+| 3 | `recording-calls` | published (indexed, in the README, self-test green) |
 | 4 | `phased-behaviour` | planned |
 | 5 | `beyond-callables` | planned |
 | 6 | `live-tracing` | planned |

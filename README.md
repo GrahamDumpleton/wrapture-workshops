@@ -43,6 +43,14 @@ collection.
    path asserted on what did not happen, ending with the decorator
    form and the pytest plugin. In a terminal, with pytest.
 
+3. **Recording what real code did** (`recording-calls`, 15 minutes).
+   Record real calls on a timeline and read the tape back: what one
+   event holds, filters against assertions against expectations, the
+   call tree naming the method that leaked a connection and the stack
+   naming the line, order across bindings, nested timelines instead of
+   resetting, and the record turned into a pytest test that fails until
+   you fix the code. In a notebook.
+
 ## Launch on Binder
 
 The badge above starts a JupyterLab on [mybinder.org](https://mybinder.org)
