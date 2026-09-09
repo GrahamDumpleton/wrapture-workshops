@@ -1,0 +1,49 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: phased-behaviour
+title: Behaviour that changes over time
+version: 0.1.0
+description: Test retry logic, a circuit breaker and a polling loop with phases, where a binding's behaviour changes on a count, on a condition, when a sequence runs out, or on a signal from another binding.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/phased-behaviour
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, retries]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - write-files: [workspace]
+  - kernel-exec
+  - install-packages
+environment:
+  requirements: requirements.txt
+  kernel: workshop-phased-behaviour
+finish: |
+  You have scripted a binding's behaviour over time four ways: a count
+  for a retry loop, a condition for a circuit breaker, a sequence for a
+  polling loop, and a signal from another binding for a recovery.
+
+  Next in the series is **Bindings that are not calls**
+  (`beyond-callables`): attribute reads and writes, a value held in a
+  slot, the content of a settings dict, and a generator consumed item
+  by item.
+
+  The [phased behaviour section](https://wrapture.readthedocs.io/en/latest/monkey-patching.html#phased-behaviour-changing-what-a-call-does-over-time)
+  of the monkey patching guide has the full set of exit conditions and
+  how phases meet the timeline and attribute bindings.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+gating: soft
+variables:
+  - name: notebook
+    type: path
+    default: phased-behaviour.ipynb
+    description: The notebook the exercises are done in
+pages:
+  - pages/01-welcome.md
+  - pages/02-phases.md
+  - pages/03-ending-on-a-condition.md
+  - pages/04-sequences.md
+  - pages/05-advancing-from-outside.md
+  - pages/06-finish.md

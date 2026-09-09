@@ -51,6 +51,12 @@ collection.
    resetting, and the record turned into a pytest test that fails until
    you fix the code. In a notebook.
 
+4. **Behaviour that changes over time** (`phased-behaviour`,
+   15 minutes). Script a binding's behaviour with phases: a count for a
+   retry loop, a condition for a circuit breaker, a sequence for a
+   polling loop with a loud error when it runs out, and `advance()`
+   from the test or from another binding's result stage. In a notebook.
+
 ## Launch on Binder
 
 The badge above starts a JupyterLab on [mybinder.org](https://mybinder.org)

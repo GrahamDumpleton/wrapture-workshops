@@ -111,6 +111,42 @@
           }
         }
       ]
+    },
+    {
+      "name": "phased-behaviour",
+      "title": "Behaviour that changes over time",
+      "description": "Test retry logic, a circuit breaker and a polling loop with phases, where a binding's behaviour changes on a count, on a condition, when a sequence runs out, or on a signal from another binding.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "retries"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "write-files:workspace",
+        "kernel-exec",
+        "install-packages"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/phased-behaviour",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/phased-behaviour"
+          }
+        }
+      ]
     }
   ]
 }
