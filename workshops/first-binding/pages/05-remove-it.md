@@ -15,7 +15,7 @@ requires: [verify:binding-removed]
 charge.remove()
 ```
 
-The repr is back to `unapplied`. Call the method once more.
+The repr is back to `unapplied configured`. Call the method once more.
 
 ```{cell-insert}
 :id: insert-call-removed

@@ -10,7 +10,8 @@ You have taken one binding through its lifecycle:
 - `binding(Gateway, "charge")` names a location and patches nothing.
 
 - `on_call.returns()`, `raises()` and `transforms_result()` configure
-  behaviour, and still patch nothing.
+  behaviour, and still patch nothing. The repr says `configured`, and
+  `explain()` says what.
 
 - `apply()` installs the patch, `suspend()` and `resume()` switch it
   off and on in place, and `remove()` restores the original.

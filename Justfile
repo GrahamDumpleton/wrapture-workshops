@@ -112,7 +112,7 @@ bump VERSION:
 # The reference checkout is what agents read for wrapture's API and
 # documentation, so it is kept at the tag of the release the workshops
 # teach; the workshops' own requirements name that version too.
-# Move the wrapture reference checkout to a release tag, e.g. `just bump-wrapture 1.0.0a21`.
+# Move the wrapture reference checkout to a release tag, e.g. `just bump-wrapture 1.0.0a22`.
 bump-wrapture VERSION:
     git -C reference/wrapture fetch --tags
     git -C reference/wrapture checkout "{{VERSION}}"

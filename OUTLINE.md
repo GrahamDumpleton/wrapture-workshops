@@ -674,9 +674,13 @@ application code (the tenant hook in `finding-slow-code`, the `finally`
 fix in `recording-calls`), the workshop uses a file edit action with a
 check.
 
-**Versions.** wrapture is pinned to 1.0.0a21 everywhere. Every feature
+**Versions.** wrapture is pinned to 1.0.0a22 everywhere. Every feature
 the posts use exists at that tag (`self_time`, `Aggregate`, `annotate`,
-`trace_headers`, `detach`), which I checked in the source. wrapture-
+`trace_headers`, `detach`), which I checked in the source. 1.0.0a22
+added `explain()` on bindings and behaviours and the `configured` word
+in a binding's repr, which `first-binding` shows and the later
+workshops can lean on when a binding's behaviour is not in view.
+wrapture-
 instrumentation's compatible version needs confirming on PyPI before
 `tracing-flask` is written, as does whether its Flask target's
 `ignore_paths` and `lifecycle` settings match the post. autowrapt and

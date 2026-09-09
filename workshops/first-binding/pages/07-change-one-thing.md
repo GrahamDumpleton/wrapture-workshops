@@ -26,16 +26,28 @@ result
 ```
 
 The amount came from the real method, and the id was rewritten on the
-way out. `transforms_args()` does the same on the way in, and
-`validates_args()` and `validates_result()` check without changing.
+way out. Ask this binding what it does, as you did the first one.
+
+```{cell-insert}
+:id: insert-explain-transform
+:path: {{ notebook }}
+:tags: [explain-transform]
+:run: true
+print(pinned.explain())
+```
+
+The stage is named for what it touches, and the function by its name,
+which for a lambda is `<lambda>`. `transforms_args()` does the same on
+the way in, and `validates_args()` and `validates_result()` check
+without changing.
 
 ```{verify}
 :id: result-transformed
 :label: The real method ran and its result was changed
 :substrate: learner-kernel
 :path: {{ notebook }}
-:trigger: after:insert-transform; cell-executed transform
-print(result == {"id": "ch_TEST", "amount": 500} and gateway.charge(500)["id"] == "ch_500")
+:trigger: after:insert-explain-transform; cell-executed explain-transform
+print(result == {"id": "ch_TEST", "amount": 500} and gateway.charge(500)["id"] == "ch_500" and "transforms result" in pinned.explain())
 ```
 
 ```{quiz}

@@ -16,7 +16,7 @@ answers instead of the real method.
 charge.apply()
 ```
 
-The repr now says `active`. Call the method again.
+The repr now says `active configured`. Call the method again.
 
 ```{cell-insert}
 :id: insert-call-stub

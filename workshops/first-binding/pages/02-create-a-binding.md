@@ -32,8 +32,21 @@ to answer every call with a stub.
 charge.on_call.returns({"id": "stub"})
 ```
 
-The behaviour object it hands back still shows the binding as
-`unapplied`. Call the real method to confirm.
+The behaviour object it hands back shows the binding as `unapplied
+configured`: it now has something to do, and is still not installed.
+The repr says only that much. Ask the binding what it is set up to do.
+
+```{cell-insert}
+:id: insert-explain
+:path: {{ notebook }}
+:tags: [explain]
+:run: true
+print(charge.explain())
+```
+
+`explain()` names the channel, `on_call`, and the one thing configured
+on it. Call the real method to confirm that none of this has touched
+`Gateway`.
 
 ```{cell-insert}
 :id: insert-call-real
@@ -53,7 +66,7 @@ ask it to.
 :substrate: learner-kernel
 :path: {{ notebook }}
 :trigger: after:insert-call-real; cell-executed call-real
-print(not charge.applied and gateway.charge(500)["id"] == "ch_500")
+print(charge.configured and not charge.applied and gateway.charge(500)["id"] == "ch_500")
 ```
 
 ```{hint}

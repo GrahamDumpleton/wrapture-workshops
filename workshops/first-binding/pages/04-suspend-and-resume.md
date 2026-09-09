@@ -17,8 +17,9 @@ makes the binding inert in place.
 charge.suspend()
 ```
 
-The repr says `active suspended`: the wrapper is still installed, but
-calls pass straight through it.
+The repr says `active suspended configured`: the wrapper is still
+installed and the behaviour is still there, but calls pass straight
+through.
 
 ```{cell-insert}
 :id: insert-call-suspended
