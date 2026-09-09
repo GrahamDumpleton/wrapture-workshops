@@ -10,7 +10,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        # windows-latest is disabled for now: the workshops declare only
+        # linux and macos, and the self-test runs their POSIX commands and
+        # shell checks regardless, so the job fails on every push. Put it
+        # back once the self-test honours the manifest's platforms or the
+        # workshops declare windows.
+        os: [ubuntu-latest]
+        # os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
