@@ -7,6 +7,89 @@ a workshop, and update it when one is added, changed or dropped: the
 status table below records where each workshop stands, and the open
 questions section shrinks as they are settled.
 
+## Sources
+
+The first tier follows a series of blog posts on wrapture, one post
+per workshop. The links are the posts' public addresses. The posts
+are the starting point for what each workshop says; the
+wrapture documentation and source in `reference/wrapture` remain the
+authority on what wrapture does, and a workshop follows the docs
+where the two differ.
+
+- [Introducing wrapture](https://grahamdumpleton.me/posts/2026/08/introducing-wrapture/),
+  31 August 2026. Background: what wrapture is for and why it exists.
+  No workshop of its own.
+
+- [Unit testing with wrapture](https://grahamdumpleton.me/posts/2026/09/unit-testing-with-wrapture/),
+  1 September 2026. Source for `wrap-not-replace`.
+
+- [Recording calls with wrapture](https://grahamdumpleton.me/posts/2026/09/recording-calls-with-wrapture/),
+  2 September 2026. Source for `recording-calls`.
+
+- [Phased behaviour in wrapture](https://grahamdumpleton.me/posts/2026/09/phased-behaviour-in-wrapture/),
+  3 September 2026. Source for `phased-behaviour`.
+
+- [Beyond callables in wrapture](https://grahamdumpleton.me/posts/2026/09/beyond-callables-in-wrapture/),
+  4 September 2026. Source for `beyond-callables`.
+
+- [Live tracing with wrapture](https://grahamdumpleton.me/posts/2026/09/live-tracing-with-wrapture/),
+  7 September 2026. Source for `live-tracing`.
+
+- [Zero-code tracing with wrapture](https://grahamdumpleton.me/posts/2026/09/zero-code-tracing-with-wrapture/),
+  8 September 2026. Source for `zero-code-tracing` and, with the
+  documentation, `analysing-a-trace`.
+
+- [Tracing Flask with wrapture](https://grahamdumpleton.me/posts/2026/09/tracing-flask-with-wrapture/),
+  9 September 2026. Source for `tracing-flask`.
+
+- [Finding slow code with wrapture](https://grahamdumpleton.me/posts/2026/09/finding-slow-code-with-wrapture/),
+  10 September 2026. Source for `finding-slow-code`.
+
+- [OpenTelemetry export in wrapture](https://grahamdumpleton.me/posts/2026/09/opentelemetry-export-in-wrapture/),
+  11 September 2026. Source for `opentelemetry-export`.
+
+The repositories the workshops draw on, all on GitHub:
+
+- [wrapture](https://github.com/GrahamDumpleton/wrapture), the
+  library itself, with its documentation and runnable examples. The
+  `reference/wrapture` submodule is a checkout of it.
+
+- [wrapture-instrumentation](https://github.com/GrahamDumpleton/wrapture-instrumentation),
+  ready-made instrumentation for common Python packages, the Flask
+  target among them, used from `tracing-flask` on.
+
+- [wrapture-instrumentation-postgresql](https://github.com/GrahamDumpleton/wrapture-instrumentation-postgresql),
+  the PostgreSQL client libraries (psycopg, psycopg2, asyncpg).
+
+- [wrapture-instrumentation-mysql](https://github.com/GrahamDumpleton/wrapture-instrumentation-mysql),
+  the MySQL client libraries (PyMySQL, mysqlclient, aiomysql).
+
+- [wrapture-instrumentation-aws](https://github.com/GrahamDumpleton/wrapture-instrumentation-aws),
+  the AWS SDK (boto3 and botocore).
+
+- [autowrapt](https://github.com/GrahamDumpleton/autowrapt), the
+  bootstrap that applies a config at interpreter startup, used in
+  `zero-code-tracing`.
+
+- [wrapt](https://github.com/GrahamDumpleton/wrapt), the library
+  wrapture's patching is built on. Not taught here, but the place
+  to read when a question is about the wrapper itself rather than
+  the binding, and the target of wrapture's escape hatch.
+
+The product-specific instrumentation packages need a real database
+or cloud account behind them, so no workshop here uses them; they are
+listed for completeness and as candidates should a workshop with a
+local database ever be wanted.
+
+The second tier draws on the wrapture documentation, published at
+https://wrapture.readthedocs.io and checked out under
+`reference/wrapture/docs`: the guides (`monkey-patching.md`,
+`unit-testing.md`, `ad-hoc-tracing.md`, `wsgi-tracing.md`,
+`asgi-tracing.md`, `scheduled-tracing.md`, `otel-export.md`,
+`instrumentation-packages.md`), the worked examples (`example-*.md`)
+and the runnable examples under `reference/wrapture/examples`. Each
+workshop entry below names the pages it uses.
+
 ## Shape of the collection
 
 Two tiers, in one ordered collection. The number of workshops is not
@@ -252,7 +335,7 @@ page on `annotate()` to tag requests by tenant.
 
 - Requires: wrapture, wrapture-instrumentation, flask, pytest.
 
-- Source: post "Finding slow code with wrapture" (draft); docs
+- Source: post "Finding slow code with wrapture"; docs
   example-request-timing, scheduled-tracing.
 
 - Length: 15 minutes.
@@ -272,7 +355,7 @@ processes, one trace id across both files.
 - Requires: wrapture with the `otel` extra, wrapture-instrumentation,
   flask.
 
-- Source: post "OpenTelemetry export in wrapture" (draft); docs
+- Source: post "OpenTelemetry export in wrapture"; docs
   otel-export; examples trace-propagation.
 
 - Length: 15 to 20 minutes.
@@ -583,21 +666,21 @@ with `python -m venv` and install with pip. Both pin wrapture to the
 submodule's tag. In neither case does anything land outside the
 workshop directory.
 
-**Shipped code versus typed code.** Workshops ship the code under
-test as files in the workshop directory and have the learner write
-only the wrapture parts: the binding, the test, the config entry. A
-learner types what they are there to learn and not the shop. Where a
-post edits application code (the tenant hook in `finding-slow-code`, the
-`finally` fix in `recording-calls`), the workshop uses a file edit action with a check.
+**Shipped code versus typed code.** Workshops ship the code under test
+as files in the workshop directory and have the learner write only the
+wrapture parts: the binding, the test, the config entry. A learner
+types what they are there to learn and not the shop. Where a post edits
+application code (the tenant hook in `finding-slow-code`, the `finally`
+fix in `recording-calls`), the workshop uses a file edit action with a
+check.
 
-**Versions.** wrapture is pinned to 1.0.0a21 everywhere. Every
-feature the posts use, including the two drafts, exists at that tag
-(`self_time`, `Aggregate`, `annotate`, `trace_headers`, `detach`),
-which I checked in the source. wrapture-instrumentation's compatible
-version needs confirming on PyPI before `tracing-flask` is written, as does whether
-its Flask target's `ignore_paths` and `lifecycle` settings match the
-post. autowrapt and pytest-asyncio are only installed by the workshops
-that use them.
+**Versions.** wrapture is pinned to 1.0.0a21 everywhere. Every feature
+the posts use exists at that tag (`self_time`, `Aggregate`, `annotate`,
+`trace_headers`, `detach`), which I checked in the source. wrapture-
+instrumentation's compatible version needs confirming on PyPI before
+`tracing-flask` is written, as does whether its Flask target's
+`ignore_paths` and `lifecycle` settings match the post. autowrapt and
+pytest-asyncio are only installed by the workshops that use them.
 
 **Platform.** linux and macos. Windows is not declared: several
 workshops use `curl`, `kill -USR1`, two terminals and
