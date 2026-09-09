@@ -84,7 +84,7 @@ test-all:
 
 # Write or refresh collection.json, the index the workshop browser reads.
 index:
-    uv run jupyter workshop index workshops --title "{{collection_title}}" --description "{{collection_description}}"
+    uv run jupyter workshop index workshops --title "{{collection_title}}" --description "{{collection_description}}" --ordered
 
 # Binder installs from binder/requirements.txt, so it is the locked
 # runtime set (no dev group) exported from uv.lock, and is regenerated

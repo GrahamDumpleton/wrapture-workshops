@@ -96,6 +96,13 @@ relative to this directory: `workshops/<name>`.
 
 Conventions for the workshops here:
 
+- OUTLINE.md is the design of the collection: the tiers, the workshop
+  names, what each covers, its format and sources, the decisions that
+  apply to all of them, and a status table. Read it before adding or
+  changing a workshop, follow the name and scope it gives, and update
+  its status table and any settled open question when the work is
+  done.
+
 - wrapture is not preinstalled anywhere. Each workshop installs the
   version it teaches, pinned to the release the `reference/wrapture`
   submodule is at, into an environment of its own inside the workshop

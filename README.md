@@ -110,6 +110,8 @@ pyproject.toml           the uv project: JupyterLab and the extension, with the
 Justfile                 the common tasks; run `just` to list them
 .mcp.json                the MCP server configuration for AI agent clients
 AGENTS.md                guidance for AI agents writing workshops here
+OUTLINE.md               the design of the collection: the workshops planned,
+                         what each covers, and where each stands
 .github/workflows/
   test.yml               lints and self-tests every workshop on every push
 ```
