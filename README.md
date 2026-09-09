@@ -57,6 +57,13 @@ collection.
    polling loop with a loud error when it runs out, and `advance()`
    from the test or from another binding's result stage. In a notebook.
 
+5. **Bindings that are not calls** (`beyond-callables`, 15 minutes).
+   Bind an attribute to record its reads and writes and guard its
+   transitions, hold a value in an environment variable or a module
+   constant, change a settings dict for every module holding it, wrap a
+   callable kept in a registry, and see how far a consumer read a
+   generator. In a notebook.
+
 ## Launch on Binder
 
 The badge above starts a JupyterLab on [mybinder.org](https://mybinder.org)

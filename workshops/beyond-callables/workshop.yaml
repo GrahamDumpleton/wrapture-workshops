@@ -1,0 +1,53 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: beyond-callables
+title: Bindings that are not calls
+version: 0.1.0
+description: Watch and guard an attribute's reads and writes, hold a value in an environment variable or a module constant, pin the content of a settings dict for every holder, wrap a callable kept in a registry, and see how far a consumer read a generator.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/beyond-callables
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, configuration]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - write-files: [workspace]
+  - kernel-exec
+  - install-packages
+environment:
+  requirements: requirements.txt
+  kernel: workshop-beyond-callables
+finish: |
+  You have bound things that are not calls: an attribute, with its
+  reads and writes on the tape and a guard on its writes; a slot,
+  holding a value or holding nothing; the content of a dict, changed
+  for every holder; a callable in a registry; and a generator, with the
+  count of what its consumer pulled.
+
+  Next in the series is **A program that narrates itself**
+  (`live-tracing`): the same bindings applied in a program's entry
+  point with no timeline, printing a trace as it runs.
+
+  The [value bindings](https://wrapture.readthedocs.io/en/latest/monkey-patching.html#value-bindings-holding-a-value-in-place),
+  [mapping bindings](https://wrapture.readthedocs.io/en/latest/monkey-patching.html#mapping-bindings-substituting-a-mappings-content)
+  and [attribute bindings](https://wrapture.readthedocs.io/en/latest/monkey-patching.html#attribute-bindings)
+  sections of the monkey patching guide have the full vocabulary, and
+  the [pinning configuration](https://wrapture.readthedocs.io/en/latest/example-pinning-configuration.html)
+  example puts the configuration shapes together in one pytest fixture.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+gating: soft
+variables:
+  - name: notebook
+    type: path
+    default: beyond-callables.ipynb
+    description: The notebook the exercises are done in
+pages:
+  - pages/01-welcome.md
+  - pages/02-attributes.md
+  - pages/03-values.md
+  - pages/04-mappings.md
+  - pages/05-generators.md
+  - pages/06-finish.md

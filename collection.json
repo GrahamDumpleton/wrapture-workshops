@@ -147,6 +147,42 @@
           }
         }
       ]
+    },
+    {
+      "name": "beyond-callables",
+      "title": "Bindings that are not calls",
+      "description": "Watch and guard an attribute's reads and writes, hold a value in an environment variable or a module constant, pin the content of a settings dict for every holder, wrap a callable kept in a registry, and see how far a consumer read a generator.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "configuration"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "write-files:workspace",
+        "kernel-exec",
+        "install-packages"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/beyond-callables",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/beyond-callables"
+          }
+        }
+      ]
     }
   ]
 }

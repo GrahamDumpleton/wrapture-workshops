@@ -850,7 +850,7 @@ green), or published (indexed and in the README).
 | 2 | `wrap-not-replace` | published (indexed, in the README, self-test green) |
 | 3 | `recording-calls` | published (indexed, in the README, self-test green) |
 | 4 | `phased-behaviour` | published (indexed, in the README, self-test green) |
-| 5 | `beyond-callables` | planned |
+| 5 | `beyond-callables` | published (indexed, in the README, self-test green) |
 | 6 | `live-tracing` | planned |
 | 7 | `zero-code-tracing` | planned |
 | 8 | `analysing-a-trace` | planned |
