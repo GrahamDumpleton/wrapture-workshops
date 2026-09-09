@@ -38,6 +38,43 @@
       ],
       "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/first-binding",
       "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues"
+    },
+    {
+      "name": "wrap-not-replace",
+      "title": "Testing by wrapping, not replacing",
+      "description": "Write the same unit tests with unittest.mock and with wrapture, and see what a test can say when the real code keeps running. Strict stubs, calls an object makes to itself, one thing changed, and what did not happen.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "pytest",
+        "mock"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/wrap-not-replace",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/wrap-not-replace"
+          }
+        }
+      ]
     }
   ]
 }

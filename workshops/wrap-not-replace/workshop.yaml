@@ -1,0 +1,49 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: wrap-not-replace
+title: Testing by wrapping, not replacing
+version: 0.1.0
+description: Write the same unit tests with unittest.mock and with wrapture, and see what a test can say when the real code keeps running. Strict stubs, calls an object makes to itself, one thing changed, and what did not happen.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/wrap-not-replace
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, pytest, mock]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+env:
+  PAGER: cat
+  PYTHONUNBUFFERED: "1"
+finish: |
+  You have written the same tests twice and seen where wrapping the real
+  code lets a test say more: a stub that rejects a drifted call, a
+  private method seen from outside, a real result with one field
+  pinned, and an error path asserted on what did not happen.
+
+  Next in the series is **Recording what real code did**
+  (`recording-calls`), which looks at the timeline and the tape the
+  error path test leaned on, with a resource leak as the example.
+
+  The [unit testing guide](https://wrapture.readthedocs.io/en/latest/unit-testing.html)
+  covers the whole workflow, and
+  [coming from unittest.mock](https://wrapture.readthedocs.io/en/latest/coming-from-mock.html)
+  maps every mock idiom to its wrapture spelling.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:orders.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-a-strict-stub.md
+  - pages/03-calls-an-object-makes-to-itself.md
+  - pages/04-change-one-thing.md
+  - pages/05-what-did-not-happen.md
+  - pages/06-the-decorator-form.md
+  - pages/07-finish.md

@@ -36,6 +36,13 @@ collection.
    change one thing about a call while the real method runs. In a
    notebook.
 
+2. **Testing by wrapping, not replacing** (`wrap-not-replace`,
+   15 minutes). Write the same unit tests with `unittest.mock` and with
+   wrapture: a stub that rejects a drifted call, a private method seen
+   from outside, a real result with one field pinned, and an error
+   path asserted on what did not happen, ending with the decorator
+   form and the pytest plugin. In a terminal, with pytest.
+
 ## Launch on Binder
 
 The badge above starts a JupyterLab on [mybinder.org](https://mybinder.org)

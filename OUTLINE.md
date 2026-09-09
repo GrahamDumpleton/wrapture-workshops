@@ -771,8 +771,11 @@ those verifies with `requires`.
 `client`), declared in the layout so the actions and the layout share
 one shell. The venv is created and activated in the `shell` session
 on the welcome page, and every later `execute` in that session
-inherits it. Commands run from the workshop directory; `:cwd:` only
-applies when a session first starts.
+inherits it. Commands run from the workspace; `:cwd:` only applies
+when a session first starts. A check on a pytest run uses the `shell`
+substrate and the venv's own interpreter by path (`.venv/bin/python -m
+pytest`), since the hidden kernel is not activated, and reports
+pytest's summary line on success and its full output on failure.
 
 **Long-running servers.** The self-test gives every `execute` that
 sets no `wait` a `wait: prompt` and fails it after the action timeout
@@ -828,9 +831,10 @@ subprocess, and wrapt's extension does not run under Pyodide, so
 Not the collection order. The writing order learns the format on the
 simplest workshops and gets the shared assets right before the
 workshops that depend on them: `first-binding` settles the notebook
-format, the environment manifest and kernel checks; `live-tracing`
-settles the terminal format, the venv step and captured-output
-checks; then the core of the testing arc, then the tracing arc once
+format, the environment manifest and kernel checks; `wrap-not-replace`
+settles the terminal format, the venv step and shell checks on a
+pytest run; `live-tracing` adds captured-output checks and a running
+server; then the core of the testing arc, then the tracing arc once
 the wrapture-instrumentation version is confirmed; then tier two,
 starting with `wrapture-with-pytest` and `coming-from-mock` since they
 serve the stated audience most directly.
@@ -843,7 +847,7 @@ green), or published (indexed and in the README).
 | # | Workshop | Status |
 |---|----------|--------|
 | 1 | `first-binding` | published (indexed, in the README, self-test green) |
-| 2 | `wrap-not-replace` | planned |
+| 2 | `wrap-not-replace` | published (indexed, in the README, self-test green) |
 | 3 | `recording-calls` | planned |
 | 4 | `phased-behaviour` | planned |
 | 5 | `beyond-callables` | planned |
@@ -878,8 +882,9 @@ green), or published (indexed and in the README).
   all fixed in 0.1.16. Moving to it found three more (the self-test
   restoring the user's JupyterLab workspace into the run, notebook
   actions not scrolling to the cell they act on, and the harness dying
-  when its output goes through a pipe), all fixed in 0.1.17, which the
-  project now pins.
+  when its output goes through a pipe), all fixed in 0.1.17. The gaps
+  in the authoring skill that the same two workshops exposed were
+  filled in 0.1.18, which the project now pins.
 
 ## Open questions
 
