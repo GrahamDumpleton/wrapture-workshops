@@ -1,0 +1,46 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: first-binding
+title: Your first binding
+version: 0.1.0
+description: Create a wrapture binding on a method, apply and remove it, and change what a call does while the real code keeps running.
+authors: [Graham Dumpleton]
+tags: [wrapture, python, monkey-patching]
+duration: 10m
+platforms: [linux, macos]
+capabilities:
+  - write-files: [workspace]
+  - kernel-exec
+  - install-packages
+environment:
+  requirements: requirements.txt
+  kernel: workshop-first-binding
+finish: |
+  You have taken a binding through its whole lifecycle. The next
+  workshop, **Testing by wrapping, not replacing**, puts bindings to
+  work in tests and shows what they can say that a mock cannot.
+
+  The [getting started](https://wrapture.readthedocs.io/en/latest/getting-started.html)
+  page of the wrapture documentation covers the same ground and goes on
+  to recording, and the
+  [monkey patching](https://wrapture.readthedocs.io/en/latest/monkey-patching.html)
+  guide is the full reference for everything a binding can do.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+gating: soft
+variables:
+  - name: notebook
+    type: path
+    default: first-binding.ipynb
+    description: The notebook the exercises are done in
+pages:
+  - pages/01-welcome.md
+  - pages/02-create-a-binding.md
+  - pages/03-apply-it.md
+  - pages/04-suspend-and-resume.md
+  - pages/05-remove-it.md
+  - pages/06-scope-it-to-a-block.md
+  - pages/07-change-one-thing.md
+  - pages/08-finish.md

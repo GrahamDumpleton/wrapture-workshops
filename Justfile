@@ -2,6 +2,7 @@
 
 collection_title := "wrapture workshops"
 collection_description := "Guided JupyterLab workshops that teach wrapture: wrapping call sites without changing the code being observed, for monkey patching, testing and tracing."
+collection_repo := "https://github.com/GrahamDumpleton/wrapture-workshops"
 
 # List available targets.
 default:
@@ -82,9 +83,11 @@ test-all:
         uv run jupyter workshop test "$dir" --junit "results-$name.xml"
     done
 
+# The repository URL is given explicitly so the index does not depend on
+# a git remote being configured in the checkout.
 # Write or refresh collection.json, the index the workshop browser reads.
 index:
-    uv run jupyter workshop index workshops --title "{{collection_title}}" --description "{{collection_description}}" --ordered
+    uv run jupyter workshop index workshops --title "{{collection_title}}" --description "{{collection_description}}" --repo "{{collection_repo}}" --ordered
 
 # Binder installs from binder/requirements.txt, so it is the locked
 # runtime set (no dev group) exported from uv.lock, and is regenerated

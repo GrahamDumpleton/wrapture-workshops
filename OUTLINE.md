@@ -826,7 +826,7 @@ green), or published (indexed and in the README).
 
 | # | Workshop | Status |
 |---|----------|--------|
-| 1 | `first-binding` | planned |
+| 1 | `first-binding` | written (lint clean; self-test blocked, see below) |
 | 2 | `wrap-not-replace` | planned |
 | 3 | `recording-calls` | planned |
 | 4 | `phased-behaviour` | planned |
@@ -850,6 +850,23 @@ green), or published (indexed and in the README).
 | 22 | `distributed-tracing` | planned |
 | 23 | `testing-web-requests` | planned |
 | 24 | `writing-instrumentation` | planned |
+
+## Known blockers
+
+- **Self-test on a fresh server.** After `environment-create` registers
+  the workshop kernel, nothing refreshes the frontend's kernelspec
+  list, so `notebook-create` opens the notebook with a kernel name
+  JupyterLab does not know and waits on the kernel-selection dialog.
+  In place, where the server started with the kernelspec already
+  registered, the whole workshop passes. The fix belongs in
+  jupyterlab-workshop: refresh the kernelspecs after creating the
+  environment. Until a release carries it, notebook workshops cannot
+  pass the self-test on CI.
+
+- **`learner-kernel` checks must print.** The extension runs checks
+  with a silent execute, which suppresses the value of a bare
+  expression, so a check body is `print(<expression>)`, not the
+  expression the documentation and the scaffold's template show.
 
 ## Open questions
 

@@ -1,0 +1,11 @@
+# Runtime state written by the workshop extension
+_workshop/
+
+# Published archives
+dist/
+
+# Exercise output
+work/
+
+# The notebook the workshop creates when it runs
+first-binding.ipynb

@@ -26,8 +26,15 @@ JupyterLab environment and nothing is left behind outside the workshop.
 
 ## The workshops
 
-None yet. Each workshop will be listed here in the order to take them,
-with what it covers and roughly how long it takes.
+In the order to take them, with what each covers and roughly how long
+it takes. [OUTLINE.md](OUTLINE.md) is the plan for the whole
+collection.
+
+1. **Your first binding** (`first-binding`, 10 minutes). Create a
+   binding on a method, see that nothing is patched until you say so,
+   apply it, suspend and resume it, remove it, scope it to a block, and
+   change one thing about a call while the real method runs. In a
+   notebook.
 
 ## Launch on Binder
 

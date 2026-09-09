@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "title": "wrapture workshops",
+  "description": "Guided JupyterLab workshops that teach wrapture: wrapping call sites without changing the code being observed, for monkey patching, testing and tracing.",
+  "ordered": true,
+  "workshops": [
+    {
+      "name": "first-binding",
+      "title": "Your first binding",
+      "description": "Create a wrapture binding on a method, apply and remove it, and change what a call does while the real code keeps running.",
+      "tags": [
+        "wrapture",
+        "python",
+        "monkey-patching"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "write-files:workspace",
+        "kernel-exec",
+        "install-packages"
+      ],
+      "duration": "10m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/first-binding"
+          }
+        }
+      ]
+    }
+  ]
+}
