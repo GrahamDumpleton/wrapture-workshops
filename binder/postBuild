@@ -10,6 +10,33 @@
 # the workshops in the collection's order, numbered, under its title.
 set -euo pipefail
 
+# Notebook workshops build an environment of their own on first open,
+# installing their requirements and ipykernel with pip. Download every
+# workshop's requirements, and ipykernel, into a wheelhouse in the
+# image and tell pip to look there first, so the install takes its
+# wheels from disk rather than PyPI. It is find-links only, never
+# no-index: pip still reaches PyPI for anything the wheelhouse lacks,
+# so learners can install packages of their own, and a workshop whose
+# requirements are not in the wheelhouse still works, only more slowly.
+# The config lives in the image's home directory, so nothing in the
+# workshops refers to it and a local checkout is unaffected.
+wheels="${HOME}/.wheels"
+
+mkdir -p "$wheels"
+
+for requirements in workshops/*/requirements.txt; do
+    python -m pip download --disable-pip-version-check -d "$wheels" -r "$requirements"
+done
+
+python -m pip download --disable-pip-version-check -d "$wheels" ipykernel
+
+mkdir -p "${HOME}/.config/pip"
+
+cat > "${HOME}/.config/pip/pip.conf" <<CONF
+[global]
+find-links = ${wheels}
+CONF
+
 settings="${NB_PYTHON_PREFIX}/share/jupyter/lab/settings"
 
 mkdir -p "$settings"

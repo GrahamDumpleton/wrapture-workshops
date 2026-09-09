@@ -13,10 +13,7 @@ takes one binding through its whole lifecycle in a notebook.
 
 wrapture is not installed in this JupyterLab, so the workshop needs an
 environment of its own, inside the workshop directory, with a kernel
-for it. The banner at the top of this panel offers to create it, and
-the step below does the same thing, so use whichever you like.
-Creating it takes a little while. When it exists the banner goes away
-and the step below is done.
+for it. The step below creates it, which takes a little while.
 
 ```{environment-create}
 :id: create-env
@@ -24,11 +21,13 @@ and the step below is done.
 ```
 
 ```{hint}
-:title: If you already pressed the banner's button
-The step above is already done, and clicking it again does nothing
-while the environment is in place. Restart, in the panel's menu,
-removes the environment along with the notebook, and the banner comes
-back.
+:title: If the environment already exists
+The step reports that it already exists and does nothing more, so it
+is safe to click again. On a page without this step, a banner at the
+top of the panel offers to create the environment instead, and an
+environment created from the banner counts here. Restart, in the
+panel's menu, removes the environment along with the notebook, and
+this step creates it again.
 ```
 
 Now create the notebook. It starts with one class to bind to, a

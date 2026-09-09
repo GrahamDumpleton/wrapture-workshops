@@ -68,12 +68,9 @@ render NAME *ARGS:
 # The self-test runs the workshop's commands and checks for real, as you,
 # on this machine; only the workshop directory is protected, by a
 # temporary copy. Read the workshop first.
-# JUPYTERLAB_WORKSPACES_DIR keeps the test server out of the user's
-# shared JupyterLab workspace, whose restored tabs from other sessions
-# can block a run (jupyterlab-workshop 0.1.16 does not isolate it yet).
 # Self-test one workshop in a JupyterLab of its own; extra args go to `jupyter workshop test`.
 test NAME *ARGS:
-    JUPYTERLAB_WORKSPACES_DIR="$(mktemp -d)" uv run jupyter workshop test workshops/{{NAME}} {{ARGS}}
+    uv run jupyter workshop test workshops/{{NAME}} {{ARGS}}
 
 # Self-test every workshop, writing a JUnit report for each.
 test-all:
@@ -83,7 +80,7 @@ test-all:
     for dir in workshops/*/; do
         name=$(basename "$dir")
         echo "== $dir"
-        JUPYTERLAB_WORKSPACES_DIR="$(mktemp -d)" uv run jupyter workshop test "$dir" --junit "results-$name.xml"
+        uv run jupyter workshop test "$dir" --junit "results-$name.xml"
     done
 
 # The repository URL is given explicitly so the index does not depend on

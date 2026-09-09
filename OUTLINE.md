@@ -695,6 +695,18 @@ Revisit per workshop if there is demand.
 post uses `jq` on a JSON Lines file, the workshop uses a short Python
 one-liner or a notebook cell. Same result, fewer assumptions.
 
+**Wheelhouse on Binder.** The Binder image downloads every workshop's
+requirements, and ipykernel, into a wheelhouse under the home directory
+at build time and points pip at it with `find-links` in a user pip
+config, so an environment step installs from disk rather than PyPI. It
+is never `no-index`: learners can install packages of their own, and a
+workshop whose requirements are missing from the wheelhouse still
+works, only more slowly. The config exists only in the image, so
+nothing in a workshop refers to it and local checkouts are unaffected.
+Environments are not pre-built in the image: each would add its own
+copy of ipykernel and its dependencies, and image size is paid on
+every launch.
+
 **Ports.** Servers bind explicit ports above 5000 to stay clear of
 macOS AirPlay, one distinct port per workshop so two workshops opened
 in one session do not collide.
@@ -863,7 +875,11 @@ green), or published (indexed and in the README).
   behind by the self-test, the environment banner and action not
   knowing about each other, Restart reverting page edits, the last run
   cell's output not saved, the open workshop restored across servers),
-  all fixed in 0.1.16, which the project now pins.
+  all fixed in 0.1.16. Moving to it found three more (the self-test
+  restoring the user's JupyterLab workspace into the run, notebook
+  actions not scrolling to the cell they act on, and the harness dying
+  when its output goes through a pipe), all fixed in 0.1.17, which the
+  project now pins.
 
 ## Open questions
 
