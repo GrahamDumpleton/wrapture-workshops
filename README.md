@@ -64,6 +64,12 @@ collection.
    callable kept in a registry, and see how far a consumer read a
    generator. In a notebook.
 
+6. **A program that narrates itself** (`live-tracing`, 10 minutes).
+   Apply bindings in a program's entry point with no timeline and let a
+   `Printer` narrate each call as it happens, redact the card numbers,
+   then narrow the trace at the sink, at the binding, and for a whole
+   subtree, and read the count of what was left out. In a terminal.
+
 ## Launch on Binder
 
 The badge above starts a JupyterLab on [mybinder.org](https://mybinder.org)

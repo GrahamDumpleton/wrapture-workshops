@@ -833,25 +833,29 @@ simplest workshops and gets the shared assets right before the
 workshops that depend on them: `first-binding` settles the notebook
 format, the environment manifest and kernel checks; `wrap-not-replace`
 settles the terminal format, the venv step and shell checks on a
-pytest run; `live-tracing` adds captured-output checks and a running
-server; then the core of the testing arc, then the tracing arc once
-the wrapture-instrumentation version is confirmed; then tier two,
-starting with `wrapture-with-pytest` and `coming-from-mock` since they
-serve the stated audience most directly.
+pytest run; `live-tracing` adds shell checks on a program's captured
+output; `tracing-flask` adds a running server; then the core of the
+testing arc, then the tracing arc once the wrapture-instrumentation
+version is confirmed; then tier two, starting with
+`wrapture-with-pytest` and `coming-from-mock` since they serve the
+stated audience most directly.
 
 Each workshop is scaffolded, written, linted clean, self-tested,
-indexed and added to the README before the next starts. Status is one
-of: planned, in progress, written (lint clean), tested (self-test
-green), or published (indexed and in the README).
+indexed, added to the README and committed before the next starts.
+Status is one of: planned, in progress, written (lint clean), tested
+(self-test green), published (indexed and in the README, not yet in
+git), or committed (published and in git, with the commit that added
+it). A row moves to committed only once the commit has been made, so
+the table also says what is still uncommitted in the working tree.
 
 | # | Workshop | Status |
 |---|----------|--------|
-| 1 | `first-binding` | published (indexed, in the README, self-test green) |
-| 2 | `wrap-not-replace` | published (indexed, in the README, self-test green) |
-| 3 | `recording-calls` | published (indexed, in the README, self-test green) |
-| 4 | `phased-behaviour` | published (indexed, in the README, self-test green) |
-| 5 | `beyond-callables` | published (indexed, in the README, self-test green) |
-| 6 | `live-tracing` | planned |
+| 1 | `first-binding` | committed (508220f) |
+| 2 | `wrap-not-replace` | committed (f454e10) |
+| 3 | `recording-calls` | committed (c954223) |
+| 4 | `phased-behaviour` | committed (3af8e32) |
+| 5 | `beyond-callables` | committed (5dfebcd) |
+| 6 | `live-tracing` | published (indexed, in the README, self-test green; not yet committed) |
 | 7 | `zero-code-tracing` | planned |
 | 8 | `analysing-a-trace` | planned |
 | 9 | `tracing-flask` | planned |

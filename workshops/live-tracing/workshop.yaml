@@ -1,0 +1,49 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: live-tracing
+title: A program that narrates itself
+version: 0.1.0
+description: Apply bindings in a program's entry point, with no timeline, and register a sink that prints each call as it happens. Keep card numbers out of the trace, then narrow it at the sink, at the binding, and for a whole subtree, and read the count of what was left out.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/live-tracing
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing]
+duration: 10m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+env:
+  PYTHONUNBUFFERED: "1"
+finish: |
+  You have made a program describe what it does as it runs: three
+  bindings applied in the entry point, a `Printer` listening, card
+  numbers redacted before they reached the trace, and the trace
+  narrowed at the sink with `Depth`, at the binding with `when=`, and
+  for a whole subtree with `tree=True`, with `filtered_calls` to say
+  what was left out.
+
+  Next in the series is **Tracing without touching the program**
+  (`zero-code-tracing`), which moves those lines out of the entry
+  point into a file beside the program and runs it unchanged.
+
+  The [ad-hoc tracing guide](https://wrapture.readthedocs.io/en/latest/ad-hoc-tracing.html)
+  covers the sink protocol, the other combinators, the collectors that
+  keep numbers rather than events, and streaming a trace to disk.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:shop.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-three-bindings-and-a-sink.md
+  - pages/03-keeping-secrets-out.md
+  - pages/04-less-at-the-sink.md
+  - pages/05-less-at-the-binding.md
+  - pages/06-explaining-a-short-trace.md
+  - pages/07-finish.md

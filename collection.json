@@ -183,6 +183,41 @@
           }
         }
       ]
+    },
+    {
+      "name": "live-tracing",
+      "title": "A program that narrates itself",
+      "description": "Apply bindings in a program's entry point, with no timeline, and register a sink that prints each call as it happens. Keep card numbers out of the trace, then narrow it at the sink, at the binding, and for a whole subtree, and read the count of what was left out.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec"
+      ],
+      "duration": "10m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/live-tracing",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/live-tracing"
+          }
+        }
+      ]
     }
   ]
 }
