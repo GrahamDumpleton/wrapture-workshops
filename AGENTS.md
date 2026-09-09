@@ -74,6 +74,19 @@ pinned release. If the skill is not loaded, read the `workshop://skill`
 resource from the `workshop` MCP server before writing anything; its
 reference files are `workshop://skill/references/<name>`.
 
+The skill is a summary. The full documentation of the format is in
+`reference/jupyterlab-workshop`, a git submodule of the extension's
+repository checked out at the tag of the pinned release (`just bump`
+moves it with the pin). Its `docs/*.md` cover what the skill only
+names: checks, variables, environments, layouts, platforms, trust,
+settings, limitations and troubleshooting. Its `examples/` are
+complete workshops that pass the self-test, and `tests/` shows every
+action and check exercised. When the skill does not answer a question
+about an action, a check, a manifest key or a test failure, read the
+docs there before guessing, and the source (`jupyterlab_workshop/` and
+`packages/`) when the docs leave it open. The same documentation is
+published at https://jupyterlab-workshop.readthedocs.io.
+
 The `workshop` MCP server configured in `.mcp.json` provides the file
 tools (`init`, `lint`, `render`, `pages`, `test`, `index`) and, when
 `just lab` is running with a workshop open in author mode, the live

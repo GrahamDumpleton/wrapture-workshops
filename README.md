@@ -102,6 +102,9 @@ binder/
   postBuild              writes the settings override described above
 reference/wrapture       a git submodule of wrapture at the release the workshops teach,
                          the source of truth for its API and documentation
+reference/jupyterlab-workshop
+                         a git submodule of jupyterlab-workshop at the pinned release,
+                         the full documentation and source of the workshop format
 pyproject.toml           the uv project: JupyterLab and the extension, with the
                          authoring tools in the dev group
 Justfile                 the common tasks; run `just` to list them
@@ -116,7 +119,7 @@ Each workshop is self-contained and can be copied out on its own.
 ## Writing and checking workshops
 
 `just install` sets up the environment: it syncs uv, fetches the
-wrapture submodule, downloads the browser the self-test drives, and
+reference submodules, downloads the browser the self-test drives, and
 links the authoring skill shipped in the jupyterlab-workshop package
 into `.claude/skills`, where Claude Code finds it. Then, with `just lab` running in one terminal so the live
 tools have a JupyterLab to work in, start Claude Code (or VS Code with
@@ -147,9 +150,10 @@ serves.
 ## Updating the release
 
 jupyterlab-workshop is pinned once, in `pyproject.toml`. `just bump
-<version>` moves the pin, relocks, rewrites `binder/requirements.txt`
-and relinks the skill. Binder builds a fresh image for the new commit,
-and CI tests the workshops against the new release.
+<version>` moves the pin, relocks, rewrites `binder/requirements.txt`,
+relinks the skill and moves the `reference/jupyterlab-workshop`
+submodule to the same release tag. Binder builds a fresh image for the
+new commit, and CI tests the workshops against the new release.
 
 The wrapture release the workshops teach is named in each workshop's
 requirements and matched by the `reference/wrapture` submodule.

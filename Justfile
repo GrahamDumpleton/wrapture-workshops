@@ -7,7 +7,7 @@ collection_description := "Guided JupyterLab workshops that teach wrapture: wrap
 default:
     @just --list
 
-# Set up the environment: sync uv, fetch the wrapture reference checkout, download the self-test browser, link the authoring skill.
+# Set up the environment: sync uv, fetch the reference checkouts, download the self-test browser, link the authoring skill.
 install:
     uv sync
     git submodule update --init
@@ -94,11 +94,17 @@ requirements:
     uv lock
     uv export --no-dev --no-hashes --no-annotate -o binder/requirements.txt
 
-# Pin a new jupyterlab-workshop release, relock, export and relink the skill.
+# The extension's reference checkout is what agents read for the workshop
+# format beyond the skill (docs/, examples/ and the source), so it is
+# kept at the tag of the pinned release and moves with the pin.
+# Pin a new jupyterlab-workshop release, relock, export, relink the skill and move the reference checkout.
 bump VERSION:
     uv add "jupyterlab-workshop=={{VERSION}}"
     just requirements
     just skill
+    git -C reference/jupyterlab-workshop fetch --tags
+    git -C reference/jupyterlab-workshop checkout "{{VERSION}}"
+    git add reference/jupyterlab-workshop
 
 # The reference checkout is what agents read for wrapture's API and
 # documentation, so it is kept at the tag of the release the workshops
@@ -120,4 +126,4 @@ clean:
 # Also remove the environment and the skill link; run `just install` afterwards.
 distclean: clean
     rm -rf .venv .claude/skills/jupyterlab-workshop-authoring
-    git submodule deinit -f reference/wrapture
+    git submodule deinit -f reference/wrapture reference/jupyterlab-workshop
