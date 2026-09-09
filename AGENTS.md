@@ -115,10 +115,15 @@ Conventions for the workshops here:
   Do not use uv in workshop steps: it is not on Binder and a learner
   need not have it.
 
-- Everything a workshop writes or runs stays inside its own directory:
-  files and virtual environments it creates go there, and commands run
-  there. Nothing under the home directory, no global configuration, no
-  installs into the JupyterLab environment.
+- Everything a workshop writes or runs stays inside its own directory,
+  and almost all of it inside the workspace, the `work/` directory the
+  extension creates on first open and empties on Restart. Action and
+  check paths, `:cwd:` and the terminals resolve against it, so a
+  notebook or a virtual environment a page creates lands there without
+  a prefix. Files a workshop ships for the learner go under `files/`,
+  which is copied into the workspace on first open; the pages and the
+  manifest are read-only to actions. Nothing under the home directory,
+  no global configuration, no installs into the JupyterLab environment.
 
 - Declare `linux` and `macos` as platforms. Add `windows` only when
   every command has been written to work there too, and lint with

@@ -34,5 +34,5 @@ behaviour, so it can be applied again later.
 :substrate: learner-kernel
 :path: {{ notebook }}
 :trigger: after:insert-call-removed; cell-executed call-removed
-print(not charge.applied and gateway.charge(500) == {"id": "ch_500", "amount": 500})
+not charge.applied and gateway.charge(500) == {"id": "ch_500", "amount": 500}
 ```

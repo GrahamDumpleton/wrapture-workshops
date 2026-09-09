@@ -53,7 +53,7 @@ gateway.charge(500)
 :substrate: learner-kernel
 :path: {{ notebook }}
 :trigger: after:insert-call-resumed; cell-executed call-resumed
-print(charge.applied and not charge.suspended and gateway.charge(500) == {"id": "stub"})
+charge.applied and not charge.suspended and gateway.charge(500) == {"id": "stub"}
 ```
 
 ```{hint}

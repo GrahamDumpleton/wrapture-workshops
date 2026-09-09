@@ -778,11 +778,11 @@ the bottom. A two-terminal workshop puts `server` and `client` side
 by side. Layouts apply on first open and from a launch link, which
 includes Binder and the self-test.
 
-**Shipped files and edits.** The code under test is in the workshop
-directory from the start, so the pristine checkpoint that Restart
-restores puts it back. Where placing a file is a step worth seeing,
-`file-write` with `:from:` copies it from a `files/` directory in the
-workshop. Small edits, the `finally` fix or the tenant hook, are
+**Shipped files and edits.** The code under test ships under `files/`,
+which the extension copies into the workspace (`work/`) when the
+workshop first opens, so it is there from the start and Restart puts it
+back without touching the pages. Where placing a file is a step worth
+seeing, `file-write` with `:from:` copies it from `files/` instead. Small edits, the `finally` fix or the tenant hook, are
 `editor-replace` actions with a verify triggered by `file-saved`. A
 named `checkpoint` before a fix lets a page offer to put the bug
 back.
@@ -830,7 +830,7 @@ green), or published (indexed and in the README).
 
 | # | Workshop | Status |
 |---|----------|--------|
-| 1 | `first-binding` | written (lint clean; self-test blocked, see below) |
+| 1 | `first-binding` | published (indexed, in the README, self-test green) |
 | 2 | `wrap-not-replace` | planned |
 | 3 | `recording-calls` | planned |
 | 4 | `phased-behaviour` | planned |
@@ -857,20 +857,13 @@ green), or published (indexed and in the README).
 
 ## Known blockers
 
-- **Self-test on a fresh server.** After `environment-create` registers
-  the workshop kernel, nothing refreshes the frontend's kernelspec
-  list, so `notebook-create` opens the notebook with a kernel name
-  JupyterLab does not know and waits on the kernel-selection dialog.
-  In place, where the server started with the kernelspec already
-  registered, the whole workshop passes. The fix belongs in
-  jupyterlab-workshop: refresh the kernelspecs after creating the
-  environment. Until a release carries it, notebook workshops cannot
-  pass the self-test on CI.
-
-- **`learner-kernel` checks must print.** The extension runs checks
-  with a silent execute, which suppresses the value of a bare
-  expression, so a check body is `print(<expression>)`, not the
-  expression the documentation and the scaffold's template show.
+- None at present. The first workshop turned up seven problems in
+  jupyterlab-workshop 0.1.15 (silent `learner-kernel` checks, no
+  kernelspec refresh after `environment-create`, kernelspecs left
+  behind by the self-test, the environment banner and action not
+  knowing about each other, Restart reverting page edits, the last run
+  cell's output not saved, the open workshop restored across servers),
+  all fixed in 0.1.16, which the project now pins.
 
 ## Open questions
 

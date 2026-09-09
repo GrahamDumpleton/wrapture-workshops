@@ -42,5 +42,5 @@ gateway.charge(500)
 :substrate: learner-kernel
 :path: {{ notebook }}
 :trigger: after:insert-after-block; cell-executed after-block
-print(outcome == "raised down" and gateway.charge(500)["id"] == "ch_500")
+outcome == "raised down" and gateway.charge(500)["id"] == "ch_500"
 ```

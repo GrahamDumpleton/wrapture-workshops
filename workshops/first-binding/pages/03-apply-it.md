@@ -36,5 +36,5 @@ present and future, goes through it.
 :substrate: learner-kernel
 :path: {{ notebook }}
 :trigger: after:insert-call-stub; cell-executed call-stub
-print(charge.applied and gateway.charge(500) == {"id": "stub"})
+charge.applied and gateway.charge(500) == {"id": "stub"}
 ```

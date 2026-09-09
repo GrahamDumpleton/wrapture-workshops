@@ -10,6 +10,7 @@ __pycache__/
 
 # State and outputs left behind by opening, running or publishing a workshop
 workshops/*/_workshop/
+workshops/*/work/
 workshops/*/dist/
 workshops/*/scratch/
 results-*.xml

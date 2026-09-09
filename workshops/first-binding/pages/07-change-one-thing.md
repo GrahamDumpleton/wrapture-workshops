@@ -47,7 +47,7 @@ without changing.
 :substrate: learner-kernel
 :path: {{ notebook }}
 :trigger: after:insert-explain-transform; cell-executed explain-transform
-print(result == {"id": "ch_TEST", "amount": 500} and gateway.charge(500)["id"] == "ch_500" and "transforms result" in pinned.explain())
+result == {"id": "ch_TEST", "amount": 500} and gateway.charge(500)["id"] == "ch_500" and "transforms result" in pinned.explain()
 ```
 
 ```{quiz}

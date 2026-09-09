@@ -7,5 +7,3 @@ dist/
 # Exercise output
 work/
 
-# The notebook the workshop creates when it runs
-first-binding.ipynb

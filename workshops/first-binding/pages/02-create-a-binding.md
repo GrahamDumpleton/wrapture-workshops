@@ -66,7 +66,7 @@ ask it to.
 :substrate: learner-kernel
 :path: {{ notebook }}
 :trigger: after:insert-call-real; cell-executed call-real
-print(charge.configured and not charge.applied and gateway.charge(500)["id"] == "ch_500")
+charge.configured and not charge.applied and gateway.charge(500)["id"] == "ch_500"
 ```
 
 ```{hint}

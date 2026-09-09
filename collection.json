@@ -35,7 +35,9 @@
             "subdir": "workshops/first-binding"
           }
         }
-      ]
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/first-binding",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues"
     }
   ]
 }

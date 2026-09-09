@@ -4,6 +4,8 @@ title: Your first binding
 version: 0.1.0
 description: Create a wrapture binding on a method, apply and remove it, and change what a call does while the real code keeps running.
 authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/first-binding
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
 tags: [wrapture, python, monkey-patching]
 duration: 10m
 platforms: [linux, macos]
