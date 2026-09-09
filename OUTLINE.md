@@ -855,7 +855,7 @@ the table also says what is still uncommitted in the working tree.
 | 3 | `recording-calls` | committed (c954223) |
 | 4 | `phased-behaviour` | committed (3af8e32) |
 | 5 | `beyond-callables` | committed (5dfebcd) |
-| 6 | `live-tracing` | published (indexed, in the README, self-test green; not yet committed) |
+| 6 | `live-tracing` | committed (77cffb8) |
 | 7 | `zero-code-tracing` | planned |
 | 8 | `analysing-a-trace` | planned |
 | 9 | `tracing-flask` | planned |
