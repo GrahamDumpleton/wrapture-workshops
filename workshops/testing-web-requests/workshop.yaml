@@ -1,0 +1,53 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: testing-web-requests
+title: Requests in tests, and at the boundary
+version: 0.1.0
+description: Run the Flask instrumentation inside a pytest test and assert on the request event itself, its status as the result, its route and endpoint in data, a streamed body's chunks, and the exception behind a 500. Then the on_request namespace on a WSGI binding, a canned response the application never sees, a fault the server sees, and a status rewritten on the way out.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/testing-web-requests
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, flask, pytest]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+env:
+  PAGER: cat
+  PYTHONUNBUFFERED: "1"
+finish: |
+  The request became something a test can hold. The Flask
+  instrumentation ran for the scope of a fixture, the plugin's tape
+  caught the request event with its status as the result and its
+  route and endpoint in `data`, a streamed body showed its chunks
+  and bytes, a 500 carried the `KeyError` behind it, and an ignored
+  path left nothing on the tape at all. A WSGI binding on the
+  application then answered from the boundary, raised at it, and
+  rewrote a status on the way out, with the recorded event saying
+  what really happened.
+
+  Next is **Instrumenting a package nobody has covered**
+  (`writing-instrumentation`), the last workshop: an
+  `Instrumentation` class of your own for a small library, from the
+  shape of the class to how it would be packaged.
+
+  The [WSGI request tracing guide](https://wrapture.readthedocs.io/en/latest/wsgi-tracing.html)
+  is this workshop's source, and its sibling for
+  [ASGI](https://wrapture.readthedocs.io/en/latest/asgi-tracing.html)
+  covers the same namespace for async applications.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:webshop.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-the-request-event.md
+  - pages/03-asserting-on-requests.md
+  - pages/04-the-on-request-namespace.md
+  - pages/05-finish.md

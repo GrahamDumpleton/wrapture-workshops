@@ -1,0 +1,54 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: writing-instrumentation
+title: Instrumenting a package nobody has covered
+version: 0.1.0
+description: Write an Instrumentation class for a small library shipped with the workshop. The shape of the class, a hook that runs when the target module is imported, a registration choke point where handlers are observed as they register, an error handler that notes the exception, settings declared once and validated when the config loads, on_cleanup() so the patch comes down with the config, the class tested directly and through wrapture, and how it would be packaged with an entry point.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/writing-instrumentation
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing, instrumentation]
+duration: 20m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+env:
+  PAGER: cat
+  PYTHONUNBUFFERED: "1"
+finish: |
+  A library that knew nothing of wrapture now records every delivery
+  as an external leaf, every dispatched event with its handler
+  beneath it and the failure the dispatcher absorbed, from one class
+  next to a config file. The class declared its target and its
+  settings, patched from hooks that ran when the library's modules
+  were imported, undid itself through `on_cleanup()`, and was tested
+  both directly and through `wrapture.instrumentation()`. Packaged
+  with an entry point, the config would name it with one word.
+
+  This is the last workshop in the collection. The
+  [instrumentation packages guide](https://wrapture.readthedocs.io/en/latest/instrumentation-packages.html)
+  is its source, and covers what was left out here: instrumenting a
+  C extension through a proxy, shaped settings checked in
+  `configure()`, the categories and data keys a package should
+  declare, and the naming conventions for a package on the index.
+  The [wrapture-instrumentation](https://github.com/GrahamDumpleton/wrapture-instrumentation)
+  repository holds the classes for Flask, Django, requests, SQLAlchemy
+  and the rest, each written to exactly this contract.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:app.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.4 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-the-shape.md
+  - pages/03-registration-as-a-choke-point.md
+  - pages/04-declared-settings.md
+  - pages/05-testing-the-class.md
+  - pages/06-listing-and-packaging.md
+  - pages/07-finish.md

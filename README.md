@@ -181,6 +181,39 @@ collection.
     against, and rotated on a schedule through a path template. In a
     terminal.
 
+21. **Reports on a schedule** (`watching-a-service-over-time`,
+    15 minutes). A `Window` with `every=` closing a run each period
+    in code, then the same from the config file for the Flask shop:
+    a summary every few seconds with one file per run, a report on
+    demand from a signal, an always-on JSON Lines stream that rotates
+    rather than grows, and what a restart does to a schedule. In two
+    terminals.
+
+22. **One trace across two processes** (`distributed-tracing`,
+    20 minutes). A client and a server, standard library only, one
+    trace id across both: the identity in the `traceparent` header on
+    the way out, parsed at the WSGI boundary on the way in, and two
+    JSON Lines files joined on the id with no backend. Then work the
+    caller does not wait for, on a thread and through a queue, linked
+    back to its origin rather than nested under it. In two terminals.
+
+23. **Requests in tests, and at the boundary** (`testing-web-requests`,
+    15 minutes). The Flask instrumentation inside a pytest test: the
+    request event with its status as the result and its route in
+    `data`, a streamed body's chunks, the exception behind a 500, an
+    ignored path, and then the `on_request` namespace on a WSGI
+    binding, a canned response, a fault the server sees and a status
+    rewritten on the way out. In a terminal.
+
+24. **Instrumenting a package nobody has covered**
+    (`writing-instrumentation`, 20 minutes). An `Instrumentation`
+    class for a small library shipped with the workshop: the shape,
+    a hook per trigger module, handlers observed as they register,
+    an absorbed failure noted from the error handler, settings
+    validated when the config loads, the class tested directly and
+    through wrapture, listed by the tool, and how it would be
+    packaged with an entry point. In a terminal.
+
 ## Launch on Binder
 
 The badge above starts a JupyterLab on [mybinder.org](https://mybinder.org)

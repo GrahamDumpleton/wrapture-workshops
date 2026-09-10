@@ -646,7 +646,25 @@ a minute's `Aggregate` summary on the minute, one file per run, and an
 on-demand window opened with `kill -USR1`. The always-on JSON Lines
 stream with `rotate=`. Clocks and restarts.
 
-- Format: two terminals and files.
+- Format: two terminals and files. The in-code page is `Window`
+  with `every=1` and `on_report=` over the shop driven directly, two
+  and a half seconds of traffic, so runs 1 and 2 close on schedule
+  and the third is cut short at `stop()`. The config page has the
+  Flask shop under the runner on port 5075 with a `summary` window
+  at `every = "5s"`, `align = true` and a `filter = { kind = "call"
+  }` collect entry, so the report has no request row, plus the
+  `jsonlines` stream at `rotate = "5s"`. Traffic comes from a
+  shipped `load.py` over urllib rather than a shell loop, twelve
+  seconds the first time. The on-demand page appends a `kick` window
+  (`on_signal = "SIGUSR1"`, `for = "3s"`, no filter, so the request
+  row shows), restarts the server, and signals it with `kill -USR1
+  "$(pgrep -f ...)"`, so `pgrep` is declared in `requires.tools`;
+  the traffic after the kick runs eight seconds, long enough for the
+  restarted schedule to close a run, which is what makes the second
+  `summary-{first}` directory the restart demonstration. Every
+  check reads files: run files under `reports/`, the kick report,
+  the count of `summary-*` directories, and the events in
+  `traces/*.jsonl`.
 
 - Requires: wrapture, wrapture-instrumentation, flask.
 
@@ -667,7 +685,23 @@ not wait for: `detach()` and `handoff()`, and links instead of
 nesting. Optionally with `[otel]` on both sides and the console
 exporter showing the remote parent.
 
-- Format: two terminals and files.
+- Format: two terminals and files. The client and server are the
+  `opentelemetry-export` pair on port 5076 with the `[otel]` tables
+  removed, and the urllib instrumentation is shipped as a local
+  `wrapture_local/urllib_support.py` named by reference, since the
+  workshop is standard library only; the OpenTelemetry variant is
+  not repeated, because the export workshop's last page already runs
+  it, and the finish text says so. A `headers.py` page shows
+  `trace_headers()` empty with nothing listening and carrying
+  `traceparent` inside a block with a printer registered. The
+  detached-work example runs under `--config uploads.toml` in the
+  `shell` session after the server is stopped; the shipped
+  `links.py` prints each root with what it links to, showing that
+  the thumbnail root's link carries the origin's `seq` while the
+  notification block's link, which travelled as headers, has only
+  the ids, and that the block is named by its path
+  (`uploads:notifier`) in the file. The check counts nine roots and
+  the link shapes. Quiz on joins versus links.
 
 - Requires: wrapture, optionally the `otel` extra.
 
@@ -687,7 +721,25 @@ a canned response without calling the application, a fault the server
 sees, rewriting a status on the way out. ASGI is left to the FastAPI
 workshops planned later.
 
-- Format: terminal and files with pytest.
+- Format: terminal and files with pytest. The shop is built by a
+  `create_app()` factory, because the instrumentation installs the
+  middleware from `Flask.__init__`, so an application built before
+  `wrapture.instrumentation("flask")` is entered is untouched; the
+  `client` fixture enters the scope and builds the app inside it.
+  The quote view calls a module-level `lookup()` helper so the
+  canned-response test can bind it with `expect_never()`, and an
+  `/export.csv` route streams three rows for the `items` assertion.
+  Templates are left out: a `from flask import render_template` at
+  the top of the shop would be the original function under an
+  in-test scope. Every test consumes and closes the body through a
+  `fetch()` helper, since the request event closes with the body and
+  reading it earlier finds `result` missing. `tape.where()` has no
+  `kind` filter, so request events are selected by the
+  `webshop.wsgi_app` label. The `on_request` page uses
+  `wrapture.binding(app, "wsgi_app", mode="wsgi", label=...)` on the
+  instance, a fresh binding per test from a fixture, with no
+  instrumentation in play, since the binding's middleware records
+  the request itself.
 
 - Requires: wrapture, wrapture-instrumentation, flask, pytest.
 
@@ -708,9 +760,27 @@ reference from `[[instrument]]` with `pythonpath`. The flask-app
 example's local class is the model. How it would be packaged with an
 entry point.
 
-- Format: terminal and files.
+- Format: terminal and files. The library is `hookline`, shipped
+  as a package in the workshop directory: a `Client.deliver()` with
+  connect and write steps beneath it, and a `Dispatcher` whose
+  `register()` stores handlers and whose `on_error()` absorbs a
+  handler's exception, so the class has the two choke points the
+  flask-app example has, registration substituting `observed()` and
+  an error handler noting through `current_event(binding=...)`. The
+  settings are `headers` (record the delivery headers, off by
+  default, a `redact("headers")` policy otherwise) and `internals`
+  (record the steps beneath a delivery, which flips `leaf=`). The
+  settings page breaks the config twice with `editor-replace`, a
+  misspelt key and a string for a boolean, and restores it. The test
+  page has pytest: the class applied by hand with `apply()` and
+  `remove()`, bad settings refused at construction, and the whole
+  path through `wrapture.instrumentation()` with `find_binding()`
+  and `NoBindingError` after exit. Packaging is prose with the
+  `pyproject.toml` entry point, not an install, so nothing is built
+  from source on Binder; the listing tool with `--config` shows the
+  local class instead.
 
-- Requires: wrapture.
+- Requires: wrapture, pytest.
 
 - Source: docs instrumentation-packages; examples operator-code,
   flask-app.
@@ -803,9 +873,10 @@ every launch.
 **Ports.** Servers bind explicit ports above 5000 to stay clear of
 macOS AirPlay, one distinct port per workshop so two workshops opened
 in one session do not collide: `tracing-flask` uses 5071,
-`finding-slow-code` 5072, and `opentelemetry-export` 5073 for the
-Flask shop and 5074 for the quote service on its last page; the next
-server workshop takes 5075.
+`finding-slow-code` 5072, `opentelemetry-export` 5073 for the Flask
+shop and 5074 for the quote service on its last page,
+`watching-a-service-over-time` 5075, and `distributed-tracing` 5076;
+the next server workshop takes 5077.
 
 **Checks.** Every page ends with something checkable, on the
 substrate its format allows (see the extension features section).
@@ -970,10 +1041,10 @@ the table also says what is still uncommitted in the working tree.
 | 18 | `logs-blocks-and-notes` | committed (dacf402) |
 | 19 | `sinks-and-collectors` | committed (dacf402) |
 | 20 | `trace-files-and-tools` | committed (dacf402) |
-| 21 | `watching-a-service-over-time` | planned |
-| 22 | `distributed-tracing` | planned |
-| 23 | `testing-web-requests` | planned |
-| 24 | `writing-instrumentation` | planned |
+| 21 | `watching-a-service-over-time` | published |
+| 22 | `distributed-tracing` | published |
+| 23 | `testing-web-requests` | published |
+| 24 | `writing-instrumentation` | published |
 
 ## Known blockers
 

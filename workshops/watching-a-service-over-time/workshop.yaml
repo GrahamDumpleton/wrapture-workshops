@@ -1,0 +1,59 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: watching-a-service-over-time
+title: Reports on a schedule
+version: 0.1.0
+description: A service has been running for a day and nobody can say what it does. Put a Window around the shop with every= in code, then move the arrangement into the config file for the Flask shop, a summary every few seconds with one file per run, a report on demand from a signal, and an always-on JSON Lines stream that rotates rather than grows. Clocks, alignment and what a restart does to a schedule.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/watching-a-service-over-time
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing, flask, windows]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+  - network
+requires:
+  tools:
+    - { name: curl, hint: { macos: brew install curl, linux: apt install curl } }
+    - { name: pgrep, hint: { linux: apt install procps } }
+env:
+  PAGER: cat
+  PYTHONUNBUFFERED: "1"
+finish: |
+  The service was never edited and never restarted for a question. An
+  `Aggregate` kept one row per bound location, a `Window` opened runs
+  on a schedule and turned each into a report, one file per run, a
+  signal opened a run on demand, and a JSON Lines sink streamed the
+  raw events to files that rotate rather than grow. The config file
+  made the whole arrangement zero-code.
+
+  Next is **One trace across two processes** (`distributed-tracing`),
+  where a client and a server, standard library only, share one
+  trace id through nothing but a header, and work a caller does not
+  wait for is linked rather than nested.
+
+  The [watching a service over time example](https://wrapture.readthedocs.io/en/latest/example-service-over-time.html)
+  is this workshop's source, and the
+  [scheduled tracing guide](https://wrapture.readthedocs.io/en/latest/scheduled-tracing.html)
+  is the full reference for windows: every trigger, the report shape,
+  clocks and restarts, and how to write a collector of your own.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:webshop.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.4 }
+      - { area: right, widgets: ["terminal:client"], size: 0.5 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-reports-on-a-schedule.md
+  - pages/03-the-same-from-a-config-file.md
+  - pages/04-a-report-on-demand.md
+  - pages/05-the-stream-beside-the-reports.md
+  - pages/06-clocks-and-restarts.md
+  - pages/07-finish.md

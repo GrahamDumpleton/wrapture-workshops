@@ -1,0 +1,61 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: distributed-tracing
+title: One trace across two processes
+version: 0.1.0
+description: A client and a server, standard library only, one trace id across both. The identity travels in the traceparent header on the way out, the WSGI boundary parses it on the way in, and the two JSON Lines files join on the id with no backend anywhere. Then work the caller does not wait for, a thread and a queue, linked back to the operation that started it rather than nested under it.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/distributed-tracing
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing, distributed]
+duration: 20m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+  - network
+requires:
+  tools:
+    - { name: curl, hint: { macos: brew install curl, linux: apt install curl } }
+env:
+  PAGER: cat
+  PYTHONUNBUFFERED: "1"
+finish: |
+  Two processes, one trace, and nothing but wrapture on both ends.
+  Every tree minted an identity at its root, an instrumentation on
+  the client's opener put it into the `traceparent` header, the
+  middleware at the server's boundary parsed it, and the two files
+  joined on the id. Work the caller did not wait for became a tree of
+  its own with a link back to its origin, whether it ran on a thread
+  in the same process or arrived through a message.
+
+  Next is **Requests in tests, and at the boundary**
+  (`testing-web-requests`), where the Flask instrumentation runs
+  inside a pytest test, the request event is asserted on directly,
+  and the `on_request` namespace answers a request without calling
+  the application at all.
+
+  The [trace identity section](https://wrapture.readthedocs.io/en/latest/ad-hoc-tracing.html#trace-identity-and-propagation)
+  and [work the caller does not wait for](https://wrapture.readthedocs.io/en/latest/ad-hoc-tracing.html#work-the-caller-does-not-wait-for)
+  in the ad-hoc tracing guide are this workshop's sources, with the
+  trace-propagation and detached-work examples in the wrapture
+  repository. The last page of the `opentelemetry-export` workshop
+  runs the same client and server with `[otel]` on both sides.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:frontend.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.4 }
+      - { area: right, widgets: ["terminal:client"], size: 0.5 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-the-boundary-on-the-way-in.md
+  - pages/03-the-identity-on-the-way-out.md
+  - pages/04-the-whole-surface.md
+  - pages/05-work-the-caller-does-not-wait-for.md
+  - pages/06-joins-and-links.md
+  - pages/07-finish.md

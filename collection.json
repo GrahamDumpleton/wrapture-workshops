@@ -728,6 +728,154 @@
           }
         }
       ]
+    },
+    {
+      "name": "watching-a-service-over-time",
+      "title": "Reports on a schedule",
+      "description": "A service has been running for a day and nobody can say what it does. Put a Window around the shop with every= in code, then move the arrangement into the config file for the Flask shop, a summary every few seconds with one file per run, a report on demand from a signal, and an always-on JSON Lines stream that rotates rather than grows. Clocks, alignment and what a restart does to a schedule.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing",
+        "flask",
+        "windows"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec",
+        "network"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/watching-a-service-over-time",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/watching-a-service-over-time"
+          }
+        }
+      ]
+    },
+    {
+      "name": "distributed-tracing",
+      "title": "One trace across two processes",
+      "description": "A client and a server, standard library only, one trace id across both. The identity travels in the traceparent header on the way out, the WSGI boundary parses it on the way in, and the two JSON Lines files join on the id with no backend anywhere. Then work the caller does not wait for, a thread and a queue, linked back to the operation that started it rather than nested under it.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing",
+        "distributed"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec",
+        "network"
+      ],
+      "duration": "20m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/distributed-tracing",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/distributed-tracing"
+          }
+        }
+      ]
+    },
+    {
+      "name": "testing-web-requests",
+      "title": "Requests in tests, and at the boundary",
+      "description": "Run the Flask instrumentation inside a pytest test and assert on the request event itself, its status as the result, its route and endpoint in data, a streamed body's chunks, and the exception behind a 500. Then the on_request namespace on a WSGI binding, a canned response the application never sees, a fault the server sees, and a status rewritten on the way out.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "flask",
+        "pytest"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/testing-web-requests",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/testing-web-requests"
+          }
+        }
+      ]
+    },
+    {
+      "name": "writing-instrumentation",
+      "title": "Instrumenting a package nobody has covered",
+      "description": "Write an Instrumentation class for a small library shipped with the workshop. The shape of the class, a hook that runs when the target module is imported, a registration choke point where handlers are observed as they register, an error handler that notes the exception, settings declared once and validated when the config loads, on_cleanup() so the patch comes down with the config, the class tested directly and through wrapture, and how it would be packaged with an entry point.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing",
+        "instrumentation"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec"
+      ],
+      "duration": "20m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/writing-instrumentation",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/writing-instrumentation"
+          }
+        }
+      ]
     }
   ]
 }
