@@ -965,11 +965,11 @@ the table also says what is still uncommitted in the working tree.
 | 13 | `coming-from-mock` | committed (c3c81a2) |
 | 14 | `supplying-stand-ins` | committed (c3c81a2) |
 | 15 | `streaming-and-generators` | committed (c3c81a2) |
-| 16 | `testing-async-code` | published |
-| 17 | `patching-third-party-code` | published |
-| 18 | `logs-blocks-and-notes` | published |
-| 19 | `sinks-and-collectors` | published |
-| 20 | `trace-files-and-tools` | published |
+| 16 | `testing-async-code` | committed (dacf402) |
+| 17 | `patching-third-party-code` | committed (dacf402) |
+| 18 | `logs-blocks-and-notes` | committed (dacf402) |
+| 19 | `sinks-and-collectors` | committed (dacf402) |
+| 20 | `trace-files-and-tools` | committed (dacf402) |
 | 21 | `watching-a-service-over-time` | planned |
 | 22 | `distributed-tracing` | planned |
 | 23 | `testing-web-requests` | planned |
