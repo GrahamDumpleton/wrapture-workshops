@@ -914,11 +914,11 @@ the table also says what is still uncommitted in the working tree.
 | 8 | `analysing-a-trace` | committed (9440c4c) |
 | 9 | `tracing-flask` | committed (9440c4c) |
 | 10 | `finding-slow-code` | committed (9440c4c) |
-| 11 | `opentelemetry-export` | published |
-| 12 | `wrapture-with-pytest` | published |
-| 13 | `coming-from-mock` | published |
-| 14 | `supplying-stand-ins` | published |
-| 15 | `streaming-and-generators` | published |
+| 11 | `opentelemetry-export` | committed (c3c81a2) |
+| 12 | `wrapture-with-pytest` | committed (c3c81a2) |
+| 13 | `coming-from-mock` | committed (c3c81a2) |
+| 14 | `supplying-stand-ins` | committed (c3c81a2) |
+| 15 | `streaming-and-generators` | committed (c3c81a2) |
 | 16 | `testing-async-code` | planned |
 | 17 | `patching-third-party-code` | planned |
 | 18 | `logs-blocks-and-notes` | planned |
