@@ -257,7 +257,7 @@ the checkout:
 git clone https://github.com/GrahamDumpleton/wrapture-workshops
 cd wrapture-workshops
 uv sync --no-dev
-uv run jupyter lab
+uv run jupyter lab --config=jupyter_lab_config.py
 ```
 
 Without uv, the same environment comes from the requirements file
@@ -266,17 +266,20 @@ Binder uses:
 ```
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r binder/requirements.txt
-jupyter lab
+jupyter lab --config=jupyter_lab_config.py
 ```
 
 The workshops appear under Installed in the workshop browser, because
 they sit in the `workshops` directory the extension looks in by default.
-Open "Browse Workshops" from the launcher, or go straight to one with
-`http://localhost:8888/lab?workshop=workshops/<name>`. Opening
-`http://localhost:8888/lab?collection=collection.json` instead adds the
-collection for the session, so the browser lists the workshops in order
-under its title. Outside Binder the trust dialog appears when a
-workshop opens; it lists what the workshop's pages are allowed to do.
+The config file opens JupyterLab at
+`http://localhost:8888/lab?collection=collection.json`, which adds the
+collection for the session, so the browser lists the workshops numbered
+in the order to take them, under the collection's title; without it
+they are listed in directory order. From the browser, open a workshop,
+or go straight to one with
+`http://localhost:8888/lab?workshop=workshops/<name>`. Outside Binder
+the trust dialog appears when a workshop opens; it lists what the
+workshop's pages are allowed to do.
 
 ## Subscribe from your own JupyterLab
 
@@ -306,6 +309,8 @@ reference/jupyterlab-workshop
                          the full documentation and source of the workshop format
 pyproject.toml           the uv project: JupyterLab and the extension, with the
                          authoring tools in the dev group
+jupyter_lab_config.py    opens a local JupyterLab on the collection, so the workshops
+                         are listed in order; `just lab` passes it to jupyter lab
 Justfile                 the common tasks; run `just` to list them
 .mcp.json                the MCP server configuration for AI agent clients
 AGENTS.md                guidance for AI agents writing workshops here

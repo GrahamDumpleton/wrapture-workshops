@@ -30,9 +30,9 @@ skill:
 # JupyterLab must run from this directory: the extension lists workshops/
 # as installed, and the MCP live tools open workshops by paths relative
 # to this root, such as workshops/<name>.
-# Start JupyterLab from the checkout with the workshops listed as installed.
+# Start JupyterLab from the checkout, listing the workshops in the collection's order.
 lab *ARGS:
-    uv run jupyter lab {{ARGS}}
+    uv run jupyter lab --config=jupyter_lab_config.py {{ARGS}}
 
 # Scaffold a new workshop under workshops/; extra args go to `jupyter workshop init`.
 new NAME *ARGS:
