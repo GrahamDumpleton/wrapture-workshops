@@ -1041,10 +1041,10 @@ the table also says what is still uncommitted in the working tree.
 | 18 | `logs-blocks-and-notes` | committed (dacf402) |
 | 19 | `sinks-and-collectors` | committed (dacf402) |
 | 20 | `trace-files-and-tools` | committed (dacf402) |
-| 21 | `watching-a-service-over-time` | published |
-| 22 | `distributed-tracing` | published |
-| 23 | `testing-web-requests` | published |
-| 24 | `writing-instrumentation` | published |
+| 21 | `watching-a-service-over-time` | committed (daba08b) |
+| 22 | `distributed-tracing` | committed (daba08b) |
+| 23 | `testing-web-requests` | committed (daba08b) |
+| 24 | `writing-instrumentation` | committed (daba08b) |
 
 ## Known blockers
 
