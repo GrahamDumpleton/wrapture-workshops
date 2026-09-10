@@ -239,18 +239,6 @@ machine. The `binder/postBuild` script installs a settings override
 that marks the checkout's workshops as trusted, turns off editing, and
 subscribes to the checkout's own `collection.json`.
 
-A link can also open one workshop directly, skipping the browser. The
-first workshop is the place to begin:
-
-**[Launch "Your first binding" on Binder](https://mybinder.org/v2/gh/GrahamDumpleton/wrapture-workshops/main?urlpath=lab%3Fworkshop%3Dworkshops%2Ffirst-binding)**
-
-For any other workshop, put its directory name from the list above in
-place of `<name>`; the name goes in the `urlpath`, URL-encoded:
-
-```
-https://mybinder.org/v2/gh/GrahamDumpleton/wrapture-workshops/main?urlpath=lab%3Fworkshop%3Dworkshops%2F<name>
-```
-
 Binder sessions are temporary: anything you do in one is gone when it
 ends, so finish a workshop in the session you started it in. When you
 are done with the session, whether you finished a workshop or not,
