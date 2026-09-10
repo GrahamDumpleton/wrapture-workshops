@@ -11,9 +11,9 @@ real code keeps running, and the binding intervenes in flight. This
 workshop writes the same tests both ways and stops at the four places
 where the difference changes what a test can say.
 
-The code under test is `orders.py`, open in the editor: an order
-service that takes a payment through a gateway, records it in a ledger
-and sends a notification. If the ledger write fails, the payment is
+The code under test is {open}`orders.py`: an order service that
+takes a payment through a gateway, records it in a ledger and sends a
+notification. If the ledger write fails, the payment is
 refunded and the error propagates. The payment step goes through a
 private method on the service itself.
 

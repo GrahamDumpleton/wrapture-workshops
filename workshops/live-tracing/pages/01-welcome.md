@@ -12,12 +12,12 @@ listening. Take the tape away, register something else, and the same
 binding narrates a running program as it goes. This workshop is the
 minimal version of that: a small shop, three bindings and one sink.
 
-The shop is `shop.py`, open in the editor: an order service that takes
-a payment through a gateway, records it in a ledger and sends a
-notification. A card number travels with each order, the gateway
-declines cards ending in four zeros, and each order belongs to a
-tenant. A second module, {open}`orders.py`, places three orders, one
-of which is declined.
+The shop is {open}`shop.py`: an order service that takes a payment
+through a gateway, records it in a ledger and sends a notification. A
+card number travels with each order, the gateway declines cards
+ending in four zeros, and each order belongs to a tenant. A second
+module, {open}`orders.py`, places three orders, one of which is
+declined.
 
 The question is a simple one. When an order is placed, what actually
 happens? Which methods run, with what, and what comes back? A log line
