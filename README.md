@@ -140,6 +140,47 @@ collection.
     on the consumer's argument, and the whole thing as a pytest test.
     In a notebook.
 
+16. **Async methods and generators** (`testing-async-code`,
+    15 minutes). Test a notifier whose client is async all the way
+    down: a stub whose outcome arrives on await, a timeout that stops
+    a broadcast early through the real loop, the coroutine that was
+    never awaited caught in one line, concurrent sends on one tape,
+    an async generator with stubbed items, and the same assertions as
+    a pytest suite under pytest-asyncio. In a notebook.
+
+17. **Changing what a library does** (`patching-third-party-code`,
+    20 minutes). Patch a vendored client you cannot edit: a header
+    injected on the way in, the patch suspended, resumed and removed,
+    reconfigured while installed, a retry around the whole call, an
+    attribute clamped, the patch applied from a post-import hook
+    before the library is imported, calls recorded without the token,
+    and the same patch from a config file with the code beside it. In
+    a terminal.
+
+18. **Messages, phases and handled failures as events**
+    (`logs-blocks-and-notes`, 15 minutes). Three more producers of
+    events on the same tape as the calls: log messages pinned to the
+    call that emitted them, named blocks that give a test phases to
+    assert within, annotations that attach what the code knows, and a
+    noted exception for a failure the code handled itself, all inert
+    when nothing is listening. In a notebook.
+
+19. **Where events go** (`sinks-and-collectors`, 20 minutes). The
+    other side of the tape: a sink of your own, what a process sink
+    hears that a timeline cannot and what a bound method costs when
+    nobody listens, fan-out, depth, filtering and sampling in one
+    registration, `Counter` and `Aggregate` keeping numbers rather
+    than events, a binding declared a terminal node with a category,
+    and resolvers naming each event per operation. In a terminal.
+
+20. **Reading a trace after the fact** (`trace-files-and-tools`,
+    15 minutes). JSON Lines as the durable form of a trace: a
+    two-thread pipeline streamed to disk from a config file,
+    converted for Perfetto with one lane per thread, rendered as a
+    canonical golden file that a test compares the live call tree
+    against, and rotated on a schedule through a path template. In a
+    terminal.
+
 ## Launch on Binder
 
 The badge above starts a JupyterLab on [mybinder.org](https://mybinder.org)

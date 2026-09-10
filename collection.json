@@ -549,6 +549,185 @@
           }
         }
       ]
+    },
+    {
+      "name": "testing-async-code",
+      "title": "Async methods and generators",
+      "description": "Test a notifier whose client is async all the way down. A stub whose outcome arrives on await, a timeout that stops a broadcast early through the real loop, the coroutine that was created and never awaited caught in one line, concurrent sends attributed on one tape, an async generator with stubbed items, and the same assertions as a pytest suite under pytest-asyncio.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "asyncio",
+        "pytest"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "write-files:workspace",
+        "kernel-exec",
+        "install-packages"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/testing-async-code",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/testing-async-code"
+          }
+        }
+      ]
+    },
+    {
+      "name": "patching-third-party-code",
+      "title": "Changing what a library does",
+      "description": "Monkey patching as a discipline, on a vendored client you cannot edit. Inject a header with a transform, prove the patch reversible with suspend, resume and remove, reconfigure it while it is installed, wrap the whole call for a retry, clamp an attribute the library reads, apply from a post-import hook before the library is imported, record calls without recording the token, and finally the same patch from a config file with the code beside it.",
+      "tags": [
+        "wrapture",
+        "python",
+        "monkey-patching"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec"
+      ],
+      "duration": "20m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/patching-third-party-code",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/patching-third-party-code"
+          }
+        }
+      ]
+    },
+    {
+      "name": "logs-blocks-and-notes",
+      "title": "Messages, phases and handled failures as events",
+      "description": "Three more producers of events on the same tape as the calls. Log messages captured and pinned to the call that emitted them, named blocks that give an integration test phases to assert within, annotations that attach what the code knows to the event in flight, and a noted exception for a failure the code handled itself, all inert when nothing is listening.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "logging"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "write-files:workspace",
+        "kernel-exec",
+        "install-packages"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/logs-blocks-and-notes",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/logs-blocks-and-notes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "sinks-and-collectors",
+      "title": "Where events go",
+      "description": "The other side of the tape. Write a sink of your own in a few lines, see what a process sink hears that a timeline cannot and what a bound method costs when nobody listens, compose fan-out, depth, filtering and sampling in one registration, keep numbers rather than events with Counter and Aggregate, declare a binding a terminal node with a category, and resolve the name, kind and tags of each event per operation.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec"
+      ],
+      "duration": "20m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/sinks-and-collectors",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/sinks-and-collectors"
+          }
+        }
+      ]
+    },
+    {
+      "name": "trace-files-and-tools",
+      "title": "Reading a trace after the fact",
+      "description": "JSON Lines as the durable form of a trace, from the command line. Stream a two-thread pipeline to disk from a config file, convert the file to Chrome trace JSON for Perfetto with one lane per thread, render its canonical form as a golden file that a test compares the live call tree against, and give the sink a path template and a rotation interval for a process that runs for days.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing",
+        "perfetto"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/trace-files-and-tools",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/trace-files-and-tools"
+          }
+        }
+      ]
     }
   ]
 }

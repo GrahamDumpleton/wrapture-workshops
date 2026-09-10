@@ -1,0 +1,57 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: logs-blocks-and-notes
+title: Messages, phases and handled failures as events
+version: 0.1.0
+description: Three more producers of events on the same tape as the calls. Log messages captured and pinned to the call that emitted them, named blocks that give an integration test phases to assert within, annotations that attach what the code knows to the event in flight, and a noted exception for a failure the code handled itself, all inert when nothing is listening.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/logs-blocks-and-notes
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, logging]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - write-files: [workspace]
+  - kernel-exec
+  - install-packages
+environment:
+  requirements: requirements.txt
+  kernel: workshop-logs-blocks-and-notes
+finish: |
+  The tape held more than calls. A log message became an event nested
+  inside the call that emitted it, so the assertion said which call
+  logged it, not that something did. Blocks named the phases of a
+  test and the phases inside the code, and `within()` scoped every
+  query to one of them. `annotate()` attached what only the code knew
+  to the event in flight, and `note_exception()` recorded a failure
+  the code had already handled, without changing what it returned.
+  With nothing listening, every one of those calls did nothing at
+  all, which is why they can stay in application code.
+
+  Next is **Where events go** (`sinks-and-collectors`), the other
+  side of the tape: a sink of your own, fan-out, sampling and
+  filtering, collectors that keep numbers rather than events, and
+  declaring what a binding's events are.
+
+  The [unit testing guide](https://wrapture.readthedocs.io/en/latest/unit-testing.html)
+  is this workshop's source: the sections on what one event
+  contains, annotating events, noting a caught exception, capturing
+  log messages and declaring blocks of code.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+gating: soft
+variables:
+  - name: notebook
+    type: path
+    default: logs-blocks-and-notes.ipynb
+    description: The notebook the exercises are done in
+pages:
+  - pages/01-welcome.md
+  - pages/02-this-call-logged-it.md
+  - pages/03-naming-the-phases.md
+  - pages/04-a-block-in-the-code.md
+  - pages/05-attaching-what-the-code-knows.md
+  - pages/06-a-failure-the-code-handled.md
+  - pages/07-finish.md

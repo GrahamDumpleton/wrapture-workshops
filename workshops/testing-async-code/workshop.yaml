@@ -1,0 +1,58 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: testing-async-code
+title: Async methods and generators
+version: 0.1.0
+description: Test a notifier whose client is async all the way down. A stub whose outcome arrives on await, a timeout that stops a broadcast early through the real loop, the coroutine that was created and never awaited caught in one line, concurrent sends attributed on one tape, an async generator with stubbed items, and the same assertions as a pytest suite under pytest-asyncio.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/testing-async-code
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, asyncio, pytest]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - write-files: [workspace]
+  - kernel-exec
+  - install-packages
+environment:
+  requirements: requirements.txt
+  kernel: workshop-testing-async-code
+finish: |
+  Nothing about the bindings changed for async code. A stub on an
+  `async def` delivered its value or its exception on `await`, where
+  the real method would, so the notifier's own loop and its own
+  `except` were what the tests exercised. Every event carried two
+  moments, and the second moment missing was the bug class unique to
+  async code: the call that was never awaited, caught with
+  `pending()` before Python's warning could. Concurrent sends landed
+  on one tape, and an async generator's items arrived on iteration.
+
+  Next is **Changing what a library does**
+  (`patching-third-party-code`), where a binding is a patch with a
+  lifecycle on code you cannot edit: applied, suspended, reconfigured
+  live, removed, and installed before the library is imported.
+
+  The [testing async code example](https://wrapture.readthedocs.io/en/latest/example-async-code.html)
+  is this workshop's source, and the
+  [async targets](https://wrapture.readthedocs.io/en/latest/monkey-patching.html#async-targets)
+  section of the monkey patching guide covers how phases and
+  sequences interact with awaiting.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+gating: soft
+variables:
+  - name: notebook
+    type: path
+    default: testing-async-code.ipynb
+    description: The notebook the exercises are done in
+pages:
+  - pages/01-welcome.md
+  - pages/02-outcomes-arrive-on-await.md
+  - pages/03-a-timeout-mid-broadcast.md
+  - pages/04-the-call-that-was-never-awaited.md
+  - pages/05-concurrent-sends.md
+  - pages/06-an-async-generator.md
+  - pages/07-as-a-pytest-suite.md
+  - pages/08-finish.md

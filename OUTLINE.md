@@ -500,7 +500,17 @@ an async generator with stubbed items. As a pytest suite with
 pytest-asyncio.
 
 - Format: notebook (the kernel supports top-level `await`), one
-  pytest page.
+  pytest page. The cells await the notifier directly, since
+  `asyncio.run()` cannot be called from the kernel's running loop.
+  The never-awaited page collects Python's `RuntimeWarning` with
+  `warnings.catch_warnings(record=True)` so the check can read the
+  target name it carries. The pytest page's tests request the
+  plugin's `tape` fixture: at 1.0.0a22 the example's suite reads
+  `send.events` without it and fails with "events are only recorded
+  inside a timeline()", sync or async, which is noted for the
+  wrapture docs. The page runs the suite once against the shipped
+  bug (`1 failed, 2 passed`), fixes `nudge()` with an
+  `editor-replace`, and runs it again.
 
 - Requires: wrapture, pytest, pytest-asyncio.
 
@@ -520,7 +530,16 @@ reads, apply before the library is imported with the post-import hook,
 record calls without recording the token, and finally the same patch
 from a config file with code in `wrapture_local/` beside it.
 
-- Format: terminal and files.
+- Format: terminal and files. Each page writes one script that
+  builds the binding and prints the client's request before and
+  after each step, and the check runs the script again and reads its
+  output. The tenant transform lives in `tenant.py` from the second
+  page so later scripts import it. The wrapt escape hatch
+  (`wrapper.__wrapped__`) is one call in the middle of the lifecycle
+  page rather than a page of its own. The config page creates
+  `wrapture_local/` with `directory-create`, then breaks and restores
+  the `tenant` setting with `editor-replace` to show the unknown
+  setting refused at load.
 
 - Requires: wrapture.
 
@@ -540,7 +559,15 @@ and `tape.within()`, `annotate()` to attach what the code knows, and
 when nothing is listening, so safe to leave in application code, which
 is what makes them spans later.
 
-- Format: notebook.
+- Format: notebook. The shipped `shop.py` already calls `block()`,
+  `annotate()` and `note_exception()`: the welcome page shows them
+  inert (`current_event()` returns an empty, falsy handle) and each
+  later page turns one on by listening. `place` handles
+  `CardDeclined` and returns a declined outcome, so `note_exception()`
+  has a failure to note, and the gateway's warning reaches stderr
+  through logging's last-resort handler as well as the tape. The
+  annotate page adds a `decorates()` handler on the test side and
+  reads the code's own annotation from the fulfil blocks.
 
 - Requires: wrapture.
 
@@ -560,7 +587,16 @@ filtering combinators, `Counter` and `Aggregate` registered in code,
 per operation. Process versus scoped listening and what it costs when
 nobody is listening.
 
-- Format: terminal and files.
+- Format: terminal and files, one script per page. This copy of the
+  shop gains `Gateway.authorise`, called from `charge`, for the leaf
+  page, and a `channel` on `Notifier.send` for the resolvers page;
+  `orders.run(times=)` gives the sampling and collector pages thirty
+  trees. The sampling script seeds `random`, which `Sample` draws
+  from, so it keeps the same 16 of 30 trees every run and the check
+  can name the count. The process-versus-scoped page also times an
+  unbound, a bound-but-unheard and a recorded call so the cost claim
+  is measured rather than asserted; its check reads the three lines,
+  not the numbers.
 
 - Requires: wrapture.
 
@@ -581,9 +617,19 @@ golden file a test compares against, and output path templates and
 rotation for a process that runs for days. The in-notebook analysis
 and the Mermaid diagram belong to `analysing-a-trace`.
 
-- Format: terminal and files.
+- Format: terminal and files. `main.py` takes an optional round
+  count so the rotation page has a six second run to watch, with the
+  interval at two seconds. The golden file page compares
+  `canonical(tape)` with the converter's output stripped of its
+  trailing newline, the one difference between the two, and the test
+  calls `pipeline.process` through the module, since a name imported
+  with `from pipeline import process` before the bindings apply is
+  the unwrapped function. The refactor the snapshot catches,
+  `store(item)` for `store(transform(item))`, is planted and reverted
+  with `editor-replace`. Perfetto is not opened in the workshop; the
+  page says to download `trace.json` and drop it on the site.
 
-- Requires: wrapture.
+- Requires: wrapture, pytest.
 
 - Source: examples stream-to-disk; docs ad-hoc-tracing, "Streaming to
   disk", "Output paths and rotation", "Exporting traces to other
@@ -919,11 +965,11 @@ the table also says what is still uncommitted in the working tree.
 | 13 | `coming-from-mock` | committed (c3c81a2) |
 | 14 | `supplying-stand-ins` | committed (c3c81a2) |
 | 15 | `streaming-and-generators` | committed (c3c81a2) |
-| 16 | `testing-async-code` | planned |
-| 17 | `patching-third-party-code` | planned |
-| 18 | `logs-blocks-and-notes` | planned |
-| 19 | `sinks-and-collectors` | planned |
-| 20 | `trace-files-and-tools` | planned |
+| 16 | `testing-async-code` | published |
+| 17 | `patching-third-party-code` | published |
+| 18 | `logs-blocks-and-notes` | published |
+| 19 | `sinks-and-collectors` | published |
+| 20 | `trace-files-and-tools` | published |
 | 21 | `watching-a-service-over-time` | planned |
 | 22 | `distributed-tracing` | planned |
 | 23 | `testing-web-requests` | planned |

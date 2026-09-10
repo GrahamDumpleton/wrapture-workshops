@@ -1,0 +1,55 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: sinks-and-collectors
+title: Where events go
+version: 0.1.0
+description: The other side of the tape. Write a sink of your own in a few lines, see what a process sink hears that a timeline cannot and what a bound method costs when nobody listens, compose fan-out, depth, filtering and sampling in one registration, keep numbers rather than events with Counter and Aggregate, declare a binding a terminal node with a category, and resolve the name, kind and tags of each event per operation.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/sinks-and-collectors
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing]
+duration: 20m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+env:
+  PYTHONUNBUFFERED: "1"
+finish: |
+  Events went where you sent them. A sink of your own heard three
+  notifications and kept a dictionary, a process sink heard the
+  worker thread a timeline could not, and a bound method with nobody
+  listening cost only wrapt's dispatch. One registration fanned out
+  to a depth-limited view, a filtered one and a sampled one, the
+  collectors kept numbers and nothing else, `leaf=True` made a
+  binding a terminal node with a category on every event, and
+  resolvers named each notification by what it did.
+
+  Next is **Reading a trace after the fact**
+  (`trace-files-and-tools`), where the JSON Lines file is the
+  durable form: converted for Perfetto, snapshotted as a golden file
+  a test compares against, and rotated on a schedule.
+
+  The [ad-hoc tracing guide](https://wrapture.readthedocs.io/en/latest/ad-hoc-tracing.html)
+  is this workshop's source, from the sink protocol through writing
+  your own sink, and the
+  [scheduled tracing guide](https://wrapture.readthedocs.io/en/latest/scheduled-tracing.html)
+  covers the windows the collectors report from.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:shop.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-a-sink-of-your-own.md
+  - pages/03-process-versus-scoped.md
+  - pages/04-fan-out-sampling-and-filtering.md
+  - pages/05-numbers-not-events.md
+  - pages/06-a-terminal-node.md
+  - pages/07-naming-events-per-operation.md
+  - pages/08-finish.md

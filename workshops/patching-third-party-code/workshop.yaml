@@ -1,0 +1,59 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: patching-third-party-code
+title: Changing what a library does
+version: 0.1.0
+description: Monkey patching as a discipline, on a vendored client you cannot edit. Inject a header with a transform, prove the patch reversible with suspend, resume and remove, reconfigure it while it is installed, wrap the whole call for a retry, clamp an attribute the library reads, apply from a post-import hook before the library is imported, record calls without recording the token, and finally the same patch from a config file with the code beside it.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/patching-third-party-code
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, monkey-patching]
+duration: 20m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+env:
+  PYTHONUNBUFFERED: "1"
+finish: |
+  The vendored client was never edited, and every change to it was
+  an object with a lifecycle: a transform on the way in, a wrapper
+  around the whole call, a clamp on an attribute read, each applied,
+  suspended, reconfigured and removed on demand, with the binding's
+  repr telling the truth at every step. The post-import hook put the
+  patch in place before the first call, and the config file did the
+  same from outside the application, with a typo refused at load.
+
+  Next is **Messages, phases and handled failures as events**
+  (`logs-blocks-and-notes`), which turns log messages, named
+  stretches of code and exceptions the code handled itself into
+  events on the same tape as the calls.
+
+  The [third-party libraries example](https://wrapture.readthedocs.io/en/latest/example-third-party-libraries.html)
+  is this workshop's source. The
+  [monkey patching guide](https://wrapture.readthedocs.io/en/latest/monkey-patching.html)
+  has the full vocabulary of call behaviour, the post-import hook and
+  the wrapt escape hatch, and the
+  [instrumentation packages guide](https://wrapture.readthedocs.io/en/latest/instrumentation-packages.html)
+  says how the config page's class would be packaged with an entry
+  point.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:vendored_client.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-a-header-on-every-request.md
+  - pages/03-off-and-on-again.md
+  - pages/04-reconfiguring-the-live-patch.md
+  - pages/05-a-retry-around-the-call.md
+  - pages/06-clamping-an-attribute.md
+  - pages/07-before-the-library-is-imported.md
+  - pages/08-recording-without-the-token.md
+  - pages/09-from-a-config-file.md
+  - pages/10-finish.md

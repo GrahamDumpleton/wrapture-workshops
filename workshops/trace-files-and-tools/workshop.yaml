@@ -1,0 +1,52 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: trace-files-and-tools
+title: Reading a trace after the fact
+version: 0.1.0
+description: JSON Lines as the durable form of a trace, from the command line. Stream a two-thread pipeline to disk from a config file, convert the file to Chrome trace JSON for Perfetto with one lane per thread, render its canonical form as a golden file that a test compares the live call tree against, and give the sink a path template and a rotation interval for a process that runs for days.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/trace-files-and-tools
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing, perfetto]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+env:
+  PYTHONUNBUFFERED: "1"
+finish: |
+  The trace outlived the process. A config sink streamed every
+  completed event from both worker threads to one JSON Lines file,
+  the converter turned it into a Perfetto timeline with a lane per
+  thread and into a canonical tree that a test now compares the live
+  code against, and a path template with a rotation interval turned
+  the one file into a series a long-running process can write
+  forever.
+
+  Next is **Reports on a schedule** (`watching-a-service-over-time`),
+  where the collectors from the sinks workshop run in windows: a
+  summary on the minute, one file per run, and a report on demand
+  from a signal.
+
+  The [stream-to-disk example](https://github.com/GrahamDumpleton/wrapture/tree/main/examples/stream-to-disk)
+  is this workshop's source, and the
+  [ad-hoc tracing guide](https://wrapture.readthedocs.io/en/latest/ad-hoc-tracing.html)
+  covers streaming to disk, output paths and rotation, and exporting
+  traces to other tools.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:pipeline.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-a-trace-on-disk.md
+  - pages/03-one-lane-per-thread.md
+  - pages/04-a-golden-file.md
+  - pages/05-paths-and-rotation.md
+  - pages/06-finish.md
