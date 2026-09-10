@@ -867,10 +867,10 @@ the table also says what is still uncommitted in the working tree.
 | 4 | `phased-behaviour` | committed (3af8e32) |
 | 5 | `beyond-callables` | committed (5dfebcd) |
 | 6 | `live-tracing` | committed (77cffb8) |
-| 7 | `zero-code-tracing` | published (indexed, in the README, self-test green; not yet committed) |
-| 8 | `analysing-a-trace` | published (indexed, in the README, self-test green; not yet committed) |
-| 9 | `tracing-flask` | published (indexed, in the README, self-test green; not yet committed) |
-| 10 | `finding-slow-code` | published (indexed, in the README, self-test green; not yet committed) |
+| 7 | `zero-code-tracing` | committed (9440c4c) |
+| 8 | `analysing-a-trace` | committed (9440c4c) |
+| 9 | `tracing-flask` | committed (9440c4c) |
+| 10 | `finding-slow-code` | committed (9440c4c) |
 | 11 | `opentelemetry-export` | planned |
 | 12 | `wrapture-with-pytest` | planned |
 | 13 | `coming-from-mock` | planned |
