@@ -218,6 +218,153 @@
           }
         }
       ]
+    },
+    {
+      "name": "zero-code-tracing",
+      "title": "Tracing without touching the program",
+      "description": "Move the bindings and the sink out of the program into a wrapture.toml beside it and run the program unchanged, under the runner and then injected at interpreter startup. Ask a traced process what is installed and switch it off and on, keep the trace as JSON Lines, read it back, and draw it as a sequence diagram.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/zero-code-tracing",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/zero-code-tracing"
+          }
+        }
+      ]
+    },
+    {
+      "name": "analysing-a-trace",
+      "title": "Analysing a trace in a notebook",
+      "description": "A JSON Lines trace is data. Run the shop for three hundred orders under a file sink, read the file into a DataFrame, rebuild the tree from the parent links, work out where the time and the errors went, chart the latency of an order by tenant, and draw a few orders as a sequence diagram and a diff.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing",
+        "pandas"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "write-files:workspace",
+        "kernel-exec",
+        "install-packages"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/analysing-a-trace",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/analysing-a-trace"
+          }
+        }
+      ]
+    },
+    {
+      "name": "tracing-flask",
+      "title": "One request as one tree",
+      "description": "Put the shop behind Flask and record each HTTP request as one tree, with the view and the shop's own methods nested beneath it, from a single instrument entry in the config. Send a quote, an order, a declined order and a request that fails with a 500, read the trees, then keep the health checks out.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing",
+        "flask"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec",
+        "network"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/tracing-flask",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/tracing-flask"
+          }
+        }
+      ]
+    },
+    {
+      "name": "finding-slow-code",
+      "title": "Where the time goes",
+      "description": "The order endpoint of the Flask shop is slow. Read the time off one request's tree, tell slow itself from slow because of a child with self time, turn that into a test that asserts on it, get one report for thirty requests from an Aggregate window in the config, and tag each request with the tenant it was for.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing",
+        "flask",
+        "performance",
+        "pytest"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec",
+        "network"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/finding-slow-code",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/finding-slow-code"
+          }
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,57 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: zero-code-tracing
+title: Tracing without touching the program
+version: 0.1.0
+description: Move the bindings and the sink out of the program into a wrapture.toml beside it and run the program unchanged, under the runner and then injected at interpreter startup. Ask a traced process what is installed and switch it off and on, keep the trace as JSON Lines, read it back, and draw it as a sequence diagram.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/zero-code-tracing
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+env:
+  PYTHONUNBUFFERED: "1"
+finish: |
+  You have traced a program that never mentions wrapture: the bindings
+  and the sink declared in `wrapture.toml`, applied by the runner and
+  then injected at interpreter startup by autowrapt, a traced process
+  asked what it has installed and switched off and on, the trace kept
+  as JSON Lines and read back with `load_events()`, and the three
+  orders drawn as a sequence diagram.
+
+  Next in the series is **Analysing a trace in a notebook**
+  (`analysing-a-trace`), which treats a trace file like this one as
+  data: a few hundred orders in a DataFrame, the tree rebuilt from the
+  parent links, and charts of where the time and the errors went.
+
+  The [ad-hoc tracing guide](https://wrapture.readthedocs.io/en/latest/ad-hoc-tracing.html)
+  covers everything the config file can say, including capturing log
+  messages as events and naming the instrumentation a package ships
+  for a framework, and the exporters for Perfetto and snapshots.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:main.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+  diagram:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["markdown:trace.md"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-the-file.md
+  - pages/03-no-launcher-at-all.md
+  - pages/04-operating-a-traced-process.md
+  - pages/05-keeping-the-trace.md
+  - pages/06-a-picture-of-the-run.md
+  - pages/07-finish.md

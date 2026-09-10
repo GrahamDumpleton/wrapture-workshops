@@ -1,0 +1,54 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: tracing-flask
+title: One request as one tree
+version: 0.1.0
+description: Put the shop behind Flask and record each HTTP request as one tree, with the view and the shop's own methods nested beneath it, from a single instrument entry in the config. Send a quote, an order, a declined order and a request that fails with a 500, read the trees, then keep the health checks out.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/tracing-flask
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing, flask]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+  - network
+requires:
+  tools:
+    - { name: curl, hint: { macos: brew install curl, linux: apt install curl } }
+env:
+  PAGER: cat
+  PYTHONUNBUFFERED: "1"
+finish: |
+  You have traced a Flask application without changing it or naming
+  it: one `[[instrument]]` entry installed the recording middleware
+  on the application and observed every view, each request arrived
+  in the server log as one tree with the shop's own methods beneath
+  the view, the failing request said both that it answered 500 and
+  why, and `ignore_paths` kept the health checks out entirely.
+
+  Next in the series is **Where the time goes** (`finding-slow-code`),
+  which asks the question every web application eventually asks, with
+  the timings already on every line of these trees.
+
+  The [WSGI request tracing guide](https://wrapture.readthedocs.io/en/latest/wsgi-tracing.html)
+  has the full request event, the `mode = "wsgi"` binding form for an
+  application with no framework package, and the redaction rules, and
+  the [instrumentation packages guide](https://wrapture.readthedocs.io/en/latest/instrumentation-packages.html)
+  is the author's side of what the `flask` entry named.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:webshop.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.4 }
+      - { area: right, widgets: ["terminal:client"], size: 0.5 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-one-entry.md
+  - pages/03-keeping-the-noise-out.md
+  - pages/04-finish.md

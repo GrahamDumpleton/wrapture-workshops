@@ -1,0 +1,54 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: analysing-a-trace
+title: Analysing a trace in a notebook
+version: 0.1.0
+description: A JSON Lines trace is data. Run the shop for three hundred orders under a file sink, read the file into a DataFrame, rebuild the tree from the parent links, work out where the time and the errors went, chart the latency of an order by tenant, and draw a few orders as a sequence diagram and a diff.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/analysing-a-trace
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing, pandas]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - write-files: [workspace]
+  - kernel-exec
+  - install-packages
+environment:
+  requirements: requirements.txt
+  kernel: workshop-analysing-a-trace
+finish: |
+  You have treated a trace as data: three hundred orders streamed to a
+  JSON Lines file, read back into a DataFrame, the tree rebuilt from
+  the parent links to give each path its total and self time, the
+  errors counted by path, the latency of an order split by tenant,
+  and a handful of orders drawn as a sequence diagram and compared as
+  a diff.
+
+  Next in the series is **One request as one tree** (`tracing-flask`),
+  which puts the shop behind Flask and records each HTTP request as
+  the root of everything that happened while it was served.
+
+  The [ad-hoc tracing guide](https://wrapture.readthedocs.io/en/latest/ad-hoc-tracing.html)
+  covers the JSON Lines record in full, output paths and rotation for
+  a trace that runs for days, and the three exporters, and the
+  [request timing example](https://wrapture.readthedocs.io/en/latest/example-request-timing.html)
+  reads the same self-time figure off a tape in a test.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+gating: soft
+variables:
+  - name: notebook
+    type: path
+    default: analysing-a-trace.ipynb
+    description: The notebook the analysis is done in
+pages:
+  - pages/01-welcome.md
+  - pages/02-into-a-dataframe.md
+  - pages/03-rebuilding-the-tree.md
+  - pages/04-where-the-time-goes.md
+  - pages/05-the-latency-of-an-order.md
+  - pages/06-a-diagram-and-a-diff.md
+  - pages/07-finish.md

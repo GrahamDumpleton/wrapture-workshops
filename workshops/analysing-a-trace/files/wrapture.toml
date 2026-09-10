@@ -1,0 +1,17 @@
+[[observe]]
+target = "shop:OrderService"
+name = "place"
+redact = ["card"]
+
+[[observe]]
+target = "shop:Gateway"
+name = "charge"
+redact = ["card"]
+
+[[observe]]
+target = "shop:Ledger"
+name = "record"
+
+[[sink]]
+type = "jsonlines"
+path = "trace.jsonl"

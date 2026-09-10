@@ -70,6 +70,35 @@ collection.
    then narrow the trace at the sink, at the binding, and for a whole
    subtree, and read the count of what was left out. In a terminal.
 
+7. **Tracing without touching the program** (`zero-code-tracing`,
+   15 minutes). Move the bindings and the sink into a `wrapture.toml`
+   beside the program and run it unchanged under `python -m wrapture`,
+   then injected at interpreter startup by autowrapt; ask the traced
+   process what is installed and switch it off and on; keep the trace
+   as JSON Lines, read it back, and draw it as a sequence diagram. In a
+   terminal.
+
+8. **Analysing a trace in a notebook** (`analysing-a-trace`,
+   15 minutes). Run three hundred orders under a JSON Lines sink and
+   treat the file as data: a DataFrame, the tree rebuilt from the
+   parent links to give each path its total and self time, charts of
+   where the time and the errors went, the latency of an order by
+   tenant, and a few orders as a sequence diagram and a diff. In a
+   notebook.
+
+9. **One request as one tree** (`tracing-flask`, 15 minutes). Put the
+   shop behind Flask and record each HTTP request as one tree from a
+   single `[[instrument]]` entry: a quote, an order, a declined order,
+   and a request that fails with a 500 and says why, then keep the
+   health checks out. In two terminals.
+
+10. **Where the time goes** (`finding-slow-code`, 15 minutes). Read the
+    time off one request's tree, tell slow itself from slow because of
+    a child with self time and assert on it in a test, get one
+    `Aggregate` report for thirty requests from a window in the config,
+    and tag each request with its tenant. In two terminals, with
+    pytest.
+
 ## Launch on Binder
 
 The badge above starts a JupyterLab on [mybinder.org](https://mybinder.org)

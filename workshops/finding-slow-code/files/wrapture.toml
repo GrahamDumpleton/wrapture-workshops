@@ -1,0 +1,24 @@
+[[instrument]]
+name = "flask"
+ignore_paths = ["/health"]
+
+[[observe]]
+target = "shop:OrderService"
+name = "place"
+redact = ["card"]
+
+[[observe]]
+target = "shop:Gateway"
+name = "charge"
+redact = ["card"]
+
+[[observe]]
+target = "shop:Ledger"
+name = "record"
+
+[[sink]]
+type = "printer"
+
+[[sink]]
+type = "jsonlines"
+path = "trace.jsonl"

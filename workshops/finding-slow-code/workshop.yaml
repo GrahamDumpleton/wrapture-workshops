@@ -1,0 +1,55 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: finding-slow-code
+title: Where the time goes
+version: 0.1.0
+description: The order endpoint of the Flask shop is slow. Read the time off one request's tree, tell slow itself from slow because of a child with self time, turn that into a test that asserts on it, get one report for thirty requests from an Aggregate window in the config, and tag each request with the tenant it was for.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/finding-slow-code
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing, flask, performance, pytest]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+  - network
+requires:
+  tools:
+    - { name: curl, hint: { macos: brew install curl, linux: apt install curl } }
+env:
+  PAGER: cat
+  PYTHONUNBUFFERED: "1"
+finish: |
+  You have found where a slow endpoint spends its time without a timer
+  in any layer: the tree with times on every line, self time to tell
+  the layer that is slow in its own right from the ones that only
+  wait for it, a test that asserts on the figure, one `Aggregate`
+  report for a whole run of the server, and a tenant tag on every
+  request so the slow ones can be named.
+
+  Next in the series is **The same events, sent to a backend**
+  (`opentelemetry-export`), which feeds these trees to OpenTelemetry
+  while the shop runs.
+
+  The [request timing example](https://wrapture.readthedocs.io/en/latest/example-request-timing.html)
+  walks the same question through a live interpreter, and the
+  [scheduled tracing guide](https://wrapture.readthedocs.io/en/latest/scheduled-tracing.html)
+  turns the one-report window into a report every hour on the hour.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:webshop.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.4 }
+      - { area: right, widgets: ["terminal:client"], size: 0.5 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-the-tree-with-times-on-it.md
+  - pages/03-self-time-in-a-test.md
+  - pages/04-across-many-requests.md
+  - pages/05-slow-for-whom.md
+  - pages/06-finish.md

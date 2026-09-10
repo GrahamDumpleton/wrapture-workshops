@@ -269,7 +269,9 @@ sequence, if a terminal action can drive `python -i` reliably.
 
 - Format: terminal and files. The diagram page relies on JupyterLab's
   Markdown preview rendering a Mermaid fence, which JupyterLab 4.1 and
-  later do; confirm it when the page is written.
+  later do (the pinned environment ships `@jupyterlab/mermaid`). The
+  `python -i` console sequence is a script instead, `operate.py`, run
+  under `AUTOWRAPT_BOOTSTRAP`, so a check can read its output.
 
 - Requires: wrapture, autowrapt.
 
@@ -288,11 +290,15 @@ total and self time per path from the parent links (the same
 arithmetic `tape.self_time()` does in a test), charts where the time
 goes by path and the error count by path, and plots the latency
 distribution of `place` across the run. Ends with a three-order trace
-as a Mermaid sequence diagram from `mermaid()`, rendered in a Markdown
-cell, and a `canonical()` snapshot of two runs compared as a diff.
+as a Mermaid sequence diagram from `mermaid()`, rendered as Markdown
+output, and the `canonical()` fingerprints of a placed and a declined
+order compared as a diff.
 
 - Format: notebook. The trace is produced by an `execute-capture`,
   which runs in the workshop environment, so no terminal is needed.
+  This copy of the shop has latencies planted in it (the gateway a
+  fixed couple of milliseconds, the ledger growing with the amount)
+  so the timings are worth charting, and the welcome page says so.
 
 - Requires: wrapture, pandas, matplotlib.
 
@@ -329,7 +335,10 @@ tree with times on it, self time versus total in
 `tape.tree(times=True)`, and a test that asserts on
 `tape.self_time()`. Then the `Aggregate` collector as a `[[window]]`
 in the config, thirty requests from a loop, and the report file. One
-page on `annotate()` to tag requests by tenant.
+page on `annotate()` to tag requests by tenant, aimed at the request
+with `current_event(kind="request")`, because the instrumentation
+observes the `before_request` hook itself and the bare call would
+tag the hook's own event.
 
 - Format: two terminals and files, plus one pytest run.
 
@@ -680,11 +689,11 @@ the posts use exists at that tag (`self_time`, `Aggregate`, `annotate`,
 added `explain()` on bindings and behaviours and the `configured` word
 in a binding's repr, which `first-binding` shows and the later
 workshops can lean on when a binding's behaviour is not in view.
-wrapture-
-instrumentation's compatible version needs confirming on PyPI before
-`tracing-flask` is written, as does whether its Flask target's
-`ignore_paths` and `lifecycle` settings match the post. autowrapt and
-pytest-asyncio are only installed by the workshops that use them.
+wrapture-instrumentation is pinned to 1.0.0a1, the release on PyPI
+that requires wrapture 1.0.0a19 or later; its `flask` target supports
+Flask 3 and takes the `ignore_paths`, `lifecycle`, `handled_errors`,
+`templates` and `redact` settings the post describes. autowrapt (1.0)
+and pytest-asyncio are only installed by the workshops that use them.
 
 **Platform.** linux and macos. Windows is not declared: several
 workshops use `curl`, `kill -USR1`, two terminals and
@@ -709,7 +718,8 @@ every launch.
 
 **Ports.** Servers bind explicit ports above 5000 to stay clear of
 macOS AirPlay, one distinct port per workshop so two workshops opened
-in one session do not collide.
+in one session do not collide: `tracing-flask` uses 5071 and
+`finding-slow-code` 5072, and the next server workshop takes 5073.
 
 **Checks.** Every page ends with something checkable, on the
 substrate its format allows (see the extension features section).
@@ -834,9 +844,10 @@ workshops that depend on them: `first-binding` settles the notebook
 format, the environment manifest and kernel checks; `wrap-not-replace`
 settles the terminal format, the venv step and shell checks on a
 pytest run; `live-tracing` adds shell checks on a program's captured
-output; `tracing-flask` adds a running server; then the core of the
-testing arc, then the tracing arc once the wrapture-instrumentation
-version is confirmed; then tier two, starting with
+output; `tracing-flask` adds a running server, stopped with an
+`interrupt` at the end of each page, with a JSON Lines sink beside
+the printer so the checks can read what the server recorded; then the
+core of the testing arc, then the tracing arc; then tier two, starting with
 `wrapture-with-pytest` and `coming-from-mock` since they serve the
 stated audience most directly.
 
@@ -856,10 +867,10 @@ the table also says what is still uncommitted in the working tree.
 | 4 | `phased-behaviour` | committed (3af8e32) |
 | 5 | `beyond-callables` | committed (5dfebcd) |
 | 6 | `live-tracing` | committed (77cffb8) |
-| 7 | `zero-code-tracing` | planned |
-| 8 | `analysing-a-trace` | planned |
-| 9 | `tracing-flask` | planned |
-| 10 | `finding-slow-code` | planned |
+| 7 | `zero-code-tracing` | published (indexed, in the README, self-test green; not yet committed) |
+| 8 | `analysing-a-trace` | published (indexed, in the README, self-test green; not yet committed) |
+| 9 | `tracing-flask` | published (indexed, in the README, self-test green; not yet committed) |
+| 10 | `finding-slow-code` | published (indexed, in the README, self-test green; not yet committed) |
 | 11 | `opentelemetry-export` | planned |
 | 12 | `wrapture-with-pytest` | planned |
 | 13 | `coming-from-mock` | planned |
