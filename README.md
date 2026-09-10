@@ -2,6 +2,10 @@
 
 [![Launch on Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/GrahamDumpleton/wrapture-workshops/main?urlpath=lab)
 
+Nothing to install: [start the workshops on mybinder.org](https://mybinder.org/v2/gh/GrahamDumpleton/wrapture-workshops/main?urlpath=lab)
+in your browser (see [Launch on Binder](#launch-on-binder) below), or
+[run them locally](#run-locally).
+
 Guided, hands-on workshops for
 [wrapture](https://github.com/GrahamDumpleton/wrapture), the Python
 library for attaching bindings to arbitrary call sites without modifying
@@ -216,22 +220,44 @@ collection.
 
 ## Launch on Binder
 
-The badge above starts a JupyterLab on [mybinder.org](https://mybinder.org)
-with the workshops listed in the workshop browser, ready to open. No trust dialog is shown, because the
-`binder/postBuild` script installs a settings override that marks the
-checkout's workshops as trusted, turns off editing, and subscribes to
-the checkout's own `collection.json`, so the workshops are numbered in
-the order to take them and the Finish dialog of each offers the next.
+[mybinder.org](https://mybinder.org) is a free public service that
+builds this repository into a temporary JupyterLab and runs it for you
+in the browser, so there is nothing to install. To start, click this
+link:
 
-A link can open one workshop directly by naming its directory in the
-checkout, URL-encoded as the `urlpath`:
+**[Launch the workshops on Binder](https://mybinder.org/v2/gh/GrahamDumpleton/wrapture-workshops/main?urlpath=lab)**
+
+The badge at the top of this page opens the same link. Building and
+starting the session takes a minute or two. When JupyterLab appears,
+the workshops are listed in its workshop browser, numbered in the
+order to take them, and the Finish dialog of each offers the next.
+Opening a workshop locally shows a dialog asking you to trust it, since
+its actions run commands on your machine. On Binder that dialog is
+removed: the session is a container of its own, created for you and
+discarded when you are done, and at no time is anything done on your
+machine. The `binder/postBuild` script installs a settings override
+that marks the checkout's workshops as trusted, turns off editing, and
+subscribes to the checkout's own `collection.json`.
+
+A link can also open one workshop directly, skipping the browser. The
+first workshop is the place to begin:
+
+**[Launch "Your first binding" on Binder](https://mybinder.org/v2/gh/GrahamDumpleton/wrapture-workshops/main?urlpath=lab%3Fworkshop%3Dworkshops%2Ffirst-binding)**
+
+For any other workshop, put its directory name from the list above in
+place of `<name>`; the name goes in the `urlpath`, URL-encoded:
 
 ```
 https://mybinder.org/v2/gh/GrahamDumpleton/wrapture-workshops/main?urlpath=lab%3Fworkshop%3Dworkshops%2F<name>
 ```
 
 Binder sessions are temporary: anything you do in one is gone when it
-ends, and a session can take a minute or two to start.
+ends, so finish a workshop in the session you started it in. When you
+are done with the session, whether you finished a workshop or not,
+shut it down rather than closing the browser tab, so the resources go
+back to Binder for other users. The Finish dialog at the end of a
+workshop has a button for this, and so does JupyterLab's File menu,
+under "Shut Down".
 
 ## Run locally
 
