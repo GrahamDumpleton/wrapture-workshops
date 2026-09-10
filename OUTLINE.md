@@ -989,7 +989,10 @@ the table also says what is still uncommitted in the working tree.
   when its output goes through a pipe), all fixed in 0.1.17. The gaps
   in the authoring skill that the same two workshops exposed were
   filled in 0.1.18. The panel not scrolling to content that grows in
-  place was fixed in 0.1.19, which the project now pins.
+  place was fixed in 0.1.19. 0.1.20, which the project now pins,
+  detects the shell prompt with an invisible marker rather than an
+  echoed command and takes turns in a terminal, so a `:wait: prompt`
+  no longer shows its marker in the learner's terminal.
 
 ## Open questions
 
