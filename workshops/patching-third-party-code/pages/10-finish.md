@@ -29,6 +29,7 @@ The library was never edited, and every change to it had a lifecycle:
 ```{quiz}
 :id: deferred-refused
 :title: Deferred targets
+:shuffle: true
 question: "Why does wrapture refuse the deferred target vendored_client? but accept a binding created inside a when_imported hook?"
 options:
   - { text: "A deferred wrap registers a hook and returns no handle, so there would be nothing to suspend, remove or report on; the hook runs your code with the module, so the binding exists and holds its wrapper", correct: true }

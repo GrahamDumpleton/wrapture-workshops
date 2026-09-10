@@ -29,6 +29,7 @@ clears phase 0 only; `on_call.reset()` drops the whole chain.
 ```{quiz}
 :id: sequence-end
 :title: When a sequence phase ends
+:shuffle: true
 question: "After status.on_call.returns_from(['queued', 'running']), when does a bare status.on_call.then() take over?"
 options:
   - { text: "On the third call, the one that finds the sequence empty", correct: true }

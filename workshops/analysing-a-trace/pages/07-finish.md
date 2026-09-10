@@ -27,6 +27,7 @@ The trace is data, and the questions were data questions:
 ```{quiz}
 :id: self-time-quiz
 :title: Reading self time
+:shuffle: true
 question: "In the summary, place had the largest total time and the smallest self time. What does that combination say?"
 options:
   - { text: "place is slow because of what it calls; the time is in the ledger and the gateway beneath it", correct: true }

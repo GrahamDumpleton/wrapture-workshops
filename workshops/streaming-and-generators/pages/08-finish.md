@@ -26,6 +26,7 @@ list cannot:
 ```{quiz}
 :id: fresh-proxy
 :title: One proxy per test
+:shuffle: true
 question: "Why does the pytest test build its own flaky proxy rather than sharing one with the notebook?"
 options:
   - { text: "The fail_at counter counts items through the proxy, so a shared proxy would fail at a different page on its second iteration", correct: true }

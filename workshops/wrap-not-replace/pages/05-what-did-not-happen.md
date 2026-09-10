@@ -96,6 +96,7 @@ to notice.
 ```{quiz}
 :id: absence
 :title: What the mock version could not say
+:shuffle: true
 question: Which of these can the wrapture test assert that the mock version cannot?
 options:
   - { text: "The refund was for ch_500, the charge that was really taken", correct: true }

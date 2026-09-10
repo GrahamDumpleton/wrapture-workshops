@@ -28,6 +28,7 @@ Events went where you sent them:
 ```{quiz}
 :id: capture-negotiation
 :title: What a counter costs
+:shuffle: true
 question: "Why does a Counter over a hot method cost a fraction of what a recording tape does?"
 options:
   - { text: "It declares no capture on either axis, so when it is the only listener recording skips value capture and signature binding entirely", correct: true }

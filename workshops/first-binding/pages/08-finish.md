@@ -29,6 +29,7 @@ object and this lifecycle.
 ```{quiz}
 :id: lifecycle
 :title: The lifecycle
+:shuffle: true
 question: "After charge = wrapture.binding(Gateway, 'charge') and charge.on_call.returns({'id': 'stub'}), what does Gateway().charge(500) return?"
 options:
   - { text: "The real result, because nothing is applied yet", correct: true }

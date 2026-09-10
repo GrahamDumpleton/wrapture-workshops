@@ -30,6 +30,7 @@ One table in the config, and the same events went to a backend:
 ```{quiz}
 :id: who-minted-it
 :title: Who minted it
+:shuffle: true
 question: "On the last page, the quote service's request span carried the same trace id as the client's spans. Where was that id minted?"
 options:
   - { text: "At the root of the client's tree, when place_order was recorded, before anything else was involved", correct: true }

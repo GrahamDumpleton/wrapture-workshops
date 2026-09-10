@@ -27,6 +27,7 @@ parent links turned them into an answer:
 ```{quiz}
 :id: self-versus-total
 :title: Slow itself, or slow because of a child
+:shuffle: true
 question: "In the aggregate report, webshop:order had a total of 369.8ms over twenty calls and a self time of 5.7ms. What does that say about the view?"
 options:
   - { text: "The view is slow only because of what it calls; its own work is a few hundred microseconds per call", correct: true }

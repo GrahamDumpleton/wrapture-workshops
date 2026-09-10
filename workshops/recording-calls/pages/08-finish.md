@@ -27,6 +27,7 @@ but watch:
 ```{quiz}
 :id: class-binding
 :title: Where the binding goes
+:shuffle: true
 question: "Why is close bound on the Connection class rather than on a connection object?"
 options:
   - { text: "The connections do not exist yet; a binding on the class covers every instance connect() mints later", correct: true }

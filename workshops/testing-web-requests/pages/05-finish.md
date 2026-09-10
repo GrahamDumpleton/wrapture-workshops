@@ -24,6 +24,7 @@ The request became something a test can hold:
 ```{quiz}
 :id: where-the-500-is
 :title: Where the failure is
+:shuffle: true
 question: "A view raises KeyError and Flask answers 500. On the request event recorded by the instrumentation, where is the KeyError?"
 options:
   - { text: "Under caught, as a note made from Flask's exception handler; exception is None because the application returned normally", correct: true }

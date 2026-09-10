@@ -28,6 +28,7 @@ entry, and every request the process served became one tree.
 ```{quiz}
 :id: noted
 :title: Two scopes, one failure
+:shuffle: true
 question: "The request line for /quote/missing read 500 INTERNAL SERVER ERROR !! KeyError. Where did the KeyError on the request line come from, given that the WSGI application returned normally?"
 options:
   - { text: "A binding on Flask's handle_exception noted it against the enclosing request event with current_event(kind=\"request\").note_exception()", correct: true }

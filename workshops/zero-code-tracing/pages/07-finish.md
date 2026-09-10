@@ -29,6 +29,7 @@ autowrapt, applied that file before the program ran.
 ```{quiz}
 :id: deferral
 :title: Pending entries
+:shuffle: true
 question: "The first report in operate.py listed every observe entry as pending, even though the config had already been applied. Why?"
 options:
   - { text: "Applying a config registers a post-import hook per target and imports nothing; the bindings land when the application imports shop itself", correct: true }

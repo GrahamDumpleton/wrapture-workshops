@@ -27,6 +27,7 @@ results, and costs next to nothing when nothing is listening.
 ```{quiz}
 :id: orphans
 :title: Orphaned calls
+:shuffle: true
 question: "With when=acme_only on the place binding and no tree=True, why did the globex orders' Gateway.charge lines appear at the left margin?"
 options:
   - { text: "The decline skipped only the place event, so the charge events recorded with nothing above them and became roots", correct: true }

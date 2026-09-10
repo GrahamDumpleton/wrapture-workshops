@@ -25,6 +25,7 @@ Four producers, one tape:
 ```{quiz}
 :id: inert-when-silent
 :title: Leaving them in
+:shuffle: true
 question: "shop.py calls block(), annotate() and note_exception() unconditionally. What do those calls cost in production when nothing is listening?"
 options:
   - { text: "Nothing is built at all: no event, no data, no tape; each call is a no-op until a sink or a timeline is listening", correct: true }

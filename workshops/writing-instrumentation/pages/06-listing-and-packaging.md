@@ -94,6 +94,7 @@ second page relied on.
 ```{quiz}
 :id: import-posture
 :title: The import posture
+:shuffle: true
 question: "Why must the module that defines an Instrumentation class never import the library it patches at the top?"
 options:
   - { text: "wrapture imports the class when the config loads, before the application imports anything, so a top-level import would drag the library in ahead of the hook meant to fire on its import", correct: true }

@@ -31,6 +31,7 @@ The suite never went red, and each idiom found its spelling:
 ```{quiz}
 :id: no-translation
 :title: What has no translation
+:shuffle: true
 question: "Which of these mock idioms has no wrapture equivalent, by design?"
 options:
   - { text: "A bare Mock() handed to the code under test as a collaborator", correct: true }

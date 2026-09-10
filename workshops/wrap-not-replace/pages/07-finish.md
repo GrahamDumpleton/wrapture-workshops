@@ -31,6 +31,7 @@ spec-less `MagicMock` whose attributes exist on first touch.
 ```{quiz}
 :id: wrap-or-replace
 :title: Wrap or replace
+:shuffle: true
 question: "In test_error_path_with_wrapture, which of the four bound methods had their real code run?"
 options:
   - { text: "charge and refund", correct: true }

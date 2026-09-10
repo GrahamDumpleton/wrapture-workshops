@@ -37,6 +37,7 @@ add `jitter` to spread the aligned openings.
 ```{quiz}
 :id: batch-restart
 :title: A batch and a restart
+:shuffle: true
 question: "A config has a window with at = \"22:00\", every = \"1h\" and times = 12, an overnight batch. The service is restarted at 01:30. What happens to the batch?"
 options:
   - { text: "The remaining runs are not made: times counts runs of this process, and nothing is persisted or resumed", correct: true }

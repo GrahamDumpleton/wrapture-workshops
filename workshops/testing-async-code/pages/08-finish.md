@@ -29,6 +29,7 @@ when the outcome arrives:
 ```{quiz}
 :id: pending-never
 :title: The habit worth keeping
+:shuffle: true
 question: "Why adopt send.events.pending().assert_never() in every async test, even ones that pass today?"
 options:
   - { text: "It costs nothing while every call is awaited, and it is the line that fails when someone later deletes an await", correct: true }

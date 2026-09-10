@@ -27,6 +27,7 @@ One owner per binding, and a plugin for when that rule is broken:
 ```{quiz}
 :id: fixture-handle
 :title: What a test may do with a fixture's binding
+:shuffle: true
 question: "A yield fixture applies a binding and yields it. Which of these may a test that receives it do?"
 options:
   - { text: "Reconfigure it through on_call, as often as it likes", correct: true }

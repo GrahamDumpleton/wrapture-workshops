@@ -53,6 +53,7 @@ result == {"id": "ch_TEST", "amount": 500} and gateway.charge(500)["id"] == "ch_
 ```{quiz}
 :id: real-code-ran
 :title: What ran
+:shuffle: true
 question: In the cell above, where did the amount of 500 in the result come from?
 options:
   - { text: "The real charge() method, which the binding let run", correct: true }

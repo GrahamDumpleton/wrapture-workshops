@@ -23,6 +23,7 @@ The trace outlived the process:
 ```{quiz}
 :id: completion-order
 :title: The order of the lines
+:shuffle: true
 question: "In trace.jsonl a store line appears before the process line that contains it. Why?"
 options:
   - { text: "A line is written when an event closes, and the inner call closes first; seq and parent_id rebuild the tree", correct: true }

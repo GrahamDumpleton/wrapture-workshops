@@ -26,6 +26,7 @@ One opt-out from wrapping, and it stayed strict:
 ```{quiz}
 :id: misspelled-method
 :title: What a double does with a name it does not know
+:shuffle: true
 question: "The pipeline is changed to call transport.open_channnel(), with three n's. What happens when a test runs it with wrapture.mock(Transport)?"
 options:
   - { text: "AttributeError at the call site inside the pipeline, naming the attribute the spec does not have", correct: true }

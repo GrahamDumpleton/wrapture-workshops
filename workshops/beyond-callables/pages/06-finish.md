@@ -27,6 +27,7 @@ it is named:
 ```{quiz}
 :id: dict-spelling
 :title: Which spelling
+:shuffle: true
 question: "Another module did `from config import SETTINGS` at import time. Which binding changes the tax rate it sees during a test?"
 options:
   - { text: "binding(config, \"SETTINGS\", mode=\"mapping\").updates({\"tax_rate\": 0.0})", correct: true }

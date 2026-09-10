@@ -31,6 +31,7 @@ operation's child.
 ```{quiz}
 :id: join-or-link
 :title: Join or link
+:shuffle: true
 question: "A worker takes a job off a queue an hour after a request put it there, and the job's tree should relate to that request. Which spelling is right, and why?"
 options:
   - { text: "block(..., links=[headers]): the request moved on long ago, so the job is a trace of its own with a link back", correct: true }
