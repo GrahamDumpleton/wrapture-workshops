@@ -1,0 +1,58 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: streaming-and-generators
+title: Testing what a consumer does with a stream
+version: 0.1.0
+description: Test the consumers of a paginated catalogue against the real generator. One event per iteration with a live item count and whether it finished, an iterator proxy that sees every item and hears the end, a failure injected at exactly the page you choose, items transformed on the way through, the proxy on the consumer's argument, and the whole thing as a pytest test.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/streaming-and-generators
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, generators, pytest]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - write-files: [workspace]
+  - kernel-exec
+  - install-packages
+environment:
+  requirements: requirements.txt
+  kernel: workshop-streaming-and-generators
+finish: |
+  The generator stayed real throughout, and two layers answered what
+  a canned list never could: the binding recorded each iteration as
+  one event, with how far the consumer read and whether it finished,
+  and the proxy inside it watched every item, heard the end or the
+  abandonment, failed the stream at the page you chose, and reshaped
+  the pages on their way through, on the producer's result or the
+  consumer's argument.
+
+  Next is **Async methods and generators** (`testing-async-code`),
+  where the same ideas meet `await`: an outcome that arrives on
+  await, the coroutine that was never awaited, and an async generator
+  with stubbed items.
+
+  The [streaming data example](https://wrapture.readthedocs.io/en/latest/example-streaming-data.html)
+  is this workshop's source, and the
+  [iterators and generators](https://wrapture.readthedocs.io/en/latest/monkey-patching.html#iterators-and-generators)
+  section of the monkey patching guide is the reference for the
+  proxy: the full protocol guarantees, async generators and plain
+  iterators, and `decorates()` for wrapping conditionally.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+gating: soft
+variables:
+  - name: notebook
+    type: path
+    default: streaming-and-generators.ipynb
+    description: The notebook the exercises are done in
+pages:
+  - pages/01-welcome.md
+  - pages/02-one-event-per-iteration.md
+  - pages/03-watching-each-item.md
+  - pages/04-failing-at-page-two.md
+  - pages/05-transforming-items.md
+  - pages/06-the-consumer-side.md
+  - pages/07-as-a-pytest-test.md
+  - pages/08-finish.md

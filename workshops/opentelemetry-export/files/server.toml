@@ -1,0 +1,30 @@
+# The quote service: wrap the WSGI application in the recording
+# middleware and observe the helper beneath it. The middleware parses
+# the traceparent header the client sends, so every tree recorded here
+# carries the client's trace id rather than minting its own, and the
+# [otel] sink creates the request span with that identity as a remote
+# parent.
+
+[[observe]]
+target = "backend"
+name = "app"
+mode = "wsgi"
+
+[[observe]]
+target = "backend"
+name = "quote"
+
+[[sink]]
+type = "printer"
+
+[[sink]]
+type = "jsonlines"
+path = "server.jsonl"
+
+[otel]
+service_name = "quote-service"
+signals = ["traces"]
+exceptions = "message"
+
+[otel.environment]
+bsp_schedule_delay = 1000

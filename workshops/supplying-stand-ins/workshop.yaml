@@ -1,0 +1,57 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: supplying-stand-ins
+title: When the test must supply the callable
+version: 0.1.0
+description: Test a pipeline whose transport and completion hook the test itself has to supply. A stub for the hook, opted back into strictness with the real signature, a collaborator double built from the named class that fabricates nothing, both recorded on the same tape, order asserted across a batch, and failure paths reconfigured in place.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/supplying-stand-ins
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, mock]
+duration: 15m
+platforms: [linux, macos]
+capabilities:
+  - write-files: [workspace]
+  - kernel-exec
+  - install-packages
+environment:
+  requirements: requirements.txt
+  kernel: workshop-supplying-stand-ins
+finish: |
+  You have supplied the two things the pipeline could not be tested
+  without: a stub for the hook, permissive by choice and strict again
+  with `mimics=`, and a collaborator double from `mock(Channel)` and
+  `mock(Transport)` that answered exactly the spec and nothing more.
+  Both recorded on the same tape as any binding would, so the batch's
+  order was one assertion, and the failure path was one `raises()`
+  away.
+
+  Next is **Testing what a consumer does with a stream**
+  (`streaming-and-generators`), where the code under test consumes a
+  generator and the questions are how far it read and what it did
+  when a page failed to arrive.
+
+  The [supplying hooks and collaborators](https://wrapture.readthedocs.io/en/latest/example-supplied-stand-ins.html)
+  example ends with the same pieces as a pytest suite, and the
+  [stub()](https://wrapture.readthedocs.io/en/latest/unit-testing.html#supplying-a-stand-in-with-stub)
+  and [mock()](https://wrapture.readthedocs.io/en/latest/unit-testing.html#a-collaborator-double-with-mock)
+  sections of the unit testing guide cover `kind=` for coroutine and
+  generator stand-ins and substituting a whole class at a location.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+gating: soft
+variables:
+  - name: notebook
+    type: path
+    default: supplying-stand-ins.ipynb
+    description: The notebook the exercises are done in
+pages:
+  - pages/01-welcome.md
+  - pages/02-a-stub-as-the-hook.md
+  - pages/03-opting-back-into-strictness.md
+  - pages/04-the-collaborator-strictly.md
+  - pages/05-asserting-across-the-batch.md
+  - pages/06-failure-paths.md
+  - pages/07-finish.md

@@ -1,0 +1,59 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: opentelemetry-export
+title: The same events, sent to a backend
+version: 0.1.0
+description: Switch on OpenTelemetry export for the Flask shop with one table in the config and read what it sends, with no collector needed. The request span named by its route, the view span beneath it, the exception on both, and the histograms after an export interval. Then a client and a service, and one trace id across both.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/opentelemetry-export
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, tracing, flask, opentelemetry]
+duration: 20m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+  - network
+requires:
+  tools:
+    - { name: curl, hint: { macos: brew install curl, linux: apt install curl } }
+env:
+  PAGER: cat
+  PYTHONUNBUFFERED: "1"
+finish: |
+  The three bindings on the shop have not changed since the first
+  testing workshop. In a test they fed a tape, in a terminal they fed
+  a printer, and here they fed a backend: a request as one tree of
+  spans named by route, a `KeyError` on the view span and on the
+  request span that answered 500 because of it, histograms aggregated
+  from the same events, and a trace id that survived crossing to
+  another process. The only thing that changed along the way is who
+  was listening.
+
+  This is the end of the first tier. Next is **wrapture and pytest,
+  properly** (`wrapture-with-pytest`), the first of the workshops that
+  take one topic in depth: the scoping styles, the plugin's leak
+  sweep and `tape` fixture, and a query budget for a whole suite.
+
+  The [OpenTelemetry export guide](https://wrapture.readthedocs.io/en/latest/otel-export.html)
+  has the rest of the table, including sampling, the logs signal, the
+  data-key contracts for request and categorised events, and what
+  export costs, and the
+  [trace identity section](https://wrapture.readthedocs.io/en/latest/ad-hoc-tracing.html#trace-identity-and-propagation)
+  of the tracing guide covers the headers.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:webshop.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.4 }
+      - { area: right, widgets: ["terminal:client"], size: 0.5 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-one-table.md
+  - pages/03-metrics-for-free.md
+  - pages/04-one-trace-across-two-processes.md
+  - pages/05-finish.md

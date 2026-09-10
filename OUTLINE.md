@@ -359,7 +359,21 @@ A final optional page on distributed tracing using the
 trace-propagation example, which is standard library only: two
 processes, one trace id across both files.
 
-- Format: two terminals and files.
+- Format: two terminals and files. The server's standard output,
+  where the console exporters print, is copied to a file through
+  `tee -i` so the checks can read it (the `-i` keeps `tee` alive
+  through the `interrupt` that stops the server, so the spans and
+  metrics flushed at exit reach the file), and a shipped `spans.py`
+  reads the concatenated JSON documents back, for the learner and
+  the checks alike. The config sets `exceptions = "message"` so the
+  spans fit a terminal, and `[otel.environment]` shortens the batch
+  processor's delay, which doubles as the example of the file
+  carrying defaults for the SDK's own variables. The distributed
+  page uses the example's client and service code but the packaged
+  `urllib.request` instrumentation in place of the example's local
+  class, since wrapture-instrumentation is installed anyway, and both
+  sides export with the console exporter so a check can see the
+  server's request span parented under the client's span.
 
 - Requires: wrapture with the `otel` extra, wrapture-instrumentation,
   flask.
@@ -367,7 +381,7 @@ processes, one trace id across both files.
 - Source: post "OpenTelemetry export in wrapture"; docs
   otel-export; examples trace-propagation.
 
-- Length: 15 to 20 minutes.
+- Length: 20 minutes.
 
 ## Tier two: one topic, in depth
 
@@ -386,7 +400,16 @@ query budget fixture from the ad-hoc tracing page, the one to leave
 running under a whole suite.
 
 - Format: terminal and files. Every page runs `pytest` and the check
-  reads its output.
+  reads its output. The leak page first runs the leaking test
+  without the plugin, so the learner sees the wrong test fail, then
+  loads the plugin from `conftest.py`; pytest counts the leaking test
+  as passed and errored at teardown, so the check reads "2 passed, 1
+  error". The shared-declaration page clears behaviour with
+  `on_call.reset()`, which is where `reset()` lives at 1.0.0a22 (the
+  guide's "clear it with `reset()`" is on the channel, not the
+  binding). The budget page ships a `database.py` whose repository
+  has the N+1 shape and rewrites it to one query with an
+  `editor-replace` on the method.
 
 - Requires: wrapture, pytest.
 
@@ -407,7 +430,16 @@ and `monkeypatch.setenv`, `Mock(wraps=...)`, `assert_has_calls`, and
 `caplog`. Ends with the case to leave as mock: a spec-less object
 invented as it is touched.
 
-- Format: terminal and files.
+- Format: terminal and files. The mock tests are converted in place:
+  each page replaces a whole test function with a regex
+  `editor-replace` (`^def test_x\(.*\n(?:    .*\n)+`, which needs
+  the shipped tests to have no blank lines inside a function), and
+  the check requires the mock version gone, the wrapture version
+  present and ten passes, the count never dropping. This copy of the
+  shop gains what the idioms need: a warning logged on a declined
+  card, a currency read from `SHOP_CURRENCY`, a notifier that
+  delivers through a transport it is handed (the spec-less case), and
+  `place_with_retry()` for the sequence of outcomes.
 
 - Requires: wrapture, pytest.
 
@@ -425,7 +457,11 @@ tape. Opting a stub back into strictness, asserting across a batch,
 failure paths reconfigured in place. The one deliberate opt-out from
 wrap-not-replace, and where its limits are.
 
-- Format: notebook.
+- Format: notebook. `pipeline.py` defines the hook contract as a
+  function, `on_complete(job, outcome)`, for `stub(mimics=...)` to
+  borrow. A stub's or double's `events` raise outside a timeline, so
+  every cell reads what it asserts on inside the block and keeps it
+  in a variable for the check.
 
 - Requires: wrapture.
 
@@ -693,7 +729,9 @@ wrapture-instrumentation is pinned to 1.0.0a1, the release on PyPI
 that requires wrapture 1.0.0a19 or later; its `flask` target supports
 Flask 3 and takes the `ignore_paths`, `lifecycle`, `handled_errors`,
 `templates` and `redact` settings the post describes. autowrapt (1.0)
-and pytest-asyncio are only installed by the workshops that use them.
+and pytest-asyncio are only installed by the workshops that use them,
+and the `otel` extra (opentelemetry-sdk 1.44 at the time of writing)
+only by `opentelemetry-export`.
 
 **Platform.** linux and macos. Windows is not declared: several
 workshops use `curl`, `kill -USR1`, two terminals and
@@ -718,8 +756,10 @@ every launch.
 
 **Ports.** Servers bind explicit ports above 5000 to stay clear of
 macOS AirPlay, one distinct port per workshop so two workshops opened
-in one session do not collide: `tracing-flask` uses 5071 and
-`finding-slow-code` 5072, and the next server workshop takes 5073.
+in one session do not collide: `tracing-flask` uses 5071,
+`finding-slow-code` 5072, and `opentelemetry-export` 5073 for the
+Flask shop and 5074 for the quote service on its last page; the next
+server workshop takes 5075.
 
 **Checks.** Every page ends with something checkable, on the
 substrate its format allows (see the extension features section).
@@ -849,7 +889,10 @@ output; `tracing-flask` adds a running server, stopped with an
 the printer so the checks can read what the server recorded; then the
 core of the testing arc, then the tracing arc; then tier two, starting with
 `wrapture-with-pytest` and `coming-from-mock` since they serve the
-stated audience most directly.
+stated audience most directly. Notebook workshops are replayed as one
+Python session and terminal workshops as a shell script before the
+self-test, since a self-test with an environment or a pip install
+takes minutes and a replay seconds.
 
 Each workshop is scaffolded, written, linted clean, self-tested,
 indexed, added to the README and committed before the next starts.
@@ -871,11 +914,11 @@ the table also says what is still uncommitted in the working tree.
 | 8 | `analysing-a-trace` | committed (9440c4c) |
 | 9 | `tracing-flask` | committed (9440c4c) |
 | 10 | `finding-slow-code` | committed (9440c4c) |
-| 11 | `opentelemetry-export` | planned |
-| 12 | `wrapture-with-pytest` | planned |
-| 13 | `coming-from-mock` | planned |
-| 14 | `supplying-stand-ins` | planned |
-| 15 | `streaming-and-generators` | planned |
+| 11 | `opentelemetry-export` | published |
+| 12 | `wrapture-with-pytest` | published |
+| 13 | `coming-from-mock` | published |
+| 14 | `supplying-stand-ins` | published |
+| 15 | `streaming-and-generators` | published |
 | 16 | `testing-async-code` | planned |
 | 17 | `patching-third-party-code` | planned |
 | 18 | `logs-blocks-and-notes` | planned |

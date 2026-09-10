@@ -1,0 +1,23 @@
+# The client: observe the order flow, and instrument urllib so every
+# outbound request carries the trace identity minted at each tree's
+# root. The [otel] sink claims that identity, so the id in the
+# traceparent header is the id of a span the backend really has.
+
+[[observe]]
+target = "frontend"
+match = "*"
+
+[[instrument]]
+name = "urllib.request"
+
+[[sink]]
+type = "printer"
+
+[[sink]]
+type = "jsonlines"
+path = "client.jsonl"
+
+[otel]
+service_name = "order-frontend"
+signals = ["traces"]
+exceptions = "message"

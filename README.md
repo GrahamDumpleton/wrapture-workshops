@@ -99,6 +99,47 @@ collection.
     and tag each request with its tenant. In two terminals, with
     pytest.
 
+11. **The same events, sent to a backend** (`opentelemetry-export`,
+    20 minutes). Switch on OpenTelemetry export for the Flask shop with
+    one `[otel]` table and read what the console exporters print, no
+    collector needed: the request span named by its route, the view
+    span beneath it with the exception on both, and the histograms
+    after an export interval. Then a client and a quote service, and
+    one trace id across both. In two terminals.
+
+12. **wrapture and pytest, properly** (`wrapture-with-pytest`,
+    20 minutes). Scope bindings in a suite without mixing styles, with
+    the with-block, the decorators, yield fixtures that hand the
+    binding over and shared declarations applied per test; then the
+    plugin, whose sweep fails a leaking test by name and whose `tape`
+    fixture attaches the call tree to a failure report, and a query
+    budget for the whole suite from a counter. In a terminal, with
+    pytest.
+
+13. **Converting a mock test suite** (`coming-from-mock`, 20 minutes).
+    Take a test module written with `unittest.mock` and convert it to
+    wrapture one idiom at a time, with the suite green after every
+    step: a return value, a failure, a sequence of outcomes, several
+    patches at once, a value in place, the real call with one change,
+    the order of calls, a log message, and the one test to leave as
+    mock. In a terminal, with pytest.
+
+14. **When the test must supply the callable** (`supplying-stand-ins`,
+    15 minutes). Test a pipeline whose transport and completion hook
+    the test has to supply: a stub for the hook, strict again with the
+    real signature, a collaborator double from the named class that
+    fabricates nothing, both on one tape, order across a batch, and
+    failure paths reconfigured in place. In a notebook.
+
+15. **Testing what a consumer does with a stream**
+    (`streaming-and-generators`, 15 minutes). Test the consumers of a
+    paginated catalogue against the real generator: one event per
+    iteration with the item count and whether it finished, a proxy
+    that sees every item and hears the end, a failure injected at the
+    page you choose, items transformed on the way through, the proxy
+    on the consumer's argument, and the whole thing as a pytest test.
+    In a notebook.
+
 ## Launch on Binder
 
 The badge above starts a JupyterLab on [mybinder.org](https://mybinder.org)

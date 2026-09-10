@@ -365,6 +365,190 @@
           }
         }
       ]
+    },
+    {
+      "name": "opentelemetry-export",
+      "title": "The same events, sent to a backend",
+      "description": "Switch on OpenTelemetry export for the Flask shop with one table in the config and read what it sends, with no collector needed. The request span named by its route, the view span beneath it, the exception on both, and the histograms after an export interval. Then a client and a service, and one trace id across both.",
+      "tags": [
+        "wrapture",
+        "python",
+        "tracing",
+        "flask",
+        "opentelemetry"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec",
+        "network"
+      ],
+      "duration": "20m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/opentelemetry-export",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/opentelemetry-export"
+          }
+        }
+      ]
+    },
+    {
+      "name": "wrapture-with-pytest",
+      "title": "wrapture and pytest, properly",
+      "description": "Scope bindings in a pytest suite without mixing styles, with the with-block, the decorators, yield fixtures that hand the binding to the test, and shared declarations applied per test. Then the plugin, whose sweep fails a leaking test by name and whose tape fixture attaches the call tree to a failure report, and a query budget for the whole suite from a counter.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "pytest"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec"
+      ],
+      "duration": "20m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/wrapture-with-pytest",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/wrapture-with-pytest"
+          }
+        }
+      ]
+    },
+    {
+      "name": "coming-from-mock",
+      "title": "Converting a mock test suite",
+      "description": "Take a test module written with unittest.mock and convert it to wrapture one idiom at a time, with the suite green after every step. A return value, a failure, a sequence of outcomes, several patches at once, a value in place of an environment variable, the real call with one change, the order of calls and a log message, and the one test to leave as mock.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "pytest",
+        "mock"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "terminal",
+        "write-files:workspace",
+        "kernel-exec"
+      ],
+      "duration": "20m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/coming-from-mock",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/coming-from-mock"
+          }
+        }
+      ]
+    },
+    {
+      "name": "supplying-stand-ins",
+      "title": "When the test must supply the callable",
+      "description": "Test a pipeline whose transport and completion hook the test itself has to supply. A stub for the hook, opted back into strictness with the real signature, a collaborator double built from the named class that fabricates nothing, both recorded on the same tape, order asserted across a batch, and failure paths reconfigured in place.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "mock"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "write-files:workspace",
+        "kernel-exec",
+        "install-packages"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/supplying-stand-ins",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/supplying-stand-ins"
+          }
+        }
+      ]
+    },
+    {
+      "name": "streaming-and-generators",
+      "title": "Testing what a consumer does with a stream",
+      "description": "Test the consumers of a paginated catalogue against the real generator. One event per iteration with a live item count and whether it finished, an iterator proxy that sees every item and hears the end, a failure injected at exactly the page you choose, items transformed on the way through, the proxy on the consumer's argument, and the whole thing as a pytest test.",
+      "tags": [
+        "wrapture",
+        "python",
+        "testing",
+        "generators",
+        "pytest"
+      ],
+      "platforms": [
+        "linux",
+        "macos"
+      ],
+      "capabilities": [
+        "write-files:workspace",
+        "kernel-exec",
+        "install-packages"
+      ],
+      "duration": "15m",
+      "authors": [
+        "Graham Dumpleton"
+      ],
+      "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/streaming-and-generators",
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "source": {
+            "git": "https://github.com/GrahamDumpleton/wrapture-workshops",
+            "ref": "main",
+            "subdir": "workshops/streaming-and-generators"
+          }
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,53 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: wrapture-with-pytest
+title: wrapture and pytest, properly
+version: 0.1.0
+description: Scope bindings in a pytest suite without mixing styles, with the with-block, the decorators, yield fixtures that hand the binding to the test, and shared declarations applied per test. Then the plugin, whose sweep fails a leaking test by name and whose tape fixture attaches the call tree to a failure report, and a query budget for the whole suite from a counter.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/wrapture-with-pytest
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, pytest]
+duration: 20m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+env:
+  PAGER: cat
+  PYTHONUNBUFFERED: "1"
+finish: |
+  You have given every binding in a suite one owner: a with-block, a
+  decorator, a fixture, or the test that applies a shared declaration,
+  and seen what happens when a test forgets to remove one. The plugin
+  named the leaking test and cleaned up after it, put the call tree
+  under a failure report, and printed an over-narrowed filter's
+  events. A counter then gave every test a query budget for the price
+  of one binding and no values captured.
+
+  Next is **Converting a mock test suite** (`coming-from-mock`), which
+  takes a test module written with `unittest.mock` and converts it one
+  idiom at a time, with the suite green after each step.
+
+  The [unit testing guide](https://wrapture.readthedocs.io/en/latest/unit-testing.html)
+  covers the scoping styles, the decorators, sharing declarations and
+  the plugin in full, and the
+  [counting without retaining](https://wrapture.readthedocs.io/en/latest/ad-hoc-tracing.html#counting-without-retaining)
+  section of the tracing guide is where the query budget comes from.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:shop.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-the-with-block-and-the-decorator.md
+  - pages/03-fixtures-and-shared-declarations.md
+  - pages/04-the-leak-sweep.md
+  - pages/05-the-tape-on-the-failure-report.md
+  - pages/06-a-budget-for-the-whole-suite.md
+  - pages/07-finish.md

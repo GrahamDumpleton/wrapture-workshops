@@ -1,0 +1,8 @@
+# Runtime state written by the workshop extension
+_workshop/
+
+# Published archives
+dist/
+
+# The learner's workspace, filled from files/ when the workshop opens
+work/

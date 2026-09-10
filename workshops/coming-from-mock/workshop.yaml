@@ -1,0 +1,56 @@
+apiVersion: jupyterlab-workshop/v1alpha1
+name: coming-from-mock
+title: Converting a mock test suite
+version: 0.1.0
+description: Take a test module written with unittest.mock and convert it to wrapture one idiom at a time, with the suite green after every step. A return value, a failure, a sequence of outcomes, several patches at once, a value in place of an environment variable, the real call with one change, the order of calls and a log message, and the one test to leave as mock.
+authors: [Graham Dumpleton]
+homepage: https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/coming-from-mock
+issues: https://github.com/GrahamDumpleton/wrapture-workshops/issues
+tags: [wrapture, python, testing, pytest, mock]
+duration: 20m
+platforms: [linux, macos]
+capabilities:
+  - terminal
+  - write-files: [workspace]
+  - kernel-exec
+env:
+  PAGER: cat
+  PYTHONUNBUFFERED: "1"
+finish: |
+  Nine tests converted, one left alone, and the suite green after every
+  step. Each idiom had a spelling on the other side: `return_value` and
+  `side_effect` as behaviours, a list of outcomes as phases,
+  `patch.multiple` as a group, `patch.dict` and `setenv` as a value
+  binding, `wraps` as the real call with one thing changed,
+  `assert_has_calls` as order on the tape, and `caplog` as log events
+  with a position. The test that stayed as it was is the one whose
+  double has no class to name.
+
+  Next is **When the test must supply the callable**
+  (`supplying-stand-ins`), which takes the other side of that last
+  page: `stub()` for a hook and `mock(Spec)` for a collaborator, both
+  strict, both on the tape.
+
+  The [coming from unittest.mock](https://wrapture.readthedocs.io/en/latest/coming-from-mock.html)
+  page has the whole translation table, including the async
+  idioms this workshop left out.
+layout: default
+layouts:
+  default:
+    left: collapsed
+    right: { widget: instructions, size: 0.3 }
+    main:
+      - { area: top, widgets: ["file:test_shop.py"] }
+      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+gating: soft
+pages:
+  - pages/01-welcome.md
+  - pages/02-a-value-and-a-failure.md
+  - pages/03-a-sequence-of-outcomes.md
+  - pages/04-several-at-once.md
+  - pages/05-a-value-in-place.md
+  - pages/06-the-real-call-with-one-change.md
+  - pages/07-the-order-of-calls.md
+  - pages/08-a-log-message.md
+  - pages/09-what-to-leave-as-mock.md
+  - pages/10-finish.md
