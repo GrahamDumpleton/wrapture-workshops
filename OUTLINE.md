@@ -942,7 +942,8 @@ the table also says what is still uncommitted in the working tree.
   actions not scrolling to the cell they act on, and the harness dying
   when its output goes through a pipe), all fixed in 0.1.17. The gaps
   in the authoring skill that the same two workshops exposed were
-  filled in 0.1.18, which the project now pins.
+  filled in 0.1.18. The panel not scrolling to content that grows in
+  place was fixed in 0.1.19, which the project now pins.
 
 ## Open questions
 
