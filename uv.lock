@@ -905,15 +905,15 @@ wheels = [
 
 [[package]]
 name = "jupyterlab-workshop"
-version = "0.1.21"
+version = "0.1.23"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jupyter-server" },
     { name = "pyyaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f3/5a/71242e9195520068c18a83e87cd37ad4ac02da22739388dd97bc0eb55979/jupyterlab_workshop-0.1.21.tar.gz", hash = "sha256:7b15b0eb2c0dbefa08f216f3418ac033e194edc4700d8af5bcd9af3d448fef24", size = 1293698, upload-time = "2026-09-11T00:06:14.012Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/59/99/176b859caadf5da430b60cf8c45b1c3158e2360a0ad408676b87f3ad8a64/jupyterlab_workshop-0.1.23.tar.gz", hash = "sha256:f56c72e94cd89a44517ec950e8fda5c51cd39957ff04f7851902ca26fee60c45", size = 1294412, upload-time = "2026-09-11T02:13:41.155Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d7/e5/e226933b5fda7363aa9226e1c835e2fca3448e3d1706cb21066f04b32c16/jupyterlab_workshop-0.1.21-py3-none-any.whl", hash = "sha256:2d3869a7f330e20a1107697a8265f84f2427c31de6a20752bc217df10e0c681a", size = 450601, upload-time = "2026-09-11T00:06:12.352Z" },
+    { url = "https://files.pythonhosted.org/packages/f0/a7/d9d615e7a51e22f402408039ddfd3924857bde89d3ba71e47b2b7397d7da/jupyterlab_workshop-0.1.23-py3-none-any.whl", hash = "sha256:d989d8160ddc4fd1ffbafa07597d281e3d0fa2eaf3a924414070658ed8c96ae4", size = 450932, upload-time = "2026-09-11T02:13:39.278Z" },
 ]
 
 [package.optional-dependencies]
@@ -1833,7 +1833,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "jupyterlab", specifier = ">=4.6,<5" },
-    { name = "jupyterlab-workshop", specifier = "==0.1.21" },
+    { name = "jupyterlab-workshop", specifier = "==0.1.23" },
 ]
 
 [package.metadata.requires-dev]
