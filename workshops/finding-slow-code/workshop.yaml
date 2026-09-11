@@ -20,6 +20,12 @@ requires:
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
+variables:
+  - name: server_port
+    type: number
+    default: 5072
+    description: Port the shop listens on; change it if that port is taken
 finish: |
   You have found where a slow endpoint spends its time without a timer
   in any layer: the tree with times on every line, self time to tell

@@ -35,12 +35,21 @@ exporter and its output copied to a file as before.
 rm -f server.jsonl && OTEL_TRACES_EXPORTER=console python -m wrapture --config server.toml server.py | tee -i server-spans.log
 ```
 
+```{hint}
+:title: If the port is already in use
+The quote service listens on port {{ quote_port }}, which is the workshop
+variable `quote_port`. If starting it fails because another program has
+that port, open the Variables dialog with the gear button in the panel
+header, set `quote_port` to a free port, and run the start action again.
+The commands and checks on these pages follow the new value.
+```
+
 ```{verify}
 :id: quote-service-up
-:label: The quote service answers on port 5074
+:label: The quote service answers on port {{ quote_port }}
 :substrate: shell
 :trigger: after:start-quote-service
-curl -sf http://127.0.0.1:5074/quote/widget && echo "The quote service answers on port 5074"
+curl -sf http://127.0.0.1:{{ quote_port }}/quote/widget && echo "The quote service answers on port {{ quote_port }}"
 ```
 
 That request came from the check, with no `traceparent` header, so

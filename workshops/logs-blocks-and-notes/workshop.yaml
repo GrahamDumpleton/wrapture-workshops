@@ -16,6 +16,8 @@ capabilities:
 environment:
   requirements: requirements.txt
   kernel: workshop-logs-blocks-and-notes
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   The tape held more than calls. A log message became an event nested
   inside the call that emitted it, so the assertion said which call

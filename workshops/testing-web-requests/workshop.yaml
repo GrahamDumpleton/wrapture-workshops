@@ -16,6 +16,7 @@ capabilities:
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   The request became something a test can hold. The Flask
   instrumentation ran for the scope of a fixture, the plugin's tape

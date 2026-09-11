@@ -7,12 +7,13 @@ in the catalog, round and round, a few dozen requests a second.
 """
 
 import json
+import os
 import sys
 import time
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
-BASE = "http://127.0.0.1:5075"
+BASE = "http://127.0.0.1:" + os.environ.get("SERVER_PORT", "5075")
 
 ORDER = {"amount": 500, "card": "4111-1111-1111-1111", "tenant": "acme"}
 DECLINED = {"amount": 250, "card": "4000-0000-0000-0000", "tenant": "globex"}

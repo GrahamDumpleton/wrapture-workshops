@@ -16,6 +16,8 @@ capabilities:
 environment:
   requirements: requirements.txt
   kernel: workshop-recording-calls
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   You have recorded real calls with bindings that did nothing but
   watch, read one event's fields, paired acquisitions with releases,

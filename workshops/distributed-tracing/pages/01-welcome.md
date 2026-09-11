@@ -24,7 +24,7 @@ line carries it under its `trace` key.
 {open}`client.py` places three orders through {open}`frontend.py`,
 which fetches quotes over HTTP with `urllib`, and {open}`server.py`
 serves them from {open}`backend.py`, a WSGI application with no
-framework at all, on port 5076. Neither side imports anything beyond
+framework at all, on port {{ quote_port }}. Neither side imports anything beyond
 the standard library, and the server never mentions wrapture. The
 client's one embedded touch is a pair of `wrapture.block()` markers
 in `fetch_quote`, splitting the exchange into making the request and

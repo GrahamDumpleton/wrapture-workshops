@@ -50,15 +50,15 @@ in `traffic.py` already carries an `X-Tenant` header.
 :session: shell
 :title: Start the server again with the tenant hook
 :wait: 3s
-rm -f trace.jsonl stats.txt && python -m wrapture -m flask --app webshop run --port 5072
+rm -f trace.jsonl stats.txt && python -m wrapture -m flask --app webshop run --port {{ server_port }}
 ```
 
 ```{verify}
 :id: server-up-tagged
-:label: The server answers on port 5072 with the hook in place
+:label: The server answers on port {{ server_port }} with the hook in place
 :substrate: shell
 :trigger: after:restart-tagged
-curl -sf -o /dev/null http://127.0.0.1:5072/health && echo "The server answers on port 5072"
+curl -sf -o /dev/null http://127.0.0.1:{{ server_port }}/health && echo "The server answers on port {{ server_port }}"
 ```
 
 ```{execute}

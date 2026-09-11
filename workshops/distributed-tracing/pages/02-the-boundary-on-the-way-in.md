@@ -47,12 +47,21 @@ left. It keeps that terminal until it is stopped.
 rm -f server.jsonl && python -m wrapture --config server.toml server.py
 ```
 
+```{hint}
+:title: If the port is already in use
+The quote service listens on port {{ quote_port }}, which is the workshop
+variable `quote_port`. If starting it fails because another program has
+that port, open the Variables dialog with the gear button in the panel
+header, set `quote_port` to a free port, and run the start action again.
+The commands and checks on these pages follow the new value.
+```
+
 ```{verify}
 :id: server-up
-:label: The quote service answers on port 5076
+:label: The quote service answers on port {{ quote_port }}
 :substrate: shell
 :trigger: after:start-server
-curl -sf http://127.0.0.1:5076/quote/widget && echo "The quote service answers on port 5076"
+curl -sf http://127.0.0.1:{{ quote_port }}/quote/widget && echo "The quote service answers on port {{ quote_port }}"
 ```
 
 That request came from the check, with no `traceparent` header, so

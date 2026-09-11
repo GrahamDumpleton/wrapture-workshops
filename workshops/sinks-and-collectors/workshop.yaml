@@ -15,6 +15,7 @@ capabilities:
   - kernel-exec
 env:
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   Events went where you sent them. A sink of your own heard three
   notifications and kept a dictionary, a process sink heard the

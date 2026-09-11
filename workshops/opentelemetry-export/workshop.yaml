@@ -20,6 +20,16 @@ requires:
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
+variables:
+  - name: server_port
+    type: number
+    default: 5073
+    description: Port the shop listens on; change it if that port is taken
+  - name: quote_port
+    type: number
+    default: 5074
+    description: Port the quote service listens on; change it if that port is taken
 finish: |
   The three bindings on the shop have not changed since the first
   testing workshop. In a test they fed a tape, in a terminal they fed

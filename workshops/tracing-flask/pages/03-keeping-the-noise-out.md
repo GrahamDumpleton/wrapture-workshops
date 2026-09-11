@@ -27,15 +27,15 @@ page sees only what this page sends.
 :session: shell
 :title: Start the server again under the new config
 :wait: 3s
-rm -f trace.jsonl && python -m wrapture -m flask --app webshop run --port 5071
+rm -f trace.jsonl && python -m wrapture -m flask --app webshop run --port {{ server_port }}
 ```
 
 ```{verify}
 :id: server-up-again
-:label: The server answers on port 5071 again
+:label: The server answers on port {{ server_port }} again
 :substrate: shell
 :trigger: after:restart-server
-curl -sf -o /dev/null http://127.0.0.1:5071/health && echo "The server answers on port 5071"
+curl -sf -o /dev/null http://127.0.0.1:{{ server_port }}/health && echo "The server answers on port {{ server_port }}"
 ```
 
 This time the probe left only Flask's access log line behind. Send a
@@ -46,14 +46,14 @@ quote, to see the difference side by side.
 :id: curl-health
 :session: client
 :wait: prompt
-curl http://127.0.0.1:5071/health
+curl http://127.0.0.1:{{ server_port }}/health
 ```
 
 ```{execute}
 :id: curl-gadget
 :session: client
 :wait: prompt
-curl http://127.0.0.1:5071/quote/gadget
+curl http://127.0.0.1:{{ server_port }}/quote/gadget
 ```
 
 ```

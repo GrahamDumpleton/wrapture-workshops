@@ -1,10 +1,11 @@
-"""Serve the quote service on port 5074.
+"""Serve the quote service on the port QUOTE_PORT names (5074 by default).
 
 Each request the client sends prints as one tree here, carrying the
 same trace id the client minted; server.jsonl records the events with
 the id on every line. Stop with Ctrl-C.
 """
 
+import os
 from wsgiref.simple_server import WSGIRequestHandler, make_server
 
 from backend import app
@@ -19,8 +20,10 @@ class QuietHandler(WSGIRequestHandler):
 
 
 def main():
-    with make_server("127.0.0.1", 5074, app, handler_class=QuietHandler) as server:
-        print("quote service on http://127.0.0.1:5074, Ctrl-C to stop")
+    port = int(os.environ.get("QUOTE_PORT", "5074"))
+
+    with make_server("127.0.0.1", port, app, handler_class=QuietHandler) as server:
+        print(f"quote service on http://127.0.0.1:{port}, Ctrl-C to stop")
         try:
             server.serve_forever()
         except KeyboardInterrupt:

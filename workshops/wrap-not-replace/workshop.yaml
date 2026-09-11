@@ -16,6 +16,7 @@ capabilities:
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   You have written the same tests twice and seen where wrapping the real
   code lets a test say more: a stub that rejects a drifted call, a

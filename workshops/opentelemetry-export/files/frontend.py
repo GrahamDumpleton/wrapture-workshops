@@ -14,12 +14,13 @@ unobserved.
 """
 
 import json
+import os
 from urllib.error import HTTPError
 from urllib.request import urlopen
 
 import wrapture
 
-BASE = "http://127.0.0.1:5074"
+BASE = "http://127.0.0.1:" + os.environ.get("QUOTE_PORT", "5074")
 
 
 def fetch_quote(item):

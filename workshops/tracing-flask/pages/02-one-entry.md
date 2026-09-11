@@ -51,15 +51,24 @@ terminal on the left until it is stopped.
 :session: shell
 :title: Start the development server under the runner
 :wait: 3s
-python -m wrapture -m flask --app webshop run --port 5071
+python -m wrapture -m flask --app webshop run --port {{ server_port }}
+```
+
+```{hint}
+:title: If the port is already in use
+The shop listens on port {{ server_port }}, which is the workshop
+variable `server_port`. If starting it fails because another program has
+that port, open the Variables dialog with the gear button in the panel
+header, set `server_port` to a free port, and run the start action again.
+The commands and checks on these pages follow the new value.
 ```
 
 ```{verify}
 :id: server-up
-:label: The server answers on port 5071
+:label: The server answers on port {{ server_port }}
 :substrate: shell
 :trigger: after:start-server
-curl -sf -o /dev/null http://127.0.0.1:5071/health && echo "The server answers on port 5071"
+curl -sf -o /dev/null http://127.0.0.1:{{ server_port }}/health && echo "The server answers on port {{ server_port }}"
 ```
 
 That check sent a request to `/health` to see that the server was up,
@@ -72,28 +81,28 @@ item that does not exist.
 :id: curl-quote
 :session: client
 :wait: prompt
-curl http://127.0.0.1:5071/quote/widget
+curl http://127.0.0.1:{{ server_port }}/quote/widget
 ```
 
 ```{execute}
 :id: curl-order
 :session: client
 :wait: prompt
-curl -X POST -H 'Content-Type: application/json' -d '{"amount": 500, "card": "4111-1111-1111-1111", "tenant": "acme"}' http://127.0.0.1:5071/order
+curl -X POST -H 'Content-Type: application/json' -d '{"amount": 500, "card": "4111-1111-1111-1111", "tenant": "acme"}' http://127.0.0.1:{{ server_port }}/order
 ```
 
 ```{execute}
 :id: curl-declined
 :session: client
 :wait: prompt
-curl -X POST -H 'Content-Type: application/json' -d '{"amount": 250, "card": "4000-0000-0000-0000", "tenant": "globex"}' http://127.0.0.1:5071/order
+curl -X POST -H 'Content-Type: application/json' -d '{"amount": 250, "card": "4000-0000-0000-0000", "tenant": "globex"}' http://127.0.0.1:{{ server_port }}/order
 ```
 
 ```{execute}
 :id: curl-missing
 :session: client
 :wait: prompt
-curl http://127.0.0.1:5071/quote/missing
+curl http://127.0.0.1:{{ server_port }}/quote/missing
 ```
 
 In the server's terminal, interleaved with Flask's own access log

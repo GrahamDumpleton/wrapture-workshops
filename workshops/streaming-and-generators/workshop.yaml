@@ -16,6 +16,8 @@ capabilities:
 environment:
   requirements: requirements.txt
   kernel: workshop-streaming-and-generators
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   The generator stayed real throughout, and two layers answered what
   a canned list never could: the binding recorded each iteration as

@@ -1,4 +1,4 @@
-"""Send thirty requests to the shop on port 5072.
+"""Send thirty requests to the shop, on the port SERVER_PORT names (5072 by default).
 
 Ten orders for acme, ten orders for globex on a card the gateway
 declines, and ten quotes, each order carrying its tenant in an
@@ -6,10 +6,11 @@ X-Tenant header. Standard library only, so it runs on any Python.
 """
 
 import json
+import os
 import urllib.error
 import urllib.request
 
-BASE = "http://127.0.0.1:5072"
+BASE = "http://127.0.0.1:" + os.environ.get("SERVER_PORT", "5072")
 
 
 def send(method, path, body=None, tenant=None):

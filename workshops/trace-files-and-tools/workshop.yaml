@@ -15,6 +15,7 @@ capabilities:
   - kernel-exec
 env:
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   The trace outlived the process. A config sink streamed every
   completed event from both worker threads to one JSON Lines file,

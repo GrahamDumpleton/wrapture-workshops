@@ -51,7 +51,7 @@ rm -f client.jsonl && .venv/bin/python -m wrapture --config client.toml client.p
 frontend:place_order(item='widget')
   frontend:fetch_quote(item='widget')
     block: request-quote
-      urllib.open(fullurl='http://127.0.0.1:5076/quote/widget', data=None, timeout='<object object at 0x103fb07a0>')
+      urllib.open(fullurl='http://127.0.0.1:{{ quote_port }}/quote/widget', data=None, timeout='<object object at 0x103fb07a0>')
       urllib.open -> '<http.client.HTTPResponse object at 0x104b78670>' [2.9ms]
     request-quote [17.2ms]
     block: consume-reply

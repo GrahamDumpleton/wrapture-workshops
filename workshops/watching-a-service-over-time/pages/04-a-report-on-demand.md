@@ -52,15 +52,15 @@ again. The action sends Ctrl-C to the server's terminal.
 :session: shell
 :title: Start the server again under the new config
 :wait: 3s
-python -m wrapture -m flask --app webshop run --port 5075
+python -m wrapture -m flask --app webshop run --port {{ server_port }}
 ```
 
 ```{verify}
 :id: server-up-again
-:label: The server answers on port 5075 again
+:label: The server answers on port {{ server_port }} again
 :substrate: shell
 :trigger: after:restart-server
-curl -sf -o /dev/null http://127.0.0.1:5075/health && echo "The server answers on port 5075"
+curl -sf -o /dev/null http://127.0.0.1:{{ server_port }}/health && echo "The server answers on port {{ server_port }}"
 ```
 
 From the terminal on the right, send the signal to the server and put
@@ -73,7 +73,7 @@ own.
 :session: client
 :title: Open a run with a signal, then send traffic
 :wait: prompt
-kill -USR1 "$(pgrep -f 'flask --app webshop run --port 5075')" && .venv/bin/python load.py 8
+kill -USR1 "$(pgrep -f 'flask --app webshop run --port {{ server_port }}')" && .venv/bin/python load.py 8
 ```
 
 ```{execute}

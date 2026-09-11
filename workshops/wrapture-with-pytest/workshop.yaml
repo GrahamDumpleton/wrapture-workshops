@@ -16,6 +16,7 @@ capabilities:
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   You have given every binding in a suite one owner: a with-block, a
   decorator, a fixture, or the test that applies a shared declaration,

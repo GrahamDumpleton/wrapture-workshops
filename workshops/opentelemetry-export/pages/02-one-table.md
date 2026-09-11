@@ -65,15 +65,24 @@ too.
 :session: shell
 :title: Start the server under the runner with the console exporters
 :wait: 3s
-OTEL_TRACES_EXPORTER=console OTEL_METRICS_EXPORTER=console python -m wrapture -m flask --app webshop run --port 5073 | tee -i spans.log
+OTEL_TRACES_EXPORTER=console OTEL_METRICS_EXPORTER=console python -m wrapture -m flask --app webshop run --port {{ server_port }} | tee -i spans.log
+```
+
+```{hint}
+:title: If the port is already in use
+The shop listens on port {{ server_port }}, which is the workshop
+variable `server_port`. If starting it fails because another program has
+that port, open the Variables dialog with the gear button in the panel
+header, set `server_port` to a free port, and run the start action again.
+The commands and checks on these pages follow the new value.
 ```
 
 ```{verify}
 :id: server-up
-:label: The server answers on port 5073
+:label: The server answers on port {{ server_port }}
 :substrate: shell
 :trigger: after:start-server
-curl -sf -o /dev/null http://127.0.0.1:5073/health && echo "The server answers on port 5073"
+curl -sf -o /dev/null http://127.0.0.1:{{ server_port }}/health && echo "The server answers on port {{ server_port }}"
 ```
 
 Now the same four requests as in the earlier workshops, from the
@@ -84,28 +93,28 @@ item that is not in the catalog.
 :id: curl-quote
 :session: client
 :wait: prompt
-curl http://127.0.0.1:5073/quote/widget
+curl http://127.0.0.1:{{ server_port }}/quote/widget
 ```
 
 ```{execute}
 :id: curl-order
 :session: client
 :wait: prompt
-curl -X POST -H 'Content-Type: application/json' -d '{"amount": 500, "card": "4111-1111-1111-1111", "tenant": "acme"}' http://127.0.0.1:5073/order
+curl -X POST -H 'Content-Type: application/json' -d '{"amount": 500, "card": "4111-1111-1111-1111", "tenant": "acme"}' http://127.0.0.1:{{ server_port }}/order
 ```
 
 ```{execute}
 :id: curl-declined
 :session: client
 :wait: prompt
-curl -X POST -H 'Content-Type: application/json' -d '{"amount": 250, "card": "4000-0000-0000-0000", "tenant": "globex"}' http://127.0.0.1:5073/order
+curl -X POST -H 'Content-Type: application/json' -d '{"amount": 250, "card": "4000-0000-0000-0000", "tenant": "globex"}' http://127.0.0.1:{{ server_port }}/order
 ```
 
 ```{execute}
 :id: curl-missing
 :session: client
 :wait: prompt
-curl http://127.0.0.1:5073/quote/missing
+curl http://127.0.0.1:{{ server_port }}/quote/missing
 ```
 
 One event becomes one span. A request becomes a SERVER span, a call or

@@ -21,6 +21,12 @@ requires:
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
+variables:
+  - name: server_port
+    type: number
+    default: 5075
+    description: Port the shop listens on; change it if that port is taken
 finish: |
   The service was never edited and never restarted for a question. An
   `Aggregate` kept one row per bound location, a `Window` opened runs

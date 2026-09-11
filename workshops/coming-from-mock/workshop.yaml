@@ -16,6 +16,7 @@ capabilities:
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   Nine tests converted, one left alone, and the suite green after every
   step. Each idiom had a spelling on the other side: `return_value` and

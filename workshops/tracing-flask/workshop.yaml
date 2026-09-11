@@ -20,6 +20,12 @@ requires:
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
+variables:
+  - name: server_port
+    type: number
+    default: 5071
+    description: Port the shop listens on; change it if that port is taken
 finish: |
   You have traced a Flask application without changing it or naming
   it: one `[[instrument]]` entry installed the recording middleware

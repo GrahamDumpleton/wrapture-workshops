@@ -16,6 +16,7 @@ capabilities:
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   A library that knew nothing of wrapture now records every delivery
   as an external leaf, every dispatched event with its handler

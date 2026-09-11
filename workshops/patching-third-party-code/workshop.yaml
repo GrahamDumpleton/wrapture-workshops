@@ -15,6 +15,7 @@ capabilities:
   - kernel-exec
 env:
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   The vendored client was never edited, and every change to it was
   an object with a lifecycle: a transform on the way in, a wrapper

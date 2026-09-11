@@ -15,6 +15,7 @@ capabilities:
   - kernel-exec
 env:
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   You have traced a program that never mentions wrapture: the bindings
   and the sink declared in `wrapture.toml`, applied by the runner and

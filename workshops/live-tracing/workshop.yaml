@@ -15,6 +15,7 @@ capabilities:
   - kernel-exec
 env:
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   You have made a program describe what it does as it runs: three
   bindings applied in the entry point, a `Printer` listening, card

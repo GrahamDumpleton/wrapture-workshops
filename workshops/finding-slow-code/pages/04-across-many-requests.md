@@ -39,15 +39,15 @@ Start the server again with a fresh trace file.
 :session: shell
 :title: Start the server again under the new config
 :wait: 3s
-rm -f trace.jsonl stats.txt && python -m wrapture -m flask --app webshop run --port 5072
+rm -f trace.jsonl stats.txt && python -m wrapture -m flask --app webshop run --port {{ server_port }}
 ```
 
 ```{verify}
 :id: server-up-again
-:label: The server answers on port 5072 again
+:label: The server answers on port {{ server_port }} again
 :substrate: shell
 :trigger: after:restart-server
-curl -sf -o /dev/null http://127.0.0.1:5072/health && echo "The server answers on port 5072"
+curl -sf -o /dev/null http://127.0.0.1:{{ server_port }}/health && echo "The server answers on port {{ server_port }}"
 ```
 
 Now thirty requests from the terminal on the right: ten orders for one

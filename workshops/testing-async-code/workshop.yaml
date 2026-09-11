@@ -16,6 +16,8 @@ capabilities:
 environment:
   requirements: requirements.txt
   kernel: workshop-testing-async-code
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
 finish: |
   Nothing about the bindings changed for async code. A stub on an
   `async def` delivered its value or its exception on `await`, where

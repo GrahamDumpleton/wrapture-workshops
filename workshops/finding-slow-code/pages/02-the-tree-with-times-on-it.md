@@ -14,15 +14,24 @@ server under the runner, in the terminal on the left.
 :session: shell
 :title: Start the development server under the runner
 :wait: 3s
-python -m wrapture -m flask --app webshop run --port 5072
+python -m wrapture -m flask --app webshop run --port {{ server_port }}
+```
+
+```{hint}
+:title: If the port is already in use
+The shop listens on port {{ server_port }}, which is the workshop
+variable `server_port`. If starting it fails because another program has
+that port, open the Variables dialog with the gear button in the panel
+header, set `server_port` to a free port, and run the start action again.
+The commands and checks on these pages follow the new value.
 ```
 
 ```{verify}
 :id: server-up
-:label: The server answers on port 5072
+:label: The server answers on port {{ server_port }}
 :substrate: shell
 :trigger: after:start-server
-curl -sf -o /dev/null http://127.0.0.1:5072/health && echo "The server answers on port 5072"
+curl -sf -o /dev/null http://127.0.0.1:{{ server_port }}/health && echo "The server answers on port {{ server_port }}"
 ```
 
 Place one order from the terminal on the right.
@@ -31,7 +40,7 @@ Place one order from the terminal on the right.
 :id: curl-order
 :session: client
 :wait: prompt
-curl -X POST -H 'Content-Type: application/json' -d '{"amount": 500, "card": "4111-1111-1111-1111", "tenant": "acme"}' http://127.0.0.1:5072/order
+curl -X POST -H 'Content-Type: application/json' -d '{"amount": 500, "card": "4111-1111-1111-1111", "tenant": "acme"}' http://127.0.0.1:{{ server_port }}/order
 ```
 
 ```

@@ -20,6 +20,12 @@ requires:
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
+variables:
+  - name: quote_port
+    type: number
+    default: 5076
+    description: Port the quote service listens on; change it if that port is taken
 finish: |
   Two processes, one trace, and nothing but wrapture on both ends.
   Every tree minted an identity at its root, an instrumentation on
