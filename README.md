@@ -236,8 +236,10 @@ its actions run commands on your machine. On Binder that dialog is
 removed: the session is a container of its own, created for you and
 discarded when you are done, and at no time is anything done on your
 machine. The `binder/postBuild` script installs a settings override
-that marks the checkout's workshops as trusted, turns off editing, and
-subscribes to the checkout's own `collection.json`.
+that marks the checkout's workshops as trusted, turns off editing,
+subscribes to the checkout's own `collection.json`, and names
+`binder/welcome.md` as the message shown when the session starts,
+which says what the workshops are and how to end the session.
 
 Binder sessions are temporary: anything you do in one is gone when it
 ends, so finish a workshop in the session you started it in. When you
@@ -302,6 +304,7 @@ binder/
   requirements.txt       the locked runtime environment, exported from uv.lock
   runtime.txt            the Python version for the Binder image
   postBuild              writes the settings override described above
+  welcome.md             the message shown when a Binder session starts
 reference/wrapture       a git submodule of wrapture at the release the workshops teach,
                          the source of truth for its API and documentation
 reference/jupyterlab-workshop

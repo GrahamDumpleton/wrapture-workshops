@@ -8,6 +8,8 @@
 # or catalogs, no removing and no editing; Restart puts a workshop back
 # as it started. Subscribing to the checkout's own collection.json lists
 # the workshops in the collection's order, numbered, under its title.
+# The welcome message in binder/welcome.md greets the visitor once the
+# session starts, with what the workshops are for and how to end it.
 set -euo pipefail
 
 # Notebook workshops build an environment of their own on first open,
@@ -48,6 +50,7 @@ cat > "$settings/overrides.json" <<'JSON'
     "browseOnStart": true,
     "workshopsDirectory": "workshops",
     "collections": ["collection.json"],
+    "welcome": "binder/welcome.md",
     "trustPolicy": { "forcedLevel": "trusted" },
     "disabledFeatures": [
       "open-directory",
