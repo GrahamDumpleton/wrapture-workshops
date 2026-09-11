@@ -262,8 +262,32 @@ uv sync --no-dev
 uv run jupyter lab --config=jupyter_lab_config.py
 ```
 
-Without uv, the same environment comes from the requirements file
-Binder uses:
+Or clone nothing: install the extension as a uv tool, with the `lab`
+extra bringing JupyterLab along, and launch it on the collection by
+URL, with a directory of your own to keep the workshops in. Python 3.14 is named because each workshop
+builds its own environment from the Python JupyterLab runs on.
+
+```
+uv tool install --python 3.14 "jupyterlab-workshop[lab]"
+jupyter-workshop launch --root ~/training --collection https://raw.githubusercontent.com/GrahamDumpleton/wrapture-workshops/main/collection.json
+```
+
+The same in one line, installing nothing that stays:
+
+```
+uvx --python 3.14 --from "jupyterlab-workshop[lab]" jupyter-workshop launch --root ~/training --collection https://raw.githubusercontent.com/GrahamDumpleton/wrapture-workshops/main/collection.json
+```
+
+Both need jupyterlab-workshop 0.1.26 or later. They start JupyterLab
+on a free port with `~/training` as its root and open the workshop
+browser with this collection added; each workshop is installed from
+this repository into `~/training/workshops` as you open it, and stays
+there for the next launch. Add a workshop's name to the command,
+`jupyter-workshop launch <name> --root ~/training --collection …`,
+to install and open it straight away.
+
+Without uv, the environment comes from the requirements file Binder
+uses:
 
 ```
 python3 -m venv .venv && source .venv/bin/activate
@@ -271,17 +295,18 @@ pip install -r binder/requirements.txt
 jupyter lab --config=jupyter_lab_config.py
 ```
 
-The workshops appear under Installed in the workshop browser, because
-they sit in the `workshops` directory the extension looks in by default.
-The config file opens JupyterLab at
+Run from the checkout, the workshops appear under Installed in the
+workshop browser, because they sit in the `workshops` directory the
+extension looks in by default. The config file opens JupyterLab at
 `http://localhost:8888/lab?collection=collection.json`, which adds the
 collection for the session, so the browser lists the workshops numbered
 in the order to take them, under the collection's title; without it
 they are listed in directory order. From the browser, open a workshop,
 or go straight to one with
-`http://localhost:8888/lab?workshop=workshops/<name>`. Outside Binder
-the trust dialog appears when a workshop opens; it lists what the
-workshop's pages are allowed to do.
+`http://localhost:8888/lab?workshop=workshops/<name>`. Outside
+Binder the trust dialog appears when a workshop opens; it lists what
+the workshop's pages are allowed to do; `--trust trusted` on the
+launch command skips it.
 
 ## Subscribe from your own JupyterLab
 
@@ -292,6 +317,14 @@ Install fetching each from this repository. In the browser, choose
 
 ```
 https://raw.githubusercontent.com/GrahamDumpleton/wrapture-workshops/main/collection.json
+```
+
+A launch link does the same for one session, landing in the browser
+with the collection on offer, and `jupyter workshop launch --collection`
+with that URL starts a JupyterLab on such a link:
+
+```
+http://localhost:8888/lab?collection=https://raw.githubusercontent.com/GrahamDumpleton/wrapture-workshops/main/collection.json
 ```
 
 ## What is in the repository
