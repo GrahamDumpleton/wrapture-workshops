@@ -47,7 +47,7 @@ python3 -m venv .venv && . .venv/bin/activate
 :session: shell
 :title: Install wrapture, its Flask instrumentation, Flask and pytest
 :wait: prompt
-pip install wrapture==1.0.0a22 wrapture-instrumentation==1.0.0a1 flask pytest
+pip install wrapture==1.0.0b1 wrapture-instrumentation==1.0.0b1 flask pytest
 ```
 
 ```{verify}

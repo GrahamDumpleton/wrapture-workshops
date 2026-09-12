@@ -47,7 +47,7 @@ python3 -m venv .venv && . .venv/bin/activate
 :session: shell
 :title: Install wrapture with the otel extra, its Flask instrumentation and Flask
 :wait: prompt
-pip install "wrapture[otel]==1.0.0a22" wrapture-instrumentation==1.0.0a1 flask
+pip install "wrapture[otel]==1.0.0b1" wrapture-instrumentation==1.0.0b1 flask
 ```
 
 ```{verify}

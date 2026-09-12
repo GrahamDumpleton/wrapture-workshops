@@ -1,2 +1,2 @@
-wrapture==1.0.0a22
+wrapture==1.0.0b1
 pytest

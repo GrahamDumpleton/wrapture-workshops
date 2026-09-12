@@ -405,7 +405,7 @@ running under a whole suite.
   loads the plugin from `conftest.py`; pytest counts the leaking test
   as passed and errored at teardown, so the check reads "2 passed, 1
   error". The shared-declaration page clears behaviour with
-  `on_call.reset()`, which is where `reset()` lives at 1.0.0a22 (the
+  `on_call.reset()`, which is where `reset()` lives at 1.0.0b1 (the
   guide's "clear it with `reset()`" is on the channel, not the
   binding). The budget page ships a `database.py` whose repository
   has the N+1 shape and rewrites it to one query with an
@@ -505,12 +505,12 @@ pytest-asyncio.
   The never-awaited page collects Python's `RuntimeWarning` with
   `warnings.catch_warnings(record=True)` so the check can read the
   target name it carries. The pytest page's tests request the
-  plugin's `tape` fixture: at 1.0.0a22 the example's suite reads
-  `send.events` without it and fails with "events are only recorded
-  inside a timeline()", sync or async, which is noted for the
-  wrapture docs. The page runs the suite once against the shipped
-  bug (`1 failed, 2 passed`), fixes `nudge()` with an
-  `editor-replace`, and runs it again.
+  plugin's `tape` fixture: the docs example read `send.events`
+  without it and failed with "events are only recorded inside a
+  timeline()", sync or async, which wrapture fixed for 1.0.0b1.
+  The page runs the suite once against the shipped bug (`1 failed,
+  2 passed`), fixes `nudge()` with an `editor-replace`, and runs it
+  again.
 
 - Requires: wrapture, pytest, pytest-asyncio.
 
@@ -835,14 +835,14 @@ application code (the tenant hook in `finding-slow-code`, the `finally`
 fix in `recording-calls`), the workshop uses a file edit action with a
 check.
 
-**Versions.** wrapture is pinned to 1.0.0a22 everywhere. Every feature
+**Versions.** wrapture is pinned to 1.0.0b1 everywhere. Every feature
 the posts use exists at that tag (`self_time`, `Aggregate`, `annotate`,
 `trace_headers`, `detach`), which I checked in the source. 1.0.0a22
 added `explain()` on bindings and behaviours and the `configured` word
 in a binding's repr, which `first-binding` shows and the later
 workshops can lean on when a binding's behaviour is not in view.
-wrapture-instrumentation is pinned to 1.0.0a1, the release on PyPI
-that requires wrapture 1.0.0a19 or later; its `flask` target supports
+wrapture-instrumentation is pinned to 1.0.0b1, the release on PyPI
+that requires wrapture 1.0.0b1 or later; its `flask` target supports
 Flask 3 and takes the `ignore_paths`, `lifecycle`, `handled_errors`,
 `templates` and `redact` settings the post describes. autowrapt (1.0)
 and pytest-asyncio are only installed by the workshops that use them,
