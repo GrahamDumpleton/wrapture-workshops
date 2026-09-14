@@ -31,7 +31,20 @@ if ready; then
   exit 0
 fi
 
-setsid nohup python -m jupyterlab \
+# JupyterLab runs without the codespace's GitHub credentials. Codespaces
+# puts a token for the learner's GitHub account in the environment and
+# configures git with a credential helper that hands one out, and
+# everything JupyterLab starts would inherit them: terminals, kernels,
+# checks and the packages a workshop installs. No workshop here needs
+# GitHub access. env -u drops the token variables (GITHUB_CODESPACE_TOKEN
+# only in case Codespaces sets it; unsetting a variable that is not set
+# does nothing), and the GIT_CONFIG_* variables give git an empty
+# credential.helper, which empties the helper list so git asks none for
+# credentials. This narrows what workshop code can reach; it is not a
+# sandbox.
+setsid nohup env -u GITHUB_TOKEN -u GITHUB_CODESPACE_TOKEN \
+  GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=credential.helper GIT_CONFIG_VALUE_0= \
+  python -m jupyterlab \
   --no-browser \
   --ServerApp.ip=0.0.0.0 \
   --ServerApp.port=8888 \

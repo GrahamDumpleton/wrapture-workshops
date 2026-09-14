@@ -23,8 +23,18 @@ Leave the JupyterLab port's visibility as Private. JupyterLab here asks
 for no password or token, because a private port can only be reached by
 you, signed in to GitHub. Making the port public, or visible to an
 organization, would let anyone who has its address run commands in
-your codespace, including with the GitHub token the codespace holds for
-your account.
+your codespace.
+
+When you open a workshop, JupyterLab shows what it will do in this
+codespace, such as run commands in terminals, write files and run code,
+and asks you how far to trust it. Choose Trust to let its actions run as
+the workshop intends. Restricted types commands without running them
+and asks before changing files or running code. You are asked once for
+each workshop, and again only if it changes. The workshops are not
+trusted for you, because the codespace is yours, tied to your GitHub
+account. For the same reason JupyterLab runs without the GitHub token
+the codespace holds for your account, so the workshops' commands, and
+the packages they install, are not handed it.
 
 The codespace belongs to your GitHub account and uses your monthly
 Codespaces allowance while it runs. It is not temporary: your work is

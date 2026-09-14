@@ -2,10 +2,13 @@
 # Run once when the codespace is created. Does what the Binder postBuild
 # does, in the codespace: installs JupyterLab and the extension from the
 # same pinned requirements the Binder image uses, fills a wheelhouse for
-# the notebook workshops, and writes the JupyterLab overrides, except that
-# the welcome message is the Codespaces one: a codespace belongs to the
-# person who created it and persists, where a Binder session is anonymous
-# and temporary. pip rather than uv, as on Binder, since this is the
+# the notebook workshops, and writes the JupyterLab overrides, with two
+# differences, both because a codespace belongs to the person who created
+# it, tied to their GitHub account, and persists, where a Binder session
+# is an anonymous, temporary container. The welcome message is the
+# Codespaces one. And workshops are not forced to trusted, so the learner
+# is shown what a workshop asks to do and decides before it runs anything
+# in their codespace. pip rather than uv, as on Binder, since this is the
 # learner's environment and the workshops use pip themselves.
 set -euo pipefail
 
@@ -54,7 +57,6 @@ cat > "$overrides" <<'JSON'
     "workshopsDirectory": "workshops",
     "collections": ["collection.json"],
     "welcome": ".devcontainer/welcome.md",
-    "trustPolicy": { "forcedLevel": "trusted" },
     "disabledFeatures": [
       "open-directory",
       "open-url",
