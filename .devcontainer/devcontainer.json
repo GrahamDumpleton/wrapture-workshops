@@ -1,0 +1,34 @@
+// Dev container for GitHub Codespaces: the same JupyterLab and pinned
+// extension as the Binder image (binder/requirements.txt), started in the
+// background once the codespace is up. Codespaces always opens VS Code in
+// the browser first, and when JupyterLab's port is forwarded VS Code shows
+// a notification with a button that opens it in a new tab. The port does
+// not open the tab by itself: browsers block a tab nobody clicked for, and
+// Safari can only allow pop-ups per host name, which changes with every
+// codespace. The welcome file is opened in VS Code to explain where to
+// click.
+//
+// Several workshops start services of their own on other ports, which
+// their commands reach on 127.0.0.1 from inside the codespace. Those ports
+// are forwarded silently, so a learner is not offered to open every
+// service a page starts.
+{
+  "name": "wrapture workshops",
+  "image": "mcr.microsoft.com/devcontainers/python:3.14",
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "bash .devcontainer/start.sh",
+  "portsAttributes": {
+    "8888": {
+      "label": "JupyterLab",
+      "onAutoForward": "notify"
+    }
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "silent"
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": [".devcontainer/welcome.md"]
+    }
+  }
+}
