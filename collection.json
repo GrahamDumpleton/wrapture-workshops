@@ -1,5 +1,6 @@
 {
   "version": 1,
+  "id": "grahamdumpleton.me/wrapture-workshops",
   "title": "wrapture workshops",
   "description": "Guided JupyterLab workshops that teach wrapture: wrapping call sites without changing the code being observed, for monkey patching, testing and tracing.",
   "ordered": true,
