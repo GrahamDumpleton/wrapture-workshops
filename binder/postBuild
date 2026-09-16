@@ -10,6 +10,14 @@
 # the workshops in the collection's order, numbered, under its title.
 # The welcome message in binder/welcome.md greets the visitor once the
 # session starts, with what the workshops are for and how to end it.
+# The analytics block reports every session's progress events to the
+# workshops' own analytics service, so it can be seen where the
+# workshops are clear and where they are not. Sessions are anonymous
+# and the events never carry file contents, command output or form
+# answers. The token is public by construction, since this file is,
+# and only routes events to the collection under a label naming
+# Binder; the welcome message tells the visitor that progress is
+# reported.
 set -euo pipefail
 
 # Notebook workshops build an environment of their own on first open,
@@ -59,7 +67,11 @@ cat > "$settings/overrides.json" <<'JSON'
       "catalogs",
       "remove",
       "author"
-    ]
+    ],
+    "analytics": {
+      "sink": "https://workshop-analytics.grumpys.work/events",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhMjAxZjA5MDM2NzM0NjdiOGZhNDRjMTFjZGNlZWE2YyIsInN1YiI6IndyYXB0dXJlLWJpbmRlciIsInNjb3BlIjpbImluZ2VzdCJdLCJsYWJlbHMiOnsiZGVwbG95bWVudCI6IndyYXB0dXJlLWJpbmRlciJ9LCJvcmlnaW5zIjpbXSwiaWF0IjoxNzg5NTI4OTQ0LCJuYmYiOjE3ODk1Mjg5NDQsImV4cCI6MTgyMTEzOTE5OX0.Ze7vSWqxu6c_cu1BcqKy1YYfYTYRFlggVzchH1PrTcM"
+    }
   }
 }
 JSON

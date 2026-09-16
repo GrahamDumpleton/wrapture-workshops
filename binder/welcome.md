@@ -16,3 +16,12 @@ When you are done, whether you finished a workshop or not, shut the
 session down rather than closing the browser tab, so the resources go
 back to Binder for other users. The Finish dialog has a button for
 this, and so does the File menu, under "Shut Down".
+
+As you work through a workshop, its progress is reported to the
+workshops' own analytics service: which pages you visited, which
+actions you clicked and what the checks found, and when. That is how
+it can be seen where the workshops are clear and where they are not.
+The session is anonymous, so nothing in what is reported identifies
+you. Nothing you type is sent, nor the files you make, the output of
+commands, or the answers you give to forms, only which step happened
+and when.

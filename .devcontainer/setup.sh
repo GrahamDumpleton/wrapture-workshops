@@ -9,7 +9,11 @@
 # Codespaces one. And workshops are not forced to trusted, so the learner
 # is shown what a workshop asks to do and decides before it runs anything
 # in their codespace. pip rather than uv, as on Binder, since this is the
-# learner's environment and the workshops use pip themselves.
+# learner's environment and the workshops use pip themselves. The
+# analytics block is the same as Binder's but carries a token of its
+# own, so the service tells the two apart and either can be revoked
+# alone; it is as public as this file and only routes anonymous
+# progress events to the workshops' service.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -64,7 +68,11 @@ cat > "$overrides" <<'JSON'
       "catalogs",
       "remove",
       "author"
-    ]
+    ],
+    "analytics": {
+      "sink": "https://workshop-analytics.grumpys.work/events",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmNWMxYTE0MjVkMzQ0Nzc3OTQxNmFlNTcyNmViNmU3MCIsInN1YiI6IndyYXB0dXJlLWNvZGVzcGFjZXMiLCJzY29wZSI6WyJpbmdlc3QiXSwibGFiZWxzIjp7ImRlcGxveW1lbnQiOiJ3cmFwdHVyZS1jb2Rlc3BhY2VzIn0sIm9yaWdpbnMiOltdLCJpYXQiOjE3ODk1Mjg5NDUsIm5iZiI6MTc4OTUyODk0NSwiZXhwIjoxODIxMTM5MTk5fQ.t6E842-_sT73QreT09ETw7mdvDAArv_NtFAi9lDdJ1o"
+    }
   }
 }
 JSON
