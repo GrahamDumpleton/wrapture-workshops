@@ -11,7 +11,7 @@ duration: 20m
 platforms: [linux, macos]
 capabilities:
   - terminal
-  - write-files: [workspace]
+  - write-files
   - kernel-exec
 env:
   PYTHONUNBUFFERED: "1"

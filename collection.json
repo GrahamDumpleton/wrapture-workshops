@@ -19,7 +19,7 @@
         "macos"
       ],
       "capabilities": [
-        "write-files:workspace",
+        "write-files",
         "kernel-exec",
         "install-packages"
       ],
@@ -38,7 +38,8 @@
         }
       ],
       "homepage": "https://github.com/GrahamDumpleton/wrapture-workshops/tree/main/workshops/first-binding",
-      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues"
+      "issues": "https://github.com/GrahamDumpleton/wrapture-workshops/issues",
+      "frontends": []
     },
     {
       "name": "wrap-not-replace",
@@ -57,7 +58,7 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
+        "write-files",
         "kernel-exec"
       ],
       "duration": "15m",
@@ -75,7 +76,8 @@
             "subdir": "workshops/wrap-not-replace"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "recording-calls",
@@ -92,7 +94,7 @@
         "macos"
       ],
       "capabilities": [
-        "write-files:workspace",
+        "write-files",
         "kernel-exec",
         "install-packages"
       ],
@@ -111,7 +113,8 @@
             "subdir": "workshops/recording-calls"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "phased-behaviour",
@@ -128,7 +131,7 @@
         "macos"
       ],
       "capabilities": [
-        "write-files:workspace",
+        "write-files",
         "kernel-exec",
         "install-packages"
       ],
@@ -147,7 +150,8 @@
             "subdir": "workshops/phased-behaviour"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "beyond-callables",
@@ -164,7 +168,7 @@
         "macos"
       ],
       "capabilities": [
-        "write-files:workspace",
+        "write-files",
         "kernel-exec",
         "install-packages"
       ],
@@ -183,7 +187,8 @@
             "subdir": "workshops/beyond-callables"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "live-tracing",
@@ -200,7 +205,7 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
+        "write-files",
         "kernel-exec"
       ],
       "duration": "10m",
@@ -218,7 +223,8 @@
             "subdir": "workshops/live-tracing"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "zero-code-tracing",
@@ -235,7 +241,7 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
+        "write-files",
         "kernel-exec"
       ],
       "duration": "15m",
@@ -253,7 +259,8 @@
             "subdir": "workshops/zero-code-tracing"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "analysing-a-trace",
@@ -270,7 +277,7 @@
         "macos"
       ],
       "capabilities": [
-        "write-files:workspace",
+        "write-files",
         "kernel-exec",
         "install-packages"
       ],
@@ -289,7 +296,8 @@
             "subdir": "workshops/analysing-a-trace"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "tracing-flask",
@@ -307,9 +315,8 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
-        "kernel-exec",
-        "network"
+        "write-files",
+        "kernel-exec"
       ],
       "duration": "15m",
       "authors": [
@@ -326,7 +333,8 @@
             "subdir": "workshops/tracing-flask"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "finding-slow-code",
@@ -346,9 +354,8 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
-        "kernel-exec",
-        "network"
+        "write-files",
+        "kernel-exec"
       ],
       "duration": "15m",
       "authors": [
@@ -365,7 +372,8 @@
             "subdir": "workshops/finding-slow-code"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "opentelemetry-export",
@@ -384,9 +392,8 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
-        "kernel-exec",
-        "network"
+        "write-files",
+        "kernel-exec"
       ],
       "duration": "20m",
       "authors": [
@@ -403,7 +410,8 @@
             "subdir": "workshops/opentelemetry-export"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "wrapture-with-pytest",
@@ -421,7 +429,7 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
+        "write-files",
         "kernel-exec"
       ],
       "duration": "20m",
@@ -439,7 +447,8 @@
             "subdir": "workshops/wrapture-with-pytest"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "coming-from-mock",
@@ -458,7 +467,7 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
+        "write-files",
         "kernel-exec"
       ],
       "duration": "20m",
@@ -476,7 +485,8 @@
             "subdir": "workshops/coming-from-mock"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "supplying-stand-ins",
@@ -493,7 +503,7 @@
         "macos"
       ],
       "capabilities": [
-        "write-files:workspace",
+        "write-files",
         "kernel-exec",
         "install-packages"
       ],
@@ -512,7 +522,8 @@
             "subdir": "workshops/supplying-stand-ins"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "streaming-and-generators",
@@ -530,7 +541,7 @@
         "macos"
       ],
       "capabilities": [
-        "write-files:workspace",
+        "write-files",
         "kernel-exec",
         "install-packages"
       ],
@@ -549,7 +560,8 @@
             "subdir": "workshops/streaming-and-generators"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "testing-async-code",
@@ -567,7 +579,7 @@
         "macos"
       ],
       "capabilities": [
-        "write-files:workspace",
+        "write-files",
         "kernel-exec",
         "install-packages"
       ],
@@ -586,7 +598,8 @@
             "subdir": "workshops/testing-async-code"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "patching-third-party-code",
@@ -603,7 +616,7 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
+        "write-files",
         "kernel-exec"
       ],
       "duration": "20m",
@@ -621,7 +634,8 @@
             "subdir": "workshops/patching-third-party-code"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "logs-blocks-and-notes",
@@ -638,7 +652,7 @@
         "macos"
       ],
       "capabilities": [
-        "write-files:workspace",
+        "write-files",
         "kernel-exec",
         "install-packages"
       ],
@@ -657,7 +671,8 @@
             "subdir": "workshops/logs-blocks-and-notes"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "sinks-and-collectors",
@@ -674,7 +689,7 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
+        "write-files",
         "kernel-exec"
       ],
       "duration": "20m",
@@ -692,7 +707,8 @@
             "subdir": "workshops/sinks-and-collectors"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "trace-files-and-tools",
@@ -710,7 +726,7 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
+        "write-files",
         "kernel-exec"
       ],
       "duration": "15m",
@@ -728,7 +744,8 @@
             "subdir": "workshops/trace-files-and-tools"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "watching-a-service-over-time",
@@ -747,9 +764,8 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
-        "kernel-exec",
-        "network"
+        "write-files",
+        "kernel-exec"
       ],
       "duration": "15m",
       "authors": [
@@ -766,7 +782,8 @@
             "subdir": "workshops/watching-a-service-over-time"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "distributed-tracing",
@@ -784,9 +801,8 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
-        "kernel-exec",
-        "network"
+        "write-files",
+        "kernel-exec"
       ],
       "duration": "20m",
       "authors": [
@@ -803,7 +819,8 @@
             "subdir": "workshops/distributed-tracing"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "testing-web-requests",
@@ -822,7 +839,7 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
+        "write-files",
         "kernel-exec"
       ],
       "duration": "15m",
@@ -840,7 +857,8 @@
             "subdir": "workshops/testing-web-requests"
           }
         }
-      ]
+      ],
+      "frontends": []
     },
     {
       "name": "writing-instrumentation",
@@ -858,7 +876,7 @@
       ],
       "capabilities": [
         "terminal",
-        "write-files:workspace",
+        "write-files",
         "kernel-exec"
       ],
       "duration": "20m",
@@ -876,7 +894,8 @@
             "subdir": "workshops/writing-instrumentation"
           }
         }
-      ]
+      ],
+      "frontends": []
     }
   ]
 }

@@ -10,7 +10,7 @@ tags: [wrapture, python, monkey-patching]
 duration: 10m
 platforms: [linux, macos]
 capabilities:
-  - write-files: [workspace]
+  - write-files
   - kernel-exec
   - install-packages
 environment:

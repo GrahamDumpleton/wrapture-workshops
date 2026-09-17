@@ -10,7 +10,7 @@ tags: [wrapture, python, testing, logging]
 duration: 15m
 platforms: [linux, macos]
 capabilities:
-  - write-files: [workspace]
+  - write-files
   - kernel-exec
   - install-packages
 environment:
