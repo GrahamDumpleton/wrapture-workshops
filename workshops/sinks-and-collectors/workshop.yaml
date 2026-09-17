@@ -36,14 +36,14 @@ finish: |
   your own sink, and the
   [scheduled tracing guide](https://wrapture.readthedocs.io/en/latest/scheduled-tracing.html)
   covers the windows the collectors report from.
+instructions: { side: right, width: 0.3 }
 layout: default
 layouts:
   default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["file:shop.py"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+      areas:
+        - { tabs: ["file:shop.py"] }
+        - { size: 0.33, tabs: ["terminal:shell"] }
 gating: soft
 pages:
   - pages/01-welcome.md

@@ -38,8 +38,9 @@ rendered.
 :name: diagram
 ```
 
-The preview replaces `main.py` at the top of the window. The three
-orders read left to right down the page: `place` calls `charge` and
+The preview takes the place of `main.py` at the top of the window,
+with the file still open as a tab beside it. The three orders read
+left to right down the page: `place` calls `charge` and
 `record` and returns; the second `charge` comes back `CardDeclined`
 and so does its `place`; the third runs like the first. This is the
 first picture of what the program did, from a file, with the program

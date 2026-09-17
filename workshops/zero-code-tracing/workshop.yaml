@@ -33,20 +33,19 @@ finish: |
   covers everything the config file can say, including capturing log
   messages as events and naming the instrumentation a package ships
   for a framework, and the exporters for Perfetto and snapshots.
+instructions: { side: right, width: 0.3 }
 layout: default
 layouts:
   default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["file:main.py"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+      areas:
+        - { tabs: ["file:main.py"] }
+        - { size: 0.33, tabs: ["terminal:shell"] }
   diagram:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["markdown:trace.md"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+      areas:
+        - { tabs: ["markdown:trace.md"] }
+        - { size: 0.33, tabs: ["terminal:shell"] }
 gating: soft
 pages:
   - pages/01-welcome.md

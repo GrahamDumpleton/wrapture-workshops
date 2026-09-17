@@ -35,11 +35,7 @@ finish: |
   sections of the monkey patching guide have the full vocabulary, and
   the [pinning configuration](https://wrapture.readthedocs.io/en/latest/example-pinning-configuration.html)
   example puts the configuration shapes together in one pytest fixture.
-layout: default
-layouts:
-  default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
+instructions: { side: right, width: 0.3 }
 gating: soft
 variables:
   - name: notebook

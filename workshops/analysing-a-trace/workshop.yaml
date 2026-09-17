@@ -33,11 +33,7 @@ finish: |
   a trace that runs for days, and the three exporters, and the
   [request timing example](https://wrapture.readthedocs.io/en/latest/example-request-timing.html)
   reads the same self-time figure off a tape in a test.
-layout: default
-layouts:
-  default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
+instructions: { side: right, width: 0.3 }
 gating: soft
 variables:
   - name: notebook

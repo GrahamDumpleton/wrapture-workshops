@@ -38,11 +38,7 @@ finish: |
   [async targets](https://wrapture.readthedocs.io/en/latest/monkey-patching.html#async-targets)
   section of the monkey patching guide covers how phases and
   sequences interact with awaiting.
-layout: default
-layouts:
-  default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
+instructions: { side: right, width: 0.3 }
 gating: soft
 variables:
   - name: notebook

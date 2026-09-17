@@ -36,11 +36,7 @@ finish: |
   and [mock()](https://wrapture.readthedocs.io/en/latest/unit-testing.html#a-collaborator-double-with-mock)
   sections of the unit testing guide cover `kind=` for coroutine and
   generator stand-ins and substituting a whole class at a location.
-layout: default
-layouts:
-  default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
+instructions: { side: right, width: 0.3 }
 gating: soft
 variables:
   - name: notebook

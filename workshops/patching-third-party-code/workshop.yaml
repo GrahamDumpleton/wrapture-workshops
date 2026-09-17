@@ -38,14 +38,14 @@ finish: |
   [instrumentation packages guide](https://wrapture.readthedocs.io/en/latest/instrumentation-packages.html)
   says how the config page's class would be packaged with an entry
   point.
+instructions: { side: right, width: 0.3 }
 layout: default
 layouts:
   default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["file:vendored_client.py"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+      areas:
+        - { tabs: ["file:vendored_client.py"] }
+        - { size: 0.33, tabs: ["terminal:shell"] }
 gating: soft
 pages:
   - pages/01-welcome.md

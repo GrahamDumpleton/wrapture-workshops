@@ -35,14 +35,14 @@ finish: |
   the plugin in full, and the
   [counting without retaining](https://wrapture.readthedocs.io/en/latest/ad-hoc-tracing.html#counting-without-retaining)
   section of the tracing guide is where the query budget comes from.
+instructions: { side: right, width: 0.3 }
 layout: default
 layouts:
   default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["file:shop.py"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+      areas:
+        - { tabs: ["file:shop.py"] }
+        - { size: 0.33, tabs: ["terminal:shell"] }
 gating: soft
 pages:
   - pages/01-welcome.md

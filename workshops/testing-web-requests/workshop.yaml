@@ -37,14 +37,14 @@ finish: |
   is this workshop's source, and its sibling for
   [ASGI](https://wrapture.readthedocs.io/en/latest/asgi-tracing.html)
   covers the same namespace for async applications.
+instructions: { side: right, width: 0.3 }
 layout: default
 layouts:
   default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["file:webshop.py"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+      areas:
+        - { tabs: ["file:webshop.py"] }
+        - { size: 0.33, tabs: ["terminal:shell"] }
 gating: soft
 pages:
   - pages/01-welcome.md

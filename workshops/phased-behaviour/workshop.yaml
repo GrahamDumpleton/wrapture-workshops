@@ -29,11 +29,7 @@ finish: |
   The [phased behaviour section](https://wrapture.readthedocs.io/en/latest/monkey-patching.html#phased-behaviour-changing-what-a-call-does-over-time)
   of the monkey patching guide has the full set of exit conditions and
   how phases meet the timeline and attribute bindings.
-layout: default
-layouts:
-  default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
+instructions: { side: right, width: 0.3 }
 gating: soft
 variables:
   - name: notebook

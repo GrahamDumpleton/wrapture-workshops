@@ -32,11 +32,7 @@ finish: |
   covers recording, filtering and the call tree in full, and the
   [resource hygiene example](https://wrapture.readthedocs.io/en/latest/example-resource-hygiene.html)
   takes this example further, to attribute bindings and counters.
-layout: default
-layouts:
-  default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
+instructions: { side: right, width: 0.3 }
 gating: soft
 variables:
   - name: notebook

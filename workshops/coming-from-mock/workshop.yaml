@@ -35,14 +35,14 @@ finish: |
   The [coming from unittest.mock](https://wrapture.readthedocs.io/en/latest/coming-from-mock.html)
   page has the whole translation table, including the async
   idioms this workshop left out.
+instructions: { side: right, width: 0.3 }
 layout: default
 layouts:
   default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["file:test_shop.py"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+      areas:
+        - { tabs: ["file:test_shop.py"] }
+        - { size: 0.33, tabs: ["terminal:shell"] }
 gating: soft
 pages:
   - pages/01-welcome.md

@@ -38,11 +38,7 @@ finish: |
   is this workshop's source: the sections on what one event
   contains, annotating events, noting a caught exception, capturing
   log messages and declaring blocks of code.
-layout: default
-layouts:
-  default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
+instructions: { side: right, width: 0.3 }
 gating: soft
 variables:
   - name: notebook

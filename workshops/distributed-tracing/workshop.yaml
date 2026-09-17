@@ -46,15 +46,18 @@ finish: |
   trace-propagation and detached-work examples in the wrapture
   repository. The last page of the `opentelemetry-export` workshop
   runs the same client and server with `[otel]` on both sides.
+instructions: { side: right, width: 0.3 }
 layout: default
 layouts:
   default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["file:frontend.py"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.4 }
-      - { area: right, widgets: ["terminal:client"], size: 0.5 }
+      areas:
+        - { tabs: ["file:frontend.py"] }
+        - size: 0.4
+          split: columns
+          areas:
+            - { tabs: ["terminal:shell"] }
+            - { size: 0.5, tabs: ["terminal:client"] }
 gating: soft
 pages:
   - pages/01-welcome.md

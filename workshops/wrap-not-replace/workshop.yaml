@@ -31,14 +31,14 @@ finish: |
   covers the whole workflow, and
   [coming from unittest.mock](https://wrapture.readthedocs.io/en/latest/coming-from-mock.html)
   maps every mock idiom to its wrapture spelling.
+instructions: { side: right, width: 0.3 }
 layout: default
 layouts:
   default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["file:orders.py"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.33 }
+      areas:
+        - { tabs: ["file:orders.py"] }
+        - { size: 0.33, tabs: ["terminal:shell"] }
 gating: soft
 pages:
   - pages/01-welcome.md

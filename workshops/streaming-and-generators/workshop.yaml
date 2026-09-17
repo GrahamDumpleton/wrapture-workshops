@@ -38,11 +38,7 @@ finish: |
   section of the monkey patching guide is the reference for the
   proxy: the full protocol guarantees, async generators and plain
   iterators, and `decorates()` for wrapping conditionally.
-layout: default
-layouts:
-  default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
+instructions: { side: right, width: 0.3 }
 gating: soft
 variables:
   - name: notebook

@@ -44,15 +44,18 @@ finish: |
   [scheduled tracing guide](https://wrapture.readthedocs.io/en/latest/scheduled-tracing.html)
   is the full reference for windows: every trigger, the report shape,
   clocks and restarts, and how to write a collector of your own.
+instructions: { side: right, width: 0.3 }
 layout: default
 layouts:
   default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["file:webshop.py"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.4 }
-      - { area: right, widgets: ["terminal:client"], size: 0.5 }
+      areas:
+        - { tabs: ["file:webshop.py"] }
+        - size: 0.4
+          split: columns
+          areas:
+            - { tabs: ["terminal:shell"] }
+            - { size: 0.5, tabs: ["terminal:client"] }
 gating: soft
 pages:
   - pages/01-welcome.md

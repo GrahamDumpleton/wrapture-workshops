@@ -26,11 +26,7 @@ finish: |
   to recording, and the
   [monkey patching](https://wrapture.readthedocs.io/en/latest/monkey-patching.html)
   guide is the full reference for everything a binding can do.
-layout: default
-layouts:
-  default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
+instructions: { side: right, width: 0.3 }
 gating: soft
 variables:
   - name: notebook

@@ -36,14 +36,14 @@ finish: |
   The [wrapture-instrumentation](https://github.com/GrahamDumpleton/wrapture-instrumentation)
   repository holds the classes for Flask, Django, requests, SQLAlchemy
   and the rest, each written to exactly this contract.
+instructions: { side: right, width: 0.3 }
 layout: default
 layouts:
   default:
-    left: collapsed
-    right: { widget: instructions, size: 0.3 }
     main:
-      - { area: top, widgets: ["file:app.py"] }
-      - { area: bottom, widgets: ["terminal:shell"], size: 0.4 }
+      areas:
+        - { tabs: ["file:app.py"] }
+        - { size: 0.4, tabs: ["terminal:shell"] }
 gating: soft
 pages:
   - pages/01-welcome.md
