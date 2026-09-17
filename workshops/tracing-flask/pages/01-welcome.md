@@ -33,6 +33,13 @@ view raises a `KeyError` for an item that is not in the catalog, which
 Flask turns into a 500, and that is the request this workshop most
 wants to see.
 
+```{when} "curl" in missing_tools
+`curl` was not found on this machine, and the later pages use it to
+send requests to the shop. Install it before going on, with
+`brew install curl` on macOS or `sudo apt install curl` on Debian and
+Ubuntu, then reload JupyterLab so that a new terminal can see it.
+```
+
 ## An environment for the server
 
 wrapture is not installed in this JupyterLab, so make a virtual

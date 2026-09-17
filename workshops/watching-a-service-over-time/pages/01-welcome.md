@@ -31,6 +31,20 @@ quote, an order and a health check, and {open}`load.py` sends requests
 at it for a number of seconds, a few dozen a second. The first page
 uses the shop directly; the rest watch the Flask shop from outside.
 
+```{when} "curl" in missing_tools
+`curl` was not found on this machine, and the later pages use it to
+send requests to the shop. Install it before going on, with
+`brew install curl` on macOS or `sudo apt install curl` on Debian and
+Ubuntu, then reload JupyterLab so that a new terminal can see it.
+```
+
+```{when} "pgrep" in missing_tools
+`pgrep` was not found on this machine; a later page uses it to find
+the server's process. It is part of the `procps` package on Debian and
+Ubuntu (`sudo apt install procps`); reload JupyterLab after installing
+it so that a new terminal can see it.
+```
+
 ## An environment for the server
 
 wrapture is not installed in this JupyterLab, so make a virtual

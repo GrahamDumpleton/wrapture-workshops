@@ -16,7 +16,7 @@ capabilities:
   - network
 requires:
   tools:
-    - { name: curl, hint: { macos: brew install curl, linux: apt install curl } }
+    - { name: curl }
 env:
   PAGER: cat
   PYTHONUNBUFFERED: "1"

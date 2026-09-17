@@ -34,6 +34,13 @@ itself since the response leaves the call with its body unread.
 The last two pages bring a third program, an upload service that
 hands work to a thread pool and a queue rather than waiting for it.
 
+```{when} "curl" in missing_tools
+`curl` was not found on this machine, and the later pages use it to
+send requests to the two services. Install it before going on, with
+`brew install curl` on macOS or `sudo apt install curl` on Debian and
+Ubuntu, then reload JupyterLab so that a new terminal can see it.
+```
+
 ## An environment for both
 
 wrapture is not installed in this JupyterLab, so make a virtual

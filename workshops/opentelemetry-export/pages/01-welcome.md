@@ -25,6 +25,13 @@ reads the console exporters' output back, and the last page brings a
 second pair of programs, a client and a quote service, for one trace
 across two processes.
 
+```{when} "curl" in missing_tools
+`curl` was not found on this machine, and the later pages use it to
+send requests to the services the pages start. Install it before going on, with
+`brew install curl` on macOS or `sudo apt install curl` on Debian and
+Ubuntu, then reload JupyterLab so that a new terminal can see it.
+```
+
 ## An environment for the server
 
 wrapture is not installed in this JupyterLab, so make a virtual
