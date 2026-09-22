@@ -835,14 +835,16 @@ application code (the tenant hook in `finding-slow-code`, the `finally`
 fix in `recording-calls`), the workshop uses a file edit action with a
 check.
 
-**Versions.** wrapture is pinned to 1.0.0b1 everywhere. Every feature
+**Versions.** wrapture is pinned to 1.0.0b4 everywhere. Every feature
 the posts use exists at that tag (`self_time`, `Aggregate`, `annotate`,
-`trace_headers`, `detach`), which I checked in the source. 1.0.0a22
+`trace_headers`, `detach`), which I checked in the source; the later
+betas added capture levels, redaction of observe entries and the
+Aspect rename, none of which the workshops touch. 1.0.0a22
 added `explain()` on bindings and behaviours and the `configured` word
 in a binding's repr, which `first-binding` shows and the later
 workshops can lean on when a binding's behaviour is not in view.
-wrapture-instrumentation is pinned to 1.0.0b1, the release on PyPI
-that requires wrapture 1.0.0b1 or later; its `flask` target supports
+wrapture-instrumentation is pinned to 1.0.0b3, the release on PyPI
+that requires wrapture 1.0.0b4 or later; its `flask` target supports
 Flask 3 and takes the `ignore_paths`, `lifecycle`, `handled_errors`,
 `templates` and `redact` settings the post describes. autowrapt (1.0)
 and pytest-asyncio are only installed by the workshops that use them,

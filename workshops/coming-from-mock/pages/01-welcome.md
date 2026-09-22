@@ -46,7 +46,7 @@ python3 -m venv .venv && . .venv/bin/activate
 :session: shell
 :title: Install wrapture and pytest
 :wait: prompt
-pip install wrapture==1.0.0b1 pytest
+pip install wrapture==1.0.0b4 pytest
 ```
 
 ```{verify}

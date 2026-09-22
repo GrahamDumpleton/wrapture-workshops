@@ -50,7 +50,7 @@ python3 -m venv .venv && . .venv/bin/activate
 :session: shell
 :title: Install wrapture
 :wait: prompt
-pip install wrapture==1.0.0b1
+pip install wrapture==1.0.0b4
 ```
 
 Run the application once, as it stands.
