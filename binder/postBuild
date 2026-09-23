@@ -18,6 +18,9 @@
 # and only routes events to the collection under a label naming
 # Binder; the welcome message tells the visitor that progress is
 # reported.
+# The second block is JupyterLab's own: it turns off the question about
+# fetching Jupyter news, which a fresh container would otherwise put in
+# front of every visitor before the welcome message.
 set -euo pipefail
 
 # Notebook workshops build an environment of their own on first open,
@@ -72,6 +75,9 @@ cat > "$settings/overrides.json" <<'JSON'
       "sink": "https://workshop-analytics.grumpys.work/events",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhMjAxZjA5MDM2NzM0NjdiOGZhNDRjMTFjZGNlZWE2YyIsInN1YiI6IndyYXB0dXJlLWJpbmRlciIsInNjb3BlIjpbImluZ2VzdCJdLCJsYWJlbHMiOnsiZGVwbG95bWVudCI6IndyYXB0dXJlLWJpbmRlciJ9LCJvcmlnaW5zIjpbXSwiaWF0IjoxNzg5NTI4OTQ0LCJuYmYiOjE3ODk1Mjg5NDQsImV4cCI6MTgyMTEzOTE5OX0.Ze7vSWqxu6c_cu1BcqKy1YYfYTYRFlggVzchH1PrTcM"
     }
+  },
+  "@jupyterlab/apputils-extension:notification": {
+    "fetchNews": "false"
   }
 }
 JSON
